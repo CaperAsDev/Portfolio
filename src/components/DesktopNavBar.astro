@@ -1,0 +1,43 @@
+---
+import NavItem from "./DesktopNavItem.astro"
+
+---
+
+<nav>
+  <ul>
+    <NavItem title="Proyectos" link="projects" />
+    <NavItem title="Blog" link="blog" />
+    <NavItem title="Sobre mi" link="me" />
+    <NavItem title="Contacto" link="contact" />
+  </ul>
+</nav>
+
+<style>
+  nav {
+    display: none;
+    width: clamp(320px, 100%, 1024px);
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    nav{
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  import { currentPage } from "@/js/utils"
+
+  const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav a")
+
+  window.addEventListener("DOMContentLoaded", ()=> {
+    currentPage({anchors})
+  })
+
+  window.addEventListener("hashchange",()=>{
+    currentPage({anchors})
+  } )
+</script>

@@ -1,0 +1,73 @@
+---
+interface Props {
+  title: string
+  link: string
+}
+
+const { title, link } = Astro.props
+---
+
+<li>
+  <a href={`#${link}`}>
+    {title}
+  </a>
+</li>
+
+<style>
+  li {
+    --dark-pink: var(--pink-900);
+    color: var(--blue-200);
+    padding: 7px 30px;
+    border-bottom-left-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+    list-style: none;
+    transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:has(a[aria-current=page]) {
+      --border-radius: 15px;
+      background-color: var(--dark-pink);
+      position: relative;
+      box-shadow: 0px -3px 0px 0px var(--dark-pink);
+
+      &::after, &::before {
+        content: "";
+        position: absolute;
+        width: var(--border-radius);
+        height: var(--border-radius);
+        background-color: transparent;
+      }
+
+      &::after {
+        right: calc(var(--border-radius) * -1);
+        border-radius: 100vw 0 0 0;
+        box-shadow: -5px -5px 0 4px var(--dark-pink);
+        top: 0;
+      }
+      &::before {
+        left: calc(var(--border-radius) * -1);
+        border-radius: 0 100vw 0 0;
+        box-shadow: 5px -5px 0 4px var(--dark-pink);
+        top: 0;
+      }
+    }
+
+    &:has(a:hover, a:focus){
+      transform: scale(1.1);
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      font-weight: 500;
+      padding-bottom: 2px;
+
+      &:focus, &:hover {
+        color: var(--pink-200);
+        outline: none;
+        border-bottom: 1px solid var(--pink-200);
+        border-radius: 5px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+import {Icon} from 'astro-icon/components'
+import MobileNavItem from './MobileNavItem.astro'
+---
+<nav>
+  <details class="mobile_nav-menu">
+    <summary>
+      <Icon name="tabler:menu-2" width={30} height={30} />
+    </summary>
+    <ul>
+      <MobileNavItem title="Sobre mi" link="me" />
+      <MobileNavItem title="Proyectos" link="projects" />
+      <MobileNavItem title="Contacto" link="contact" />
+      <MobileNavItem title="Blog" link="blog" />
+    </ul>
+  </details>
+</nav>
+
+<style>
+  nav {
+    width: fit-content;
+    display: grid;
+    position: fixed;
+    right: 0px;
+    top: calc(50% - 30px);
+    place-items: start;
+    padding: 7px 3px 7px 7px;
+    border-top-left-radius: 20px ;
+    border-bottom-left-radius: 20px ;
+    background-color: var(--blue-700) ;
+    border-inline: 2px var(--blue-500) solid;
+    opacity: 50%;
+    transition: opacity 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:focus, &:hover, &:has(details[open]), &:has(summary:focus) {
+      opacity: 100%;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &:has([open]) {
+      opacity: 100%;
+      padding: 10px;
+
+      summary {
+        border-bottom: 2px solid var(--blue-800);
+        text-align: center;
+      }
+    }
+  }
+  details {
+
+    ul {
+      display: grid;
+      gap: 1rem;
+      padding: 10px;
+      padding-bottom: 0;
+      list-style: none;
+    }
+  }
+  summary {
+    text-align: end;
+    list-style: none;
+    color: var(--blue-100);
+
+    &:focus, &:hover {
+      outline:  none;
+
+      svg{
+        transform: scale(1.2);
+        color: var(--pink-300);
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const menu: HTMLDetailsElement | null = document.querySelector('.mobile_nav-menu')
+  const summary = document.querySelector('.mobile_nav-menu summary')
+  const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav li a")
+  const anchorsArray = Array.from(anchors)
+
+  const checkSiblings = () => {
+    setTimeout(()=> {
+        const focusSiblingAnchor = anchorsArray.some(
+          (anchor) => anchor === document.activeElement)
+            || summary === document.activeElement
+
+        !focusSiblingAnchor && (menu && (menu.open = false))
+        
+      }, 200)
+  }
+
+  window.addEventListener('hashchange', ()=>{
+    if(menu){
+      menu.open = false;
+    }
+  })
+
+  summary?.addEventListener('blur', checkSiblings)
+
+  anchors.forEach((anchor)=> {
+    anchor.addEventListener('blur', checkSiblings)
+  })
+</script>
