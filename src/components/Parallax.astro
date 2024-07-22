@@ -11,7 +11,7 @@ console.log(await myImages); */
 
 ---
 <section class="parallax-container loading" data-length={imagesArray.length}>
-  {imagesArray.reverse().map((image, index)=> (
+  {imagesArray.map((image, index)=> (
     <Image
       class={`parallax_img plane-${imagesArray.length - index}`} 
       src={image[1]()}
@@ -22,14 +22,14 @@ console.log(await myImages); */
     />
   ))}
 
-  <div class="moon">
+  <!-- <div class="moon">
     <div class="text-container">
       <p>Industrial Designer by <span>Decision</span></p>
       <p>Artist by <span>Hobby</span></p>
       <p>Developer by <span>Curiosity</span></p>
       <p>Goat by <span>Default</span></p>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <style>
@@ -44,6 +44,7 @@ console.log(await myImages); */
     height: 100vh;
     overflow-y: scroll;
     scrollbar-width: thin;
+    scroll-behavior: smooth;
   }
   .parallax-container.loading::before {
     position: absolute;
@@ -59,7 +60,7 @@ console.log(await myImages); */
 
   .parallax_img {
     position: absolute;
-    inset: 0;
+    top: 0;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -84,7 +85,7 @@ console.log(await myImages); */
     transform: translateZ(3px);
   }
   .plane-7 {
-    transform: translateZ(5px) scale(1) translateY(10px)
+    transform: translateZ(5px) scale(1);
   }
   .plane-8 {
     transform: translateZ(0px);
@@ -116,12 +117,26 @@ console.log(await myImages); */
   const parallaxContainer: HTMLDivElement | null  = document.querySelector(".parallax-container")
   const imagesQuantity = Number(parallaxContainer?.dataset.length)
 
-  const images = document.querySelectorAll(".parallax_img")
-  let imagesLoaded = 0
+  const images: NodeListOf<HTMLImageElement> = document.querySelectorAll(".parallax_img")
+  let imagesLoadedEvent = 0
+  let imagesLoadedProperty = 0
+
   images.forEach((image)=> {
     image.addEventListener("load", ()=> {
-      imagesLoaded ++
-      imagesLoaded === imagesQuantity && parallaxContainer?.classList.remove("loading")
+      console.log(image.complete)
+      imagesLoadedEvent ++
+      imagesLoadedEvent === imagesQuantity && parallaxContainer?.classList.remove("loading")
     })
   })
+  //Cuando hay cache no alcanzan a suceder los eventos de carga asi que se valida la propiedad complete de las imagenes
+  const checkImages = () => {
+    images.forEach((image, index)=>{
+      index === 0 && (imagesLoadedProperty = 0)
+      if(image.complete){
+        imagesLoadedProperty ++
+      }
+      console.log(`image loaded: ${index} ${image.complete}`)
+      imagesLoadedProperty === imagesQuantity && parallaxContainer?.classList.remove("loading")
+    })
+  }
 </script>
