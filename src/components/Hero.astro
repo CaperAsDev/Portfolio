@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets'
+
+---
+
+<section>
+  <div class="image-container">
+    <Image 
+      src="https://lh3.googleusercontent.com/a/ACg8ocLD1lTAwN5D32ULzvJ8iWw4O_p-49ZHbeO0yf7qJJ378foTt3Y=s288-c-no"
+      alt={"profile"}
+      width={400}
+      height={400}
+    />
+    <!-- <Image 
+      src={}
+      alt={"CaperAsDev Logo"}
+    /> -->
+  </div>
+  <div class="info-container">
+    <div>
+      <h1>Kevin Hincapie</h1>
+      <strong>@CaperAsDev</strong>
+    </div>
+    <h2>Desarrollador Web</h2>
+    <p>Disfruto aprender cosas nuevas y romperme la cabeza pensando en como mejorar constantemente, siempre doy el 100% y valoro la creatividad ante todo.</p>
+  </div>
+</section>
+<style>
+  section {
+    display: grid;
+  }
+  .info-container {
+    display: grid;
+    gap: 10px;
+  }
+
+  @media screen and (min-width:600px) {
+    section {
+      display: flex;
+      align-items: center;
+      width: clamp(600px, 100%, 1024px );
+      gap: 100px;
+    }
+    .info-container {
+      gap: 20px;
+    }
+    strong {
+      font-size: var(--fs-s);
+    }
+  }
+</style>

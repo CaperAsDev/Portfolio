@@ -1,5 +1,6 @@
 ---
 import Header from '@/components/Header.astro';
+import Background from '@/components/Background.astro';
 interface Props {
 	title: string;
 }
@@ -15,10 +16,14 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<Background />
 		<Header />
 		<slot />
 	</body>
@@ -62,7 +67,33 @@ const { title } = Astro.props;
 		--blue-950: #083644;
 
     --accent_color: hsla(280 50% 20%);
+/* 
+1 rem = 16px
+1wv en 2400px = 24px
+2vw + 1rem = 64px = 4rem
+4.5rem = 72px
 
+xl 2rem a 800px y 4rem a 2400px
+ */
+		--fs-xl: clamp(2rem, 2vw + 1.1rem , 4.5rem);
+		--fs-l: clamp(1.7rem, 1.7vw + .9rem , 3.5rem);
+		--fs-m: clamp(1.35rem, 1.35vw + .7rem , 2.5rem);
+		--fs-s: clamp(1rem, 1vw + .5rem , 1.5rem);
+		--fs-xs: clamp(.7rem, .7vw + .3rem , 1rem);
+
+	}
+
+	h1 {
+		font-size: var(--fs-xl);
+	}
+	h2 {
+		font-size: var(--fs-l);
+	}
+	h3 {
+		font-size: var(--fs-m);
+	}
+	p {
+		font-size: var(--fs-s);
 	}
 
 	* {
@@ -72,9 +103,10 @@ const { title } = Astro.props;
 	}
 
 	html {
-		font-family: system-ui; sans-serif;
-		background-color: var(--mono-950);
-		background-size: 224px;
+		font-family: "Poopins", sans-serif;
 		color: var(--mono-200)
+	}
+	body {
+		position: relative;
 	}
 </style>

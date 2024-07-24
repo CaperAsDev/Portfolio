@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Img_V from '@/assets/images/vertical.webp'
+import Img_H from '@/assets/images/horizontal.avif'
+---
+<article>
+  <div class="images-container">
+    <Image 
+      src={Img_V}
+      alt={"Mobile screen"}
+      class="mobile"
+    />
+    <Image 
+      src={Img_H}
+      alt={"Desktop screen"}
+      class={'desktop'}
+    />
+  </div>
+  <div class="info-container">
+    <h3>MY ANIME APP</h3>
+    <p>Una web para amantes de la cultura otaku, los usuarios podran mantener un control y registro personalizado de sus series favoritas, por medio de listas personalizadas donde cada serie podra tener puntuaciones y comentarios para que nunca olvides como te sentiste al verla por primera vez. </p>
+    <div class="techs-container">
+      <Icon name="tabler:brand-tailwind" width={30} height={30} />
+      <Icon name="tabler:brand-react" width={30} height={30} />
+      <Icon name="tabler:briefcase" width={30} height={30} />
+      <Icon name="tabler:briefcase" width={30} height={30} />
+    </div>
+  </div>
+  <div class="links-container">
+    <Icon name="tabler:briefcase" width={30} height={30} />
+    <Icon name="tabler:briefcase" width={30} height={30} />
+    <Icon name="tabler:briefcase" width={30} height={30} />
+  </div>
+</article>
+
+<style>
+  article {
+    --opacity: .2;
+    --light_bg:hsla(0, 18%, 100%, var(--opacity));
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 350px;
+    border-right: 3px solid var(--pink-600);
+    padding: 10px;
+    margin-block: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to left, var(--light_bg), hsla(0, 18%, 100%, 0));
+    
+    &::after {
+      content: " ";
+      width: 40%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom:2px solid var(--pink-600);
+    }
+
+    .images-container {
+      position: relative;
+      grid-column: span 1;
+      height: clamp(300px, 100%, 350px);
+
+      .mobile {
+        position: relative;
+        top: 20px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .desktop {
+        position: absolute;
+        right: -70%;
+        bottom: -2%;
+        width: 110%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: -2px 2px 4px 0px var(--pink-900);
+      }
+    }
+
+    .info-container {
+      grid-column: span 3;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100%;
+
+      h3 {
+        position: absolute;
+        top: -7%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        place-self: end;
+        padding: 10px;
+        width: fit-content;
+        background: linear-gradient(to bottom, var(--light_bg), hsla(0, 18%, 100%, 0));
+        border-top: 1px solid white;
+        color: var(--pink-950);
+        text-align: end;
+      }
+
+      p {
+        text-wrap: pretty;
+        place-self: end;
+        margin-right: 60px;
+        width: 80%;
+        text-align: end;
+      }
+
+      .techs-container {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+
+        svg {
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+
+    .links-container {
+      position: absolute;
+      display: grid;
+      right: 0;
+      bottom: 0;
+      gap: 10px;
+      background-color: var(--pink-600);
+      padding: 7px;
+      padding-bottom: .8rem;
+      padding-top: 25px;
+      border-bottom-right-radius: 18px;
+      border-bottom-left-radius: 22px;
+      border-top-left-radius: 100% 40px;
+
+      svg {
+        background-color: var(--pink-950);
+        padding: 8px;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+<div class="background"></div>
+
+<style>
+  	@property --hue {
+		syntax: "<angle>";
+		initial-value: 0deg;
+		inherits: false;
+	}
+	.background {
+		--clr: hsl(var(--hue) 30% 30%);
+  	--hue2: calc(var(--hue) + 90deg);
+  	--clr2: hsl(var(--hue2) 30% 30%);
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		inset: 0;
+		z-index: -10;
+		background: linear-gradient(45deg, var(--clr), var(--clr2));
+		animation: clr-chg infinite 10s linear;
+	}
+
+	@keyframes clr-chg {
+		from {
+			--hue: 0deg;
+		}
+		to {
+			--hue: 360deg;
+		}
+	}
+</style>
