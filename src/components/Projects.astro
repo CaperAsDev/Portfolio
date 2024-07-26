@@ -2,18 +2,21 @@
 import {Icon} from 'astro-icon/components'
 import Project from './Project.astro'
 ---
-<section>
+<section class="wrapper">
   <h2>
     <Icon name="tabler:briefcase" width={30} height={30} />
     <span>Proyectos</span>
   </h2>
-  <section>
+  <section class="projects-wrapper">
     <Project />
   </section>
 </section>
 <style>
-  section {
+  .wrapper {
     width: clamp(300px, 100%, 1024px);
+    padding-inline: 5vw;
+    display: grid;
+    gap: 20px;
     height: fit-content;
 
     h2 {
