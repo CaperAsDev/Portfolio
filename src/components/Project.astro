@@ -30,10 +30,10 @@ import Img_H from '@/assets/images/horizontal.avif'
   <div class="links-wrapper">
     <div class="links-container">
       <div>
-        <Icon name="tabler:briefcase" width={30} height={30} />
+        <Icon name="tabler:brand-github" width={30} height={30} />
       </div>
       <div>
-        <Icon name="tabler:briefcase" width={30} height={30} />
+        <Icon name="tabler:world-www" width={30} height={30} />
       </div>
       <div>
         <Icon name="tabler:briefcase" width={30} height={30} />
@@ -277,4 +277,16 @@ import Img_H from '@/assets/images/horizontal.avif'
     }  
   }
   
+  @media screen and (width >= 1440px) {
+    article {
+      &::after {
+        width: 40%;
+      }
+      .images-container {
+        .desktop {
+          bottom: -15%;
+        }
+      }
+    }
+  }
 </style>

@@ -14,7 +14,7 @@ import Project from './Project.astro'
 <style>
   .wrapper {
     width: clamp(300px, 100%, 1024px);
-    padding-inline: 5vw;
+    padding-inline: clamp(5px,5vw, 50px);
     display: grid;
     gap: 20px;
     height: fit-content;
@@ -27,8 +27,15 @@ import Project from './Project.astro'
   }
 
   @media screen and (width >= 768px) {
+    
     .projects-wrapper{
       padding-top: 30px;
+    }
+  }
+
+  @media screen and (width >= 1440px) {
+    .wrapper {
+    width: clamp(1024px, 100%, 1280px);
     }
   }
 </style>
