@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+interface Props {
+  icon: String;
+  link: string;
+  label: String;
+}
+
+const { icon, link, label } = Astro.props
+---
+<a
+  aria-label={`Link to ${label}`}
+  href={link}
+  target="_blank"
+>
+  <Icon name={`tabler:${icon}`} width={30} height={30} />
+</a>
+
+<style>
+  a {
+    color: var(--pink-200);
+    background-color: var(--pink-950);
+    padding: 10px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    svg {
+      height: 32px;
+      width: 32px;
+    }
+  }
+  @media screen and (width >= 768px) {
+    a{
+      svg{
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+</style>

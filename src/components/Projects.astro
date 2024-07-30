@@ -1,6 +1,12 @@
 ---
 import {Icon} from 'astro-icon/components'
 import Project from './Project.astro'
+import ProjectsData from '@/data/projects.json'
+import type { ImageMetadata } from 'astro';
+
+const projectsImgs = import.meta.glob<{default: ImageMetadata}>('src/assets/images/*.{jpeg,jpg,png}')
+const imagesArray = Object.entries(projectsImgs)
+
 ---
 <section class="wrapper">
   <h2>
@@ -8,7 +14,16 @@ import Project from './Project.astro'
     <span>Proyectos</span>
   </h2>
   <section class="projects-wrapper">
-    <Project />
+    {ProjectsData.map(project=> (
+      <Project 
+        title={project.title}
+        description={project.description}
+        techsIcon={project.techsIcon}
+        links={project.links}
+        images={imagesArray.filter(image => image[0].includes(project.tag))}
+
+      />
+    ))}
   </section>
 </section>
 <style>
@@ -23,6 +38,14 @@ import Project from './Project.astro'
       display: flex;
       align-items: center;
       gap: 10px;
+
+      svg {
+        mix-blend-mode: luminosity;
+
+        path{
+          stroke-width: 1.5px;
+        }
+      }
     }
   }
 

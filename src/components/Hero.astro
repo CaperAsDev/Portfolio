@@ -46,6 +46,13 @@ import { Image } from 'astro:assets'
   .info-container {
     display: grid;
     gap: 16px;
+
+    strong{
+      mix-blend-mode: color-burn;
+    }
+    h2{
+      mix-blend-mode: luminosity;
+    }
   }
 
   @media screen and (width >= 768px) {
