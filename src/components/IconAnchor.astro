@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 interface Props {
-  icon: String;
+  icon: string;
   link: string;
-  label: String;
+  label: string;
 }
 
 const { icon, link, label } = Astro.props
@@ -12,12 +12,15 @@ const { icon, link, label } = Astro.props
   aria-label={`Link to ${label}`}
   href={link}
   target="_blank"
+  title={label}
 >
   <Icon name={`tabler:${icon}`} width={30} height={30} />
 </a>
 
 <style>
   a {
+    position: relative;
+    z-index: 20;
     color: var(--pink-200);
     background-color: var(--pink-950);
     padding: 10px;
@@ -32,6 +35,10 @@ const { icon, link, label } = Astro.props
   }
   @media screen and (width >= 768px) {
     a{
+      &:hover, &:focus{
+        transform: scale(1.1);
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
       svg{
         height: 24px;
         width: 24px;

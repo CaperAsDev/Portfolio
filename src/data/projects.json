@@ -1,9 +1,12 @@
 [
   {
-    "tag": "Fenix",
-    "title":"Landing Manufacturas Fennixx",
+    "tag": "Fennixx",
+    "title":"Manufacturas Fennixx",
     "description":"Un sitio web para otakus donde encontraras informacion actualizada de series anime, mangas y novelas de tus autores favoritos. Crea listas personalizadas y comparte tu aficion con otros amantes de la cultura Japonesa.",
-    "techsIcon": [{"title": "Astro", "icon":"brand-astro"},{"title": "Astro", "icon":"brand-tailwind"}],
+    "techsIcon": [
+      {"title": "Astro Js", "icon":"brand-astro"},
+      {"title": "Tailwind", "icon":"brand-tailwind"}
+    ],
     "links": [
       {
         "label": "Github",
