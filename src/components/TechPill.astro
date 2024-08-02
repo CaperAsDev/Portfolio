@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  link: string;
+  description: string;
+  logo: string;
+  name: string;
+}
+const { link, description, logo, name } = Astro.props
+---
+<div>
+  <a href={link} aria-label={name} target="_blank">
+    <Icon 
+      name={logo}
+    />
+  </a>  
+  <button aria-describedby={`tooltip-${name}`}>
+    <span>{name}</span>
+  </button>
+  <div id={`tooltip-${name}`} role="tooltip" >
+    <p>{description}</p>
+  </div>
+</div>
+
+<style>
+  div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--blue-700);
+    border-radius: 8px;
+    font-size: var(--fs-s);
+  }
+
+  a{
+    height: 100%;
+
+    svg{
+      width: auto;
+      height: 100%;
+    }
+  }
+  button{
+    background-color: var(--blue-600);
+    outline: 0px solid var(--pink-600);
+    border: none;
+    padding: 4px 8px;
+    border-end-end-radius: 8px;
+    border-start-end-radius: 8px;
+
+    span{
+      text-wrap: nowrap;
+    }
+  }
+  
+  div[role="tooltip"] {
+    visibility: hidden;
+    position: absolute;
+    z-index: 10;
+    bottom: 150%;
+    left: calc((50% + clamp(150px, 25vw, 250px)) * -1);
+    width: clamp(300px, 50vw, 500px);
+  }
+
+  :is(button:hover, button:focus) + div[role="tooltip"] {
+    visibility: visible;
+    display: block;
+  }
+
+</style>

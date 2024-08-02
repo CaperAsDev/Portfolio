@@ -59,14 +59,16 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
     --opacity: .2;
     --light_bg:hsla(0, 18%, 100%, var(--opacity));
     position: relative;
-    gap: 12px;
-    display: grid;
     width: 100%;
+    margin-block: 20px;
+    box-sizing: border-box;
+    max-width: 1024px;
+    display: grid;
+    overflow: hidden;
+    gap: 12px;
     border-block: 3px solid var(--pink-600);
     border-radius: 20px;
     background-color: var(--light_bg);
-    overflow: hidden;
-    max-width: 1024px;
 
     .images-container {
       margin-top: 50px;
@@ -164,6 +166,8 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
       height: fit-content;
       min-height: 320px;
       max-height: 400px;
+      margin-top: 30px;
+      margin-bottom: 100px;
       border: none;
       overflow: visible;
       border-right: 3px solid var(--pink-600);

@@ -1,15 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
-import Projects from '@/components/Projects.astro';
 
+import Hero from '@/components/Hero.astro';
+import Section from '@/components/Section.astro';
+import Project from '@/components/Project.astro'
+import TechPill from '@/components/TechPill.astro';
+
+import ProjectsData from '@/data/projects.json'
+import { technologies } from '@/data/technologies.json'
+
+const projectsImgs = import.meta.glob<{default: ImageMetadata}>('/src/assets/images/*.{jpeg,jpg,png}')
+const imagesArray = Object.entries(projectsImgs)
 ---
 
 <Layout title="CaperAsDev">
 	<main>
 		<!-- <Parallax /> -->
 		 <Hero />
-		 <Projects />
+		 <Section title='Proyectos' icon='briefcase' customClass='projects-wrapper' >
+			{ProjectsData.map(project=> (
+				<Project 
+					title={project.title}
+					description={project.description}
+					techsIcon={project.techsIcon}
+					links={project.links}
+					images={imagesArray.filter(image => image[0].includes(project.tag))}	
+				/>
+			))}
+		 </Section>
+		 <Section title='Tecnologias' icon='puzzle' customClass='techs-wrapper'>
+			{
+				technologies.map((project) => (
+					<TechPill 
+						{...project}
+					/>
+				))
+			}
+		 </Section>
 	</main>
 </Layout>
 
