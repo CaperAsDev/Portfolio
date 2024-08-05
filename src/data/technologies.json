@@ -2,67 +2,67 @@
   "technologies" : [
     {
       "name": "React",
-      "logo": "skill-icons:react-dark",
+      "logo": "devicon:react",
       "description": "Es la biblioteca para creación de interfaces de usuario más usada. Desarrollada y mantenida por Meta tiene gran soporte y recursos para ampliar sus funcionalidades.",
       "link": "https://es.react.dev/reference/react"
     },
     {
       "name": "Astro",
-      "logo": "skill-icons:astro",
+      "logo": "devicon:astro",
       "description": "Es un framework para la web, con él puedes construir sitios enfocados en el contenido como blogs, e-commerce y landing pages. Es muy versátil y tiene capacidades que lo hacen la mejor opción para sitios que requieran velocidad de carga y buen SEO.",
       "link": "https://docs.astro.build/en/concepts/why-astro/"
     },
     {
       "name": "Tailwind",
-      "logo": "skill-icons:tailwindcss-dark",
+      "logo": "devicon:tailwindcss",
       "description": "Es un framework de CSS con el que puedes agregar estilos a través de clases en tus elementos HTML o componentes.",
       "link": "https://tailwindcss.com/docs/installation"
     },
     {
       "name": "Sass",
-      "logo": "skill-icons:sass",
+      "logo": "devicon:sass",
       "description": "Es una extensión del lenguaje CSS. Te permite trabajar de otra manera los estilos con diferente sintaxis, variables, funciones, mixins y @-rules.",
       "link": "https://sass-lang.com/documentation/"
     },
     {
       "name": "Vite",
-      "logo": "skill-icons:vite-dark",
+      "logo": "devicon:vitejs",
       "description": "Es una herramienta que nos facilita la inicialización de proyectos, la visualización durante el desarrollo y el armado del proyecto para su despliegue.",
       "link": "https://vitejs.dev/guide/"
     },
     {
       "name": "HTML",
-      "logo": "skill-icons:html",
+      "logo": "devicon:html5",
       "description": "Lenguaje de marcado de hipertexto por sus siglas en inglés, nos permite estructurar el contenido de un sitio web por medio de etiquetas.",
       "link": "https://developer.mozilla.org/es/docs/Web/HTML"
     },
     {
       "name": "CSS",
-      "logo": "skill-icons:css",
+      "logo": "devicon:css3",
       "description": "Hojas de estilo en cascada por sus siglas en inglés, es la forma en que definimos los atributos visuales que tendrán las etiquetas de HTML.",
       "link": "https://developer.mozilla.org/es/docs/Web/CSS"
     },
     {
       "name": "Javascript",
-      "logo": "skill-icons:javascript",
+      "logo": "devicon:javascript",
       "description": "Es el lenguaje de programacion de la web, con el agregamos interactividad a los elementos de nuestro sitio, controlamos el flujo de datos, personalizamos la experiencia del usuario y mucho mas.",
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
     },
     {
       "name": "Typescript",
-      "logo": "skill-icons:typescript",
+      "logo": "devicon:typescript",
       "description": "Actúa una capa por encima de javascript, nos ayuda a reducir comportamientos inesperados cuando manejamos datos de diferentes tipos. Su uso afecta únicamente la experiencia de desarrollo así que no tiene un impacto evidenciable en el resultado final.",
       "link": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html"
     },
     {
       "name": "Node Js",
-      "logo": "skill-icons:nodejs-dark",
+      "logo": "devicon:nodejs",
       "description": "Es un entorno de ejecución de Javascript, lo que nos permite hacer que JS  funcione fuera del navegador, ampliando las posibilidades de javascript para correr en sinnúmero de dispositivos.",
       "link": "https://nodejs.org/docs/latest/api/synopsis.html"
     },
     {
       "name": "Express",
-      "logo": "skill-icons:expressjs-dark",
+      "logo": "devicon:express",
       "description": "Es una framework de Node Js para la web, facilita la creación  de APIs web por todas las funcionalidades que proporciona para el manejo de rutas, peticiones, respuestas y middlewares.",
       "link": "https://expressjs.com/en/5x/api.html"
     }

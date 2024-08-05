@@ -9,46 +9,69 @@ interface Props {
 }
 const { link, description, logo, name } = Astro.props
 ---
-<div>
-  <a href={link} aria-label={name} target="_blank">
-    <Icon 
-      name={logo}
-    />
-  </a>  
-  <button aria-describedby={`tooltip-${name}`}>
-    <span>{name}</span>
-  </button>
+<article>
+  <div class="techPill">
+    <a href={link} aria-label={name} target="_blank">
+      <Icon 
+        name={logo}
+        title={`Documentacion de ${name}`}
+      />
+    </a>  
+    <button aria-describedby={`tooltip-${name}`}>
+      <span>{name}</span>
+    </button>
+  </div>
   <div id={`tooltip-${name}`} role="tooltip" >
     <p>{description}</p>
   </div>
-</div>
+</article>
 
 <style>
-  div {
-    position: relative;
+  article {
+    flex-grow: 1;
+  }
+
+  .techPill {
     display: flex;
     align-items: center;
-    gap: 10px;
     background-color: var(--blue-700);
     border-radius: 8px;
     font-size: var(--fs-s);
+    height: fit-content;
+    mix-blend-mode: soft-light;
+    border-bottom: 2px solid var(--blue-200);
   }
 
   a{
-    height: 100%;
+    height: 35px;
+    width: 35px;
+    border-radius: 8px;
+    transform: scale(1.1);
+    transition: transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:focus {
+      outline-color: var(--blue-200);
+    }
 
     svg{
-      width: auto;
       height: 100%;
+      width: 100%;
+    }
+
+    &:is(:hover, :focus){
+      transform: scale(1.3);
     }
   }
+
   button{
-    background-color: var(--blue-600);
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: transparent;
     outline: 0px solid var(--pink-600);
+    color: var(--blue-200);
+    flex-grow: 1;
     border: none;
-    padding: 4px 8px;
-    border-end-end-radius: 8px;
-    border-start-end-radius: 8px;
+    padding: 4px 12px;
 
     span{
       text-wrap: nowrap;
@@ -58,15 +81,49 @@ const { link, description, logo, name } = Astro.props
   div[role="tooltip"] {
     visibility: hidden;
     position: absolute;
-    z-index: 10;
-    bottom: 150%;
-    left: calc((50% + clamp(150px, 25vw, 250px)) * -1);
-    width: clamp(300px, 50vw, 500px);
+    display: grid;
+    place-items: center;
+    z-index: 20;
+    width: 100%;
+    height: fit-content;
+    bottom: 115%;
+    left: 0;
+    right: auto;
+    
+    p {
+      width: clamp(300px, 100%, 600px);
+      padding: clamp(10px, 3.5vw, 20px);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      background-color: hsla(296, 71%, 21%, 0.5);
+    }
   }
 
-  :is(button:hover, button:focus) + div[role="tooltip"] {
+  .techPill:has(> :is(button:focus, a:focus)), .techPill:hover {
+    mix-blend-mode: normal;
+  }
+
+  .techPill:has(> :is(button:focus)) + div[role="tooltip"],
+  .techPill:hover + div[role="tooltip"] {
     visibility: visible;
-    display: block;
+  }
+  
+  article:has( ~ :focus-within), article:focus-within ~ article {
+    .techPill:hover + div[role="tooltip"] {
+      visibility: hidden;
+    }
   }
 
+  @media screen and (width >= 768px) {
+    div[role="tooltip"] {
+      position: absolute;
+      bottom: 125%;
+    }
+  }
+  @media screen and (width >= 1440px) {
+    div[role="tooltip"] {
+      position: absolute;
+      bottom: 140%;
+    }
+  }
 </style>

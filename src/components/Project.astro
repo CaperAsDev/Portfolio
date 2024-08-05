@@ -40,7 +40,7 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
     <div class="techs-container">
       {techsIcon.map(tech => (
         <span title={tech.title}>
-          <Icon name={`tabler:${tech.icon}`} width={24} height={24} />
+          <Icon name={tech.icon} width={24} height={24} />
         </span>
       ))}
     </div>
