@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="scene">
+  <div class="flipImg__wrapper">
+    <Image
+      src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpDCh3V9XqCE5o4Hk6qPx4LsuC6lWXNPSulmR4lzlxioZPL5XretvSJ8nWYJWWz6N61Qo&usqp=CAU'}
+      class="face face--front"
+      alt={'yami'}
+      height={300}
+      width={300}
+    />
+    <Image
+      class="face face--back" 
+      height={300}
+      width={300}
+      alt={'yami'}
+      src={'https://cdn.myanimelist.net/r/360x360/images/characters/11/226347.jpg?s=c765f72bde60c191f29601092ec48292'}
+    />
+  </div>
+</div>
+
+<style>
+  .scene {
+    perspective: 600px;
+    width: 300px;
+    height: 300px;
+  }
+  .flipImg__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    transform-origin: center left;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .flipImg__wrapper.is-flipped {
+    transform: translateX(100%) rotateY(180deg);
+  }
+
+  .face {
+    --clr-1: var(--pink-200);
+    --clr-2: hsl(330, 100%, 71%);
+    position: absolute;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .face--front {
+    color: var(--clr-1);
+    background-color: var(--clr-2);
+  }
+  .face--back {
+    color: var(--clr-2);
+    background-color: var(--clr-1);
+    transform: rotateY(180deg);
+  }
+</style>
+<script>
+
+</script>

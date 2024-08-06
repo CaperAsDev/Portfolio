@@ -5,6 +5,7 @@ import Hero from '@/components/Hero.astro';
 import Section from '@/components/Section.astro';
 import Project from '@/components/Project.astro'
 import TechPill from '@/components/TechPill.astro';
+import About from '@/components/About.astro';
 
 import ProjectsData from '@/data/projects.json'
 import { technologies } from '@/data/technologies.json'
@@ -37,6 +38,9 @@ const imagesArray = Object.entries(projectsImgs)
 					/>
 				))
 			}
+		 </Section>
+		 <Section icon='zodiac-capricorn' title='Sobre Mi'>
+			 <About />
 		 </Section>
 	</main>
 </Layout>
