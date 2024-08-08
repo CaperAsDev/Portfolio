@@ -4,33 +4,40 @@ interface Props {
   icon: string;
   link: string;
   label: string;
+  customClass?: string;
 }
 
-const { icon, link, label } = Astro.props
+const { icon, link, label, customClass } = Astro.props
+
+const iconSet = icon.split (':')
 ---
 <a
   aria-label={`Link to ${label}`}
   href={link}
   target="_blank"
   title={label}
+  class={`${customClass}`}
 >
-  <Icon name={`tabler:${icon}`} width={30} height={30} />
+  <Icon name={`${iconSet[0]}:${iconSet[1]}`} width={30} height={30} />
 </a>
 
 <style>
   a {
+    --clr: var(--pink-200);
+    --bg-clr:var(--pink-950);
+    --icon-size: var(--fs-m);
     position: relative;
     z-index: 20;
-    color: var(--pink-200);
-    background-color: var(--pink-950);
+    color: var(--clr) ;
+    background-color: var(--bg-clr) ;
     padding: 10px;
     border-radius: 50%;
     display: grid;
     place-items: center;
 
     svg {
-      height: 32px;
-      width: 32px;
+      height: var(--icon-size);
+      width: var(--icon-size);
     }
   }
   @media screen and (width >= 768px) {
@@ -39,10 +46,13 @@ const { icon, link, label } = Astro.props
         transform: scale(1.1);
         transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-      svg{
-        height: 24px;
-        width: 24px;
-      }
+      
+    }
+  }
+
+  @media screen and (width >= 1440px) {
+    a{
+      --icon-size : var(--fs-s);
     }
   }
 </style>

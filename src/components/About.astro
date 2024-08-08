@@ -1,66 +1,57 @@
 ---
 import FlipImg from "./FlipImg.astro";
-import { Icon } from "astro-icon/components";
 import aboutData from "@/data/about.json"
+import IconAnchor from "./IconAnchor.astro";
 ---
 
-<div>
+<div class="main-container">
   <header>
     <FlipImg />
-    <div>
-      <p>Diseñador industrial por Desicion</p>
-      <p>Artista por Vocacion</p>
+    <div class="Bio">
+      <p>Diseñador industrial por Elección </p>
+      <p>Artista por Pasión</p>
       <p>Programador por Curiosidad</p>
-      <p>Ser Humano por defecto</p>
+      <p>Ser Humano por Defecto</p>
     </div>
   </header>
-  <div>
-    <div>
-      <h3>
-        <span>CaperA</span>
-        <div class="scene">
-          <div class="flip-wrapper">
-            {aboutData.map(({nickname, face}) => (
-              <span class={`face ${face}__face`}>{nickname}</span>
+  <div class="social-wrapper">
+    <h3>
+      <span>CaperA</span>
+      <div class="scene">
+        <div class="flip-wrapper">
+          {aboutData.map(({nickname, face}) => (
+            <span class={`face ${face}__face`}>{nickname}</span>
             ))}
         </div>
       </div>
-      </h3>
+    </h3>
+    <div class="scene social-links">
       <div class="flip-wrapper">
-        <ul>
-          <li>
-            <a href="/">
-              <Icon 
-              name={'tabler:brand-linkedin'}
-              aria-label={'LinkedIn'}
-              />
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <Icon 
-              name={'tabler:brand-github'}
-              aria-label={'Github'}
-              />
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <Icon 
-              name={'tabler:brand-instagram'}
-              aria-label={'Instagram'}
-              />
-            </a>
-          </li>
-        </ul>
+        {aboutData.map(profile => (
+          <ul class={`face ${profile.face}__face`}>
+            {profile.links.map(iconInfo => (
+              <li>
+                <IconAnchor 
+                  icon={iconInfo.icon}
+                  link={iconInfo.link}
+                  label={iconInfo.label}
+                  />
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
     </div>
+  </div>
+  <div class="scene biography">
     <div class="flip-wrapper">
-      <div>
-        <p>De Bogotá Colombia, empece a estudiar programacion web en platzi por curiosidad para terminar sumergido de cabeza en el mundo del desarrollo web, llevo mas de dos años aprendiendo y aunque no empece a una edad temprana he crecido y aprendido mucho en este tiempo, ademas, siento que la programacion ha despertado en mi la necesidad de estar siempre aprendiendo algo nuevo, lo que me ha llevado a ver la cantidad de posibilidades que ofrece la programacion.</p>
-        <p>He participado en proyectos grupales cortos que buscan proporcionar experiencias de trabajo en equipos interdisciplinares a personas que esten empezando en el desarrollo web. Obtuve mucha experiencia por participar en estas simulaciones y aprendi a ver el desarrollo web de manera mas sistemica y no solo en frontend y backend.</p>
-        <p>Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera agil y eficiente. Ademas me gustaria mucho poder compartir mis aprendizajes con los demas y ayudar a crecer a otros de la misma manera en que que sucedio conmigo.</p>
-      </div>
+      {aboutData.map(bio => (
+        <div class={`face ${bio.face}__face  about-me__text`}>
+          {bio.biography.map(parr => (
+            <p>{parr}</p>
+          ))}
+        </div>
+      ))}
     </div>
   </div>
 </div>
@@ -68,6 +59,13 @@ import aboutData from "@/data/about.json"
 <style>
 
 @media screen and (width >= 768px) {
+  .main-container {
+    display: grid;
+    place-items: center;
+    gap: 30px;
+    margin-block: 20px;
+  }
+
   header { 
     display: flex;
     justify-content: center;
@@ -75,46 +73,130 @@ import aboutData from "@/data/about.json"
     gap: clamp(20px, 3vw, 60px);
   }
 
+  .social-wrapper {
+    display: grid;
+    place-items: center;
+    width: fit-content;
+  }
+  .scene {
+    perspective: 600px;
+  }
+  .flip-wrapper {
+    --moveZ: 0;
+    transition: transform 1s;
+    position: relative;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+
+    .face{
+      position: absolute;
+      transition: opacity 0.7s;
+    }
+    .front__face {
+      opacity: 1;
+    }
+    .back__face {
+      opacity: 0;
+    }
+  }
+
+  .about-me__text {
+    display: grid;
+    gap: 20px;
+  }
+
   h3 {
     display: flex;
+    border-bottom: 2px solid var(--blue-200);
+    padding: 12px;
+    padding-bottom: 6px;
+    border-radius: 50px;
 
     .scene {
-      perspective:  600px;
-      width: 4ch;
+      width: 3.5ch;
       height: 1lh;
+      mix-blend-mode: luminosity;
+    }
+    .flip-wrapper {
+      transform: translateZ(-.5lh);
+    }
+    .front__face {
+      transform: translateZ(.5lh);
+    }
+    .back__face {
+      transform:
+      rotateX(90deg)
+      translateZ(.5lh);
+    }
+  }
+  .social-links {
+    border: 2px solid var(--blue-200);
+    border-top: none;
+    background-color: lightseagreen;
+    width: 80%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-bottom-left-radius:40px 100%;
+    border-bottom-right-radius:40px 100%;
+    padding-block: 5px;
 
-      .flip-wrapper {
-        transition: transform 1s;
-        transform: translateZ(-.5lh);
-        position: relative;
-        transform-style: preserve-3d;
-        width: 100%;
-        height: 100%;
-      }
-      .face{
-        position: absolute;
-        transition: opacity 0.7s;
-      }
-      .front__face {
-        transform: translateZ(.5lh);
-        opacity: 1;
-      }
-      .back__face {
-        opacity: 0;
-        transform:
-        rotateX(90deg)
-        translateZ(.5lh);
-      }
-      .flip-wrapper.is-flipped {
-        transform: rotateX(-90deg);
+    .flip-wrapper {
+      width: 90%;
+      height: 45px;
+    }
+    .front__face {
+      transform: translateZ(22.5px);
+    }
+    .back__face {
+      transform:
+      rotateX(90deg)
+      translateZ(22.5px);
+    }
 
-        .front__face {
-          opacity: 0;
-        }
-        .back__face {
-          opacity: 1;
-        }
-      }
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      list-style: none;
+    }
+  }
+
+  .biography {
+    width: 100%;
+    height: 600px;
+    
+    .flip-wrapper{
+      --moveZ: -300px;
+      transform-origin: center;
+      transform: translateZ(-300px);
+
+    }
+    .front__face {
+      transform: 
+        translateZ(300px)
+      ;
+    }
+    .back__face {
+      transform:
+      rotateX(90deg)
+      translateZ(300px)
+      ;
+    }
+
+  }
+  .flip-wrapper.is-flipped {
+    transform:
+    translateZ(var(--moveZ))
+      rotateX(-90deg)
+    ;
+
+    .front__face {
+      opacity: 0;
+    }
+    .back__face {
+      opacity: 1;
     }
   }
 }

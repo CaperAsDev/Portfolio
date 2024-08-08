@@ -10,12 +10,12 @@
     "links": [
       {
         "label": "Github",
-        "icon": "brand-github",
+        "icon": "tabler:brand-github",
         "url": "https://github.com/CaperAsDev/Fenix-landing"
       },
       {
         "label": "Website",
-        "icon": "world-www",
+        "icon": "tabler:world-www",
         "url": "https://manufacturasfennixx.com"
       }
     ]
@@ -31,12 +31,12 @@
     "links": [
       {
         "label": "Github",
-        "icon": "brand-github",
+        "icon": "tabler:brand-github",
         "url": "https://github.com/CaperAsDev/Fenix-landing"
       },
       {
         "label": "Website",
-        "icon": "world-www",
+        "icon": "tabler:world-www",
         "url": "https://manufacturasfennixx.com"
       }
     ]
