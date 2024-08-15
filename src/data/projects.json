@@ -1,11 +1,13 @@
 [
   {
+    "type": "client",
     "tag": "Fennixx",
     "title":"Manufacturas Fennixx",
-    "description":"Un sitio web para otakus donde encontraras informacion actualizada de series anime, mangas y novelas de tus autores favoritos. Crea listas personalizadas y comparte tu aficion con otros amantes de la cultura Japonesa.",
+    "description":"Una landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos, lo unico que es necesario para ampliar el catalogo es agregar las imagenes a los assets y el codigo hace el resto.",
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
-      {"title": "Tailwind", "icon":"tabler:brand-tailwind"}
+      {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
+      {"title": "Typescript", "icon":"tabler:brand-typescript"}
     ],
     "links": [
       {
@@ -22,22 +24,23 @@
   },
   {
     "tag": "Fennixx",
-    "title":"Manufacturas Fennixx",
-    "description":"Un sitio web para otakus donde encontraras informacion actualizada de series anime, mangas y novelas de tus autores favoritos. Crea listas personalizadas y comparte tu aficion con otros amantes de la cultura Japonesa.",
+    "title":"Ecxellentia Consulting",
+    "description":"Un sitio web para una empresa de outsourcing contable, se construyo pensando en la facil expansion de los servicios y noticias que se alimentan de archivos json para su contenido por lo que es facilmente escalable.",
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
-      {"title": "Tailwind", "icon":"tabler:brand-tailwind"}
+      {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
+      {"title": "Typescript", "icon":"tabler:brand-typescript"}
     ],
     "links": [
       {
         "label": "Github",
         "icon": "tabler:brand-github",
-        "url": "https://github.com/CaperAsDev/Fenix-landing"
+        "url": "https://github.com/CaperAsDev/Astro-Accountant-landing"
       },
       {
         "label": "Website",
         "icon": "tabler:world-www",
-        "url": "https://manufacturasfennixx.com"
+        "url": "https://www.excellentiaconsultingbpo.com/"
       }
     ]
   }

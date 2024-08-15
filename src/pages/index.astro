@@ -1,62 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-import Hero from '@/components/Hero.astro';
-import Section from '@/components/Section.astro';
-import Project from '@/components/Project.astro'
-import TechPill from '@/components/TechPill.astro';
-import About from '@/components/About.astro';
+import Hero from "@/components/Hero.astro";
+import Section from "@/components/Section.astro";
+import Project from "@/components/Project.astro";
+import TechPill from "@/components/TechPill.astro";
+import About from "@/components/About.astro";
 
-import ProjectsData from '@/data/projects.json'
-import { technologies } from '@/data/technologies.json'
+import ProjectsData from "@/data/projects.json";
+import { technologies } from "@/data/technologies.json";
 
-const projectsImgs = import.meta.glob<{default: ImageMetadata}>('/src/assets/images/*.{jpeg,jpg,png}')
-const imagesArray = Object.entries(projectsImgs)
+const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png}"
+);
+const imagesArray = Object.entries(projectsImgs);
 ---
 
 <Layout title="CaperAsDev">
-	<main>
-		<!-- <Parallax /> -->
-		 <Hero />
-		 <Section title='Proyectos' icon='briefcase' customClass='projects-wrapper' >
-			{ProjectsData.map(project=> (
-				<Project 
-					title={project.title}
-					description={project.description}
-					techsIcon={project.techsIcon}
-					links={project.links}
-					images={imagesArray.filter(image => image[0].includes(project.tag))}	
-				/>
-			))}
-		 </Section>
-		 <Section title='Tecnologias' icon='puzzle' customClass='techs-wrapper'>
-			<p>Te comparto una breve lista de las tecnologías que he manejado y con las que me siento confiado en su uso:</p>
-			{
-				technologies.map((project) => (
-					<TechPill 
-						{...project}
-					/>
-				))
-			}
-		 </Section>
-		 <Section icon='zodiac-capricorn' title='Sobre Mi'>
-			 <About />
-		 </Section>
-	</main>
+  <main>
+    <!-- <Parallax /> -->
+    <Hero />
+    <Section
+      title="Proyectos"
+      icon="briefcase"
+      customClass="projects-wrapper"
+      identifier="projects"
+    >
+      {
+        ProjectsData.map((project) => (
+          <Project
+            title={project.title}
+            description={project.description}
+            techsIcon={project.techsIcon}
+            links={project.links}
+            images={imagesArray.filter((image) =>
+              image[0].includes(project.tag)
+            )}
+          />
+        ))
+      }
+    </Section>
+    <Section title="Tecnologias" icon="puzzle" customClass="techs-wrapper">
+      <p>
+        Te comparto una breve lista de las tecnologías que he manejado y con las
+        que me siento confiado en su uso:
+      </p>
+      {technologies.map((project) => <TechPill {...project} />)}
+    </Section>
+    <Section icon="zodiac-capricorn" title="Sobre Mi" identifier="me">
+      <About />
+    </Section>
+  </main>
 </Layout>
 
 <style>
-	main {
-		width: 100%;
-		height: fit-content;
-		display: grid;
-		gap: 50px;
-		place-items: center;
-	}
+  main {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    gap: 50px;
+    place-items: center;
+  }
 
-	@media screen and (min-width: 768px) {
-		main{
-			padding-top: 100px;
-		}
-	}
+  @media screen and (min-width: 768px) {
+    main {
+      padding-top: 100px;
+    }
+  }
 </style>

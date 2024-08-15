@@ -5,18 +5,18 @@ import { Image } from "astro:assets";
 <div class="scene">
   <div class="flipImg__wrapper">
     <Image
-      src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpDCh3V9XqCE5o4Hk6qPx4LsuC6lWXNPSulmR4lzlxioZPL5XretvSJ8nWYJWWz6N61Qo&usqp=CAU'}
+      src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpDCh3V9XqCE5o4Hk6qPx4LsuC6lWXNPSulmR4lzlxioZPL5XretvSJ8nWYJWWz6N61Qo&usqp=CAU"}
       class="face face--front"
-      alt={'yami'}
-      height={300}
-      width={300}
+      alt={"yami"}
+      height={280}
+      width={280}
     />
     <Image
-      class="face face--back" 
-      height={300}
-      width={300}
-      alt={'yami'}
-      src={'https://cdn.myanimelist.net/r/360x360/images/characters/11/226347.jpg?s=c765f72bde60c191f29601092ec48292'}
+      class="face face--back"
+      height={280}
+      width={280}
+      alt={"yami"}
+      src={"https://cdn.myanimelist.net/r/360x360/images/characters/11/226347.jpg?s=c765f72bde60c191f29601092ec48292"}
     />
   </div>
 </div>
@@ -24,8 +24,8 @@ import { Image } from "astro:assets";
 <style>
   .scene {
     perspective: 600px;
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
   }
   .flipImg__wrapper {
     position: relative;
@@ -35,7 +35,7 @@ import { Image } from "astro:assets";
     transform-style: preserve-3d;
     transform-origin: center left;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
@@ -65,6 +65,4 @@ import { Image } from "astro:assets";
     transform: rotateY(180deg);
   }
 </style>
-<script>
-
-</script>
+<script></script>

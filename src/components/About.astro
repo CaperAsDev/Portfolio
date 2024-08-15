@@ -1,97 +1,95 @@
 ---
 import FlipImg from "./FlipImg.astro";
-import aboutData from "@/data/about.json"
+import aboutData from "@/data/about.json";
 import IconAnchor from "./IconAnchor.astro";
 ---
 
 <div class="main-container">
   <header>
     <FlipImg />
-    <div class="Bio">
-      <p>Diseñador industrial por Elección </p>
-      <p>Artista por Pasión</p>
-      <p>Programador por Curiosidad</p>
-      <p>Ser Humano por Defecto</p>
+    <div class="bio">
+      <p><span>&#128204</span>Diseñador industrial por Elección</p>
+      <p><span>&#128152</span>Artista por Pasión</p>
+      <p><span>&#129513</span>Programador por Curiosidad</p>
+      <p><span>&#128584</span>Ser Humano por Defecto</p>
     </div>
   </header>
   <div class="social-wrapper">
     <h3>
-      <span>CaperA</span>
+      <span>Caper</span>
       <div class="scene">
         <div class="flip-wrapper">
-          {aboutData.map(({nickname, face}) => (
-            <span class={`face ${face}__face`}>{nickname}</span>
-            ))}
+          {
+            aboutData.map(({ nickname, face }) => (
+              <span class={`face ${face}__face`}>{nickname}</span>
+            ))
+          }
         </div>
       </div>
     </h3>
     <div class="scene social-links">
       <div class="flip-wrapper">
-        {aboutData.map(profile => (
-          <ul class={`face ${profile.face}__face`}>
-            {profile.links.map(iconInfo => (
-              <li>
-                <IconAnchor 
-                  icon={iconInfo.icon}
-                  link={iconInfo.link}
-                  label={iconInfo.label}
+        {
+          aboutData.map((profile) => (
+            <ul class={`face ${profile.face}__face`}>
+              {profile.links.map((iconInfo) => (
+                <li>
+                  <IconAnchor
+                    icon={iconInfo.icon}
+                    link={iconInfo.link}
+                    label={iconInfo.label}
                   />
-              </li>
-            ))}
-          </ul>
-        ))}
+                </li>
+              ))}
+            </ul>
+          ))
+        }
       </div>
     </div>
   </div>
   <div class="scene biography">
     <div class="flip-wrapper">
-      {aboutData.map(bio => (
-        <div class={`face ${bio.face}__face  about-me__text`}>
-          {bio.biography.map(parr => (
-            <p>{parr}</p>
-          ))}
-        </div>
-      ))}
+      {
+        aboutData.map((bio) => (
+          <div class={`face ${bio.face}__face  about-me__text`}>
+            {bio.biography.map((parr) => (
+              <p>{parr}</p>
+            ))}
+          </div>
+        ))
+      }
     </div>
   </div>
 </div>
 
 <style>
-
-@media screen and (width >= 768px) {
   .main-container {
+    --bg-color: var(--blue-600);
+    --line-color: var(--blue-200);
+    --icon-bg: var(--pink-900);
+    --icon-line: var(--pink-200);
     display: grid;
     place-items: center;
-    gap: 30px;
+    gap: clamp(20px, 2.5vw, 50px);
     margin-block: 20px;
-  }
-
-  header { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(20px, 3vw, 60px);
-  }
-
-  .social-wrapper {
-    display: grid;
-    place-items: center;
-    width: fit-content;
   }
   .scene {
     perspective: 600px;
   }
   .flip-wrapper {
     --moveZ: 0;
-    transition: transform 1s;
+    --rotate: -90deg;
+    --rotateY: 0deg;
+    --transition-duration: 1s;
+    transition: transform var(--transition-duration);
     position: relative;
     transform-style: preserve-3d;
     width: 100%;
     height: 100%;
 
-    .face{
+    .face {
       position: absolute;
-      transition: opacity 0.7s;
+      transition: opacity 0.5s;
     }
     .front__face {
       opacity: 1;
@@ -100,49 +98,50 @@ import IconAnchor from "./IconAnchor.astro";
       opacity: 0;
     }
   }
-
-  .about-me__text {
+  .social-wrapper {
     display: grid;
-    gap: 20px;
+    place-items: center;
+    width: fit-content;
   }
-
   h3 {
     display: flex;
-    border-bottom: 2px solid var(--blue-200);
-    padding: 12px;
+    border-bottom: 2px solid var(--line-color);
+    padding-inline: 20px;
+    padding-top: 12px;
     padding-bottom: 6px;
     border-radius: 50px;
+    font-size: var(--fs-l);
 
     .scene {
-      width: 3.5ch;
+      width: 4.2ch;
       height: 1lh;
-      mix-blend-mode: luminosity;
+      mix-blend-mode: difference;
     }
     .flip-wrapper {
-      transform: translateZ(-.5lh);
+      --transition-duration: 800ms;
+      transform: translateZ(-0.5lh);
     }
     .front__face {
-      transform: translateZ(.5lh);
+      transform: translateZ(0.5lh);
     }
     .back__face {
-      transform:
-      rotateX(90deg)
-      translateZ(.5lh);
+      transform: rotateX(90deg) translateZ(0.5lh);
     }
   }
   .social-links {
-    border: 2px solid var(--blue-200);
+    border: 2px solid var(--line-color);
     border-top: none;
-    background-color: lightseagreen;
+    background-color: oklch(from var(--bg-color) l c h / 40%);
     width: 80%;
     display: grid;
     place-items: center;
     overflow: hidden;
-    border-bottom-left-radius:40px 100%;
-    border-bottom-right-radius:40px 100%;
+    border-bottom-left-radius: 40px 100%;
+    border-bottom-right-radius: 40px 100%;
     padding-block: 5px;
 
     .flip-wrapper {
+      --transition-duration: 700ms;
       width: 90%;
       height: 45px;
     }
@@ -150,9 +149,7 @@ import IconAnchor from "./IconAnchor.astro";
       transform: translateZ(22.5px);
     }
     .back__face {
-      transform:
-      rotateX(90deg)
-      translateZ(22.5px);
+      transform: rotateX(90deg) translateZ(22.5px);
     }
 
     ul {
@@ -161,36 +158,70 @@ import IconAnchor from "./IconAnchor.astro";
       width: 100%;
       list-style: none;
     }
+    a {
+      --clr: var(--icon-line);
+      --bg-clr: var(--icon-bg);
+    }
+
+    ul:nth-child(2) {
+      a {
+        --clr: var(--icon-bg);
+        --bg-clr: var(--icon-line);
+      }
+    }
+  }
+  .social-links:has(.is-flipped) {
+    background-color: oklch(from var(--bg-color) calc(l - 0.3) c h / 40%);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(20px, 3vw, 60px);
+
+    .bio {
+      display: grid;
+      gap: 10px;
+    }
+  }
+
+  .about-me__text {
+    display: grid;
+    gap: 20px;
   }
 
   .biography {
+    --height: calc(640px - 10vw);
     width: 100%;
-    height: 600px;
-    
-    .flip-wrapper{
-      --moveZ: -300px;
-      transform-origin: center;
-      transform: translateZ(-300px);
+    height: var(--height);
 
+    .flip-wrapper {
+      --moveZ: calc((var(--height) / 2) * -1);
+      --rotate: 0deg;
+      --rotateY: -90deg;
+      --transition-duration: 600ms;
+      transform-origin: center;
+      transform: translateZ(calc((var(--height) / 2) * -1));
+    }
+    .face {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .front__face {
-      transform: 
-        translateZ(300px)
-      ;
+      transform: translateZ(calc(var(--height) / 2));
     }
     .back__face {
-      transform:
-      rotateX(90deg)
-      translateZ(300px)
-      ;
+      transform: rotateX(calc(var(--rotate) * -1))
+        rotateY(calc(var(--rotateY) * -1)) translateZ(calc(var(--height) / 2));
     }
-
   }
+
   .flip-wrapper.is-flipped {
-    transform:
-    translateZ(var(--moveZ))
-      rotateX(-90deg)
-    ;
+    transform: translateZ(var(--moveZ)) rotateX(var(--rotate))
+      rotateY(var(--rotateY));
 
     .front__face {
       opacity: 0;
@@ -199,16 +230,42 @@ import IconAnchor from "./IconAnchor.astro";
       opacity: 1;
     }
   }
-}
+
+  @media screen and (425px <= width < 768px) {
+    .biography {
+      --height: calc(640px - 30vw);
+    }
+  }
+
+  @media screen and (width >= 768px) {
+    header {
+      flex-direction: row;
+    }
+    .biography {
+      --height: 360px;
+      width: clamp(600px, 100%, 800px);
+
+      .flip-wrapper {
+        --rotate: 90deg;
+        --rotateY: 0deg;
+      }
+    }
+  }
+
+  @media screen and (width >= 1024px) {
+    .biography {
+      --height: clamp(300px, 30vw, 500px);
+    }
+  }
 </style>
 
 <script>
-  const wrapper = document.querySelector('.flipImg__wrapper')
-  const flipWrappers = document.querySelectorAll('.flip-wrapper')
-  wrapper?.addEventListener('click', () => {
-    wrapper.classList.toggle('is-flipped')
-    flipWrappers.forEach(wrapper => {
-      wrapper.classList.toggle('is-flipped')
-    })
-  })
+  const wrapper = document.querySelector(".flipImg__wrapper");
+  const flipWrappers = document.querySelectorAll(".flip-wrapper");
+  wrapper?.addEventListener("click", () => {
+    wrapper.classList.toggle("is-flipped");
+    flipWrappers.forEach((wrapper) => {
+      wrapper.classList.toggle("is-flipped");
+    });
+  });
 </script>

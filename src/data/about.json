@@ -2,26 +2,26 @@
   {
     "face":"front",
     "title":"caperasdev",
-    "nickname": "sDev",
+    "nickname": "AsDev",
     "biography" : [
-      "De Bogotá Colombia, empece a estudiar programacion web en platzi por curiosidad para terminar sumergido de cabeza en el mundo del desarrollo web, llevo mas de dos años aprendiendo y aunque no empece a una edad temprana he crecido y aprendido mucho en este tiempo, ademas, siento que la programacion ha despertado en mi la necesidad de estar siempre aprendiendo algo nuevo, lo que me ha llevado a ver la cantidad de posibilidades que ofrece la programacion.",
-      "He participado en proyectos grupales cortos que buscan proporcionar experiencias de trabajo en equipos interdisciplinares a personas que esten empezando en el desarrollo web. Obtuve mucha experiencia por participar en estas simulaciones y aprendi a ver el desarrollo web de manera mas sistemica y no solo en frontend y backend.",
-      "Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera agil y eficiente. Ademas me gustaria mucho poder compartir mis aprendizajes con los demas y ayudar a crecer a otros de la misma manera en que que sucedio conmigo."
+      "Empecé a estudiar programacion web en Platzi por curiosidad para terminar sumergido en el mundo del desarrollo web, llevo más de dos años aprendiendo, he crecido y aprendido mucho en este tiempo, todo lo que he visto me ha llevado a ver la cantidad de posibilidades que ofrece la programación y a querer aprender cada vez más.",
+      "He participado en proyectos grupales cortos coordinados por NoCountry. Obtuve mucha experiencia al participar en estas simulaciones y aprendí a ver el desarrollo web de manera más sistemática.",
+      "Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera ágil y eficiente. Además me gustaría mucho poder compartir mis aprendizajes con los demás y ayudar a crecer a otros de la misma manera en que sucedió conmigo."
     ],
     "links" : [
       {
-        "link": "/",
+        "link": "https://www.linkedin.com/in/caperasdev/",
         "icon": "tabler:brand-linkedin",
         "label": "LinkedIn"
       },
       {
-        "link": "/",
+        "link": "https://github.com/CaperAsDev",
         "icon": "tabler:brand-github",
         "label": "Github"
       },
       {
-        "link": "/",
-        "icon": "tabler:brand-instagram",
+        "link": "https://x.com/CaperAsdev",
+        "icon": "tabler:brand-x",
         "label": "Instagram"
       }
     ]
@@ -29,20 +29,20 @@
   {
     "face": "back",
     "title": "caperactus",
-    "nickname": "ctus",
+    "nickname": "Actus",
     "biography" : [
-      "De Bogotá Colombia, empece a estudiar programacion web en platzi por curiosidad para terminar sumergido de cabeza en el mundo del desarrollo web, llevo mas de dos años aprendiendo y aunque no empece a una edad temprana he crecido y aprendido mucho en este tiempo, ademas, siento que la programacion ha despertado en mi la necesidad de estar siempre aprendiendo algo nuevo, lo que me ha llevado a ver la cantidad de posibilidades que ofrece la programacion.",
-      "He participado en proyectos grupales cortos que buscan proporcionar experiencias de trabajo en equipos interdisciplinares a personas que esten empezando en el desarrollo web. Obtuve mucha experiencia por participar en estas simulaciones y aprendi a ver el desarrollo web de manera mas sistemica y no solo en frontend y backend.",
-      "Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera agil y eficiente. Ademas me gustaria mucho poder compartir mis aprendizajes con los demas y ayudar a crecer a otros de la misma manera en que que sucedio conmigo."
+      "De pequeño disfrutaba dibujando mis personajes favoritos, esa práctica se ha mantenido a lo largo de los años y gracias al estudio y los tutoriales de youtube he llegado a un punto donde me siento a gusto con mis propias creaciones.",
+      "Me gusta dibujar y espero nunca dejar de hacerlo ya que es parte de mi identidad, quiero mejorar para lograr expresar lo que quiero con mi arte.",
+      "Me gusta pintar en digital por las facilidades que tiene, sin embargo pintar en tradicional tiene un encanto único que no se compara. Espero inspirar a los demás a dibujar incluso en una época donde la IA generativa amenaza el oficio de ilustrador."
     ],
     "links" : [
       {
-        "link": "https://www.twitch.tv/caperactus",
+        "link": "https://www.twitch.tv/caperactus/about",
         "icon": "tabler:brand-twitch",
         "label": "Twitch"
       },
       {
-        "link": "https://co.pinterest.com/caperactus/pins/",
+        "link": "https://co.pinterest.com/caperactus/_saved/",
         "icon": "tabler:brand-pinterest",
         "label": "Pinterest"
       },

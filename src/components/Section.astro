@@ -1,27 +1,29 @@
 ---
-import {Icon} from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
   icon: string;
   customClass?: string;
+  identifier?: string;
 }
 
-const { title, icon, customClass } = Astro.props
+const { title, icon, customClass, identifier } = Astro.props;
 ---
-<section class='wrapper'>
+
+<section class="wrapper" id={identifier}>
   <h2>
     <Icon name={`tabler:${icon}`} width={30} height={30} />
     <span>{title}</span>
   </h2>
-  <section class={`slot-wrapper ${customClass}`}>
+  <section class={`slot-wrapper ${customClass || ""}`}>
     <slot />
   </section>
 </section>
 <style>
   .wrapper {
     width: clamp(300px, 100%, 1024px);
-    padding-inline: clamp(5px,5vw, 50px);
+    padding-inline: clamp(5px, 5vw, 50px);
     display: grid;
     place-items: center;
     gap: 20px;
@@ -38,10 +40,13 @@ const { title, icon, customClass } = Astro.props
         width: clamp(30px, 2.5vw, 50px);
         height: clamp(30px, 2.5vw, 50px);
 
-        path{
+        path {
           stroke-width: 1.5px;
         }
       }
+    }
+    .slot-wrapper {
+      width: 100%;
     }
   }
 
@@ -56,7 +61,7 @@ const { title, icon, customClass } = Astro.props
       margin-block: 10px;
     }
   }
-  .projects-wrapper{
+  .projects-wrapper {
     display: grid;
     place-items: center;
     margin-block: 10px;
