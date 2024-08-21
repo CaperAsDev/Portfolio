@@ -1,85 +1,89 @@
 ---
-import Header from '@/components/Header.astro';
-import Background from '@/components/Background.astro';
-import '@fontsource-variable/comfortaa';
-import '@fontsource-variable/sansita-swashed';
+import "./normalize.css";
+import Header from "@/components/Header.astro";
+import Background from "@/components/Background.astro";
+import "@fontsource-variable/comfortaa";
+import "@fontsource-variable/sansita-swashed";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
-
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Background />
-		<Header />
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Background />
+    <Header />
+    <slot />
+  </body>
 </html>
 <style is:global>
+  @font-face {
+    font-family: "Subjectivity";
+    src: url("/fonts/Subjectivity-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
 
-	@font-face {
-		font-family: 'Subjectivity';
-		src: url('/fonts/Subjectivity-Medium.woff2') format('woff2');
-		font-weight: 500;
-		font-style: normal;
-		font-display: swap;
-	}
+  :root {
+    color-scheme: dark;
+    --pink-50: #faf5f9;
+    --pink-100: #f7ecf4;
+    --pink-200: #f1d9ec;
+    --pink-300: #e6bbdb;
+    --pink-400: #d690c4;
+    --pink-500: #c365a7;
+    --pink-600: #b25090;
+    --pink-700: #983e76;
+    --pink-800: #7e3662;
+    --pink-900: #861058;
+    --pink-950: #3f182f;
 
-	:root {
-		--pink-50: #faf5f9;
-		--pink-100: #f7ecf4;
-		--pink-200: #f1d9ec;
-		--pink-300: #e6bbdb;
-		--pink-400: #d690c4;
-		--pink-500: #c365a7;
-		--pink-600: #b25090;
-		--pink-700: #983e76;
-		--pink-800: #7e3662;
-		--pink-900: #861058;
-		--pink-950: #3f182f;
+    --mono-50: #f6f6f6;
+    --mono-100: #e7e7e7;
+    --mono-200: #d1d1d1;
+    --mono-300: #b0b0b0;
+    --mono-400: #888888;
+    --mono-500: #6d6d6d;
+    --mono-600: #5d5d5d;
+    --mono-700: #4f4f4f;
+    --mono-800: #454545;
+    --mono-900: #3d3d3d;
+    --mono-950: #0d0d0d;
 
-		--mono-50: #f6f6f6;
-		--mono-100: #e7e7e7;
-		--mono-200: #d1d1d1;
-		--mono-300: #b0b0b0;
-		--mono-400: #888888;
-		--mono-500: #6d6d6d;
-		--mono-600: #5d5d5d;
-		--mono-700: #4f4f4f;
-		--mono-800: #454545;
-		--mono-900: #3d3d3d;
-		--mono-950: #0d0d0d;
-    
-		--blue-50: #ecffff;
-		--blue-100: #cffcfe;
-		--blue-200: #98f5fb;
-		--blue-300: #68edf8;
-		--blue-400: #23dbed;
-		--blue-500: #07bed3;
-		--blue-600: #0997b1;
-		--blue-700: #0f798f;
-		--blue-800: #166274;
-		--blue-900: #165163;
-		--blue-950: #083644;
+    --blue-50: #ecffff;
+    --blue-100: #cffcfe;
+    --blue-200: #98f5fb;
+    --blue-300: #68edf8;
+    --blue-400: #23dbed;
+    --blue-500: #07bed3;
+    --blue-600: #0997b1;
+    --blue-700: #0f798f;
+    --blue-800: #166274;
+    --blue-900: #165163;
+    --blue-950: #083644;
 
     --accent_color: hsla(280 50% 20%);
-/* 
+    /* 
 1 rem = 16px
 1wv en 2400px = 24px
 2vw + 1rem = 64px = 4rem
@@ -87,49 +91,50 @@ const { title } = Astro.props;
 
 xl 2rem a 800px y 4rem a 2400px
  */
-		--fs-xl: clamp(2rem + .55vw, 2vw + 1.1rem , 4.5rem);
-		--fs-l: clamp(1.7rem + .45vw, 1.7vw + .9rem , 3.5rem);
-		--fs-m: clamp(1.35rem + .35vw, 1.35vw + .7rem , 2.5rem);
-		--fs-s: clamp(1rem + .25vw, 1vw + .5rem , 1.5rem);
-		--fs-xs: clamp(.7rem + .15vw, .7vw + .3rem , 1rem);
+    --fs-xl: clamp(2rem + 0.55vw, 2vw + 1.1rem, 4.5rem);
+    --fs-l: clamp(1.7rem + 0.45vw, 1.7vw + 0.9rem, 3.5rem);
+    --fs-m: clamp(1.35rem + 0.35vw, 1.35vw + 0.7rem, 2.5rem);
+    --fs-s: clamp(1rem + 0.25vw, 1vw + 0.5rem, 1.5rem);
+    --fs-xs: clamp(0.7rem + 0.15vw, 0.7vw + 0.3rem, 1rem);
+  }
 
-	}
+  h1 {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+  }
+  h2 {
+    font-size: var(--fs-l);
+    font-weight: 600;
+  }
+  h3 {
+    font-size: var(--fs-m);
+    font-family: "Subjectivity", system-ui;
+    font-weight: 500;
+  }
+  p,
+  button {
+    font-size: var(--fs-s);
+    font-family: "Comfortaa Variable", system-ui;
+    font-weight: 400;
+  }
 
-	h1 {
-		font-size: var(--fs-xl);
-		font-weight: 700;
-	}
-	h2 {
-		font-size: var(--fs-l);
-		font-weight: 600;
-	}
-	h3 {
-		font-size: var(--fs-m);
-		font-family: 'Subjectivity', system-ui;
-		font-weight: 500;
-	}
-	p, button {
-		font-size: var(--fs-s);
-		font-family: 'Comfortaa Variable', system-ui;
-		font-weight: 400;
-	}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-
-	html {
-		color: var(--mono-200)
-	}
-	body {
-		font-family: 'Sansita Swashed Variable', system-ui;
-		position: relative;
-	}
-	svg {
-		path{
-			stroke-width: 1px;
-		}
-	}
+  html {
+    color: var(--mono-200);
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Sansita Swashed Variable", system-ui;
+    position: relative;
+  }
+  svg {
+    path {
+      stroke-width: 1px;
+    }
+  }
 </style>

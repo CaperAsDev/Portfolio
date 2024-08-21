@@ -1,14 +1,14 @@
 ---
 interface Props {
-  title: string
-  link: string
+  title: string;
+  link: string;
 }
 
-const { title, link } = Astro.props
+const { title, link } = Astro.props;
 ---
 
 <li>
-  <a href={`#${link}`}>
+  <a href={link}>
     {title}
   </a>
 </li>
@@ -22,16 +22,17 @@ const { title, link } = Astro.props
     border-bottom-right-radius: 20% 50%;
     list-style: none;
     transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-family: 'Subjectivity', system-ui;
-		font-weight: 500;
+    font-family: "Subjectivity", system-ui;
+    font-weight: 500;
 
-    &:has(a[aria-current=page]) {
+    &:has(a[aria-current="page"]) {
       --border-radius: 15px;
       background-color: var(--dark-pink);
       position: relative;
       box-shadow: 0px -3px 0px 0px var(--dark-pink);
 
-      &::after, &::before {
+      &::after,
+      &::before {
         content: "";
         position: absolute;
         width: var(--border-radius);
@@ -53,7 +54,7 @@ const { title, link } = Astro.props
       }
     }
 
-    &:has(a:hover, a:focus){
+    &:has(a:hover, a:focus) {
       transform: scale(1.1);
     }
 
@@ -65,7 +66,8 @@ const { title, link } = Astro.props
       font-size: var(--fs-s);
       padding-bottom: 2px;
 
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         color: var(--pink-200);
         outline: none;
         border-bottom: 1px solid var(--pink-200);

@@ -3,6 +3,7 @@ interface CurrentPageParameters {
 }
 export function currentPage({anchors}:CurrentPageParameters) {
   const currentHash = location.hash;
+  
   const selection = currentHash.split('#')[1]
   anchors.forEach((a)=>{
     if(a.href.includes(selection)){

@@ -1,16 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-
+import { Image } from "astro:assets";
+import profileImg from "@/assets/images/profile_2.png";
 ---
 
 <section>
   <div class="image-container">
-    <Image 
-      src="https://lh3.googleusercontent.com/a/ACg8ocLD1lTAwN5D32ULzvJ8iWw4O_p-49ZHbeO0yf7qJJ378foTt3Y=s288-c-no"
-      alt={"profile"}
-      width={320}
-      height={320}
-    />
+    <Image src={profileImg} alt={"profile"} width={320} height={320} />
     <!-- <Image 
       src={}
       alt={"CaperAsDev Logo"}
@@ -22,7 +17,11 @@ import { Image } from 'astro:assets'
       <strong>@CaperAsDev</strong>
     </div>
     <h2>Desarrollador Web</h2>
-    <p>Disfruto aprender cosas nuevas y romperme la cabeza pensando en como mejorar constantemente, siempre doy el 100% y valoro la creatividad ante todo.</p>
+    <p>
+      Disfruto aprender cosas nuevas y romperme la cabeza pensando en como
+      mejorar constantemente, siempre doy el 100% y valoro la creatividad ante
+      todo.
+    </p>
   </div>
 </section>
 
@@ -47,11 +46,11 @@ import { Image } from 'astro:assets'
     display: grid;
     gap: 16px;
 
-    strong{
+    strong {
       mix-blend-mode: color-burn;
       font-weight: 300;
     }
-    h2{
+    h2 {
       mix-blend-mode: luminosity;
     }
   }
@@ -75,21 +74,21 @@ import { Image } from 'astro:assets'
     }
   }
 
-  @media screen and (width >= 1024px){
+  @media screen and (width >= 1024px) {
     section {
       padding: 0px;
       gap: 0;
       justify-content: space-around;
     }
   }
-  @media screen and (width >= 1440px){
+  @media screen and (width >= 1440px) {
     section {
       max-width: 1280px;
       margin-block: 5vw;
     }
   }
 
-  @media (600px < width <= 800px){
+  @media (600px < width <= 800px) {
     /* Media with range, between 600px and 800px this rules will be applied */
   }
 </style>
