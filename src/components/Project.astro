@@ -12,8 +12,8 @@ interface Props {
   images: [string, () => Promise<{ default: ImageMetadata }>][];
   links: { label: string; icon: string; url: string }[];
   notes: {
-    type: "Colaborativo" | "Personal" | "Cliente";
-    status: "Finalizado" | "En proceso";
+    type: string;
+    status: string;
   };
 }
 

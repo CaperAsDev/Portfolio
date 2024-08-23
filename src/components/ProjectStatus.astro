@@ -1,8 +1,8 @@
 ---
 interface Props {
   notes: {
-    type: "Colaborativo" | "Personal" | "Cliente";
-    status: "Finalizado" | "En proceso";
+    type: string;
+    status: string;
   };
 }
 const { notes } = Astro.props;

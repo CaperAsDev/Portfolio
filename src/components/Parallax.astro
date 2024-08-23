@@ -1,26 +1,30 @@
 ---
-import { Image } from "astro:assets"
-import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
-const images =  import.meta.glob<{ default: ImageMetadata }>('/src/assets/parallax/*.{jpeg,jpg,png,gif}')
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/parallax/*.{jpeg,jpg,png,gif}"
+);
 
-const imagesArray = Array.from(Object.entries(images))
+const imagesArray = Array.from(Object.entries(images));
 /* const imagesPromises = imagesArray.map(image => image[1])
 const myImages = Promise.all(imagesPromises).then(image => image)
 console.log(await myImages); */
-
 ---
+
 <section class="parallax-container loading" data-length={imagesArray.length}>
-  {imagesArray.map((image, index)=> (
-    <Image
-      class={`parallax_img plane-${imagesArray.length - index}`} 
-      src={image[1]()}
-      alt={"parallax image"}
-      widths={[1000, 2000, 3000]}
-      sizes={'(max-width: 1024px) 1040px, (max-width: 1920px) 1920px, 3000px'}
-      format="webp"
-    />
-  ))}
+  {
+    imagesArray.map((image, index) => (
+      <Image
+        class={`parallax_img plane-${imagesArray.length - index}`}
+        src={image[1]()}
+        alt={"parallax image"}
+        widths={[1000, 2000, 3000]}
+        sizes={"(max-width: 1024px) 1040px, (max-width: 1920px) 1920px, 3000px"}
+        format="webp"
+      />
+    ))
+  }
 
   <!-- <div class="moon">
     <div class="text-container">
@@ -34,7 +38,7 @@ console.log(await myImages); */
 
 <style>
   .parallax-container {
-    display:grid;
+    display: grid;
     place-items: center;
     position: relative;
     perspective: 30px;
@@ -90,7 +94,7 @@ console.log(await myImages); */
   .plane-8 {
     transform: translateZ(0px);
   }
-  .moon{
+  .moon {
     display: grid;
     place-items: center;
     position: relative;
@@ -99,37 +103,41 @@ console.log(await myImages); */
     width: 50%;
     aspect-ratio: 1 / 1;
     background-color: aliceblue;
-    transform: translateZ(5px) scale(.5);
+    transform: translateZ(5px) scale(0.5);
   }
   .text-container {
     display: grid;
     place-items: center;
 
-    p{
-      font-size: 3rem ;
+    p {
+      font-size: 3rem;
       text-align: center;
-      color: var(--blue-800)
+      color: var(--blue-800);
     }
   }
 </style>
 
 <script>
-  const parallaxContainer: HTMLDivElement | null  = document.querySelector(".parallax-container")
-  const imagesQuantity = Number(parallaxContainer?.dataset.length)
+  const parallaxContainer: HTMLDivElement | null = document.querySelector(
+    ".parallax-container"
+  );
+  const imagesQuantity = Number(parallaxContainer?.dataset.length);
 
-  const images: NodeListOf<HTMLImageElement> = document.querySelectorAll(".parallax_img")
-  let imagesLoadedEvent = 0
-  let imagesLoadedProperty = 0
+  const images: NodeListOf<HTMLImageElement> =
+    document.querySelectorAll(".parallax_img");
+  let imagesLoadedEvent = 0;
+  let imagesLoadedProperty = 0;
 
-  images.forEach((image)=> {
-    image.addEventListener("load", ()=> {
-      console.log(image.complete)
-      imagesLoadedEvent ++
-      imagesLoadedEvent === imagesQuantity && parallaxContainer?.classList.remove("loading")
-    })
-  })
+  images.forEach((image) => {
+    image.addEventListener("load", () => {
+      console.log(image.complete);
+      imagesLoadedEvent++;
+      imagesLoadedEvent === imagesQuantity &&
+        parallaxContainer?.classList.remove("loading");
+    });
+  });
   //Cuando hay cache no alcanzan a suceder los eventos de carga asi que se valida la propiedad complete de las imagenes
-  const checkImages = () => {
+  /* const checkImages = () => {
     images.forEach((image, index)=>{
       index === 0 && (imagesLoadedProperty = 0)
       if(image.complete){
@@ -138,5 +146,5 @@ console.log(await myImages); */
       console.log(`image loaded: ${index} ${image.complete}`)
       imagesLoadedProperty === imagesQuantity && parallaxContainer?.classList.remove("loading")
     })
-  }
+  } */
 </script>

@@ -1,11 +1,12 @@
 ---
-interface MobileItem {
+interface Props {
   link: string;
   title: string;
 }
 
-const {link, title } = Astro.props
+const { link, title } = Astro.props;
 ---
+
 <li>
   <a href={`#${link}`} aria-label={title}>{title}</a>
 </li>
@@ -20,22 +21,23 @@ const {link, title } = Astro.props
       text-align: end;
       color: inherit;
       text-decoration: none;
-      font-family: 'Subjectivity', system-ui;
+      font-family: "Subjectivity", system-ui;
       border-radius: 5px;
       padding: 3px;
 
-      &:focus, &:hover{
+      &:focus,
+      &:hover {
         outline: none;
         color: var(--pink-200);
         border-bottom: 2px solid var(--pink-200);
       }
     }
 
-    &:has(a[aria-current=page]){
+    &:has(a[aria-current="page"]) {
       color: var(--pink-300);
       a {
         border-bottom: 2px solid var(--pink-300);
       }
-    }  
+    }
   }
 </style>
