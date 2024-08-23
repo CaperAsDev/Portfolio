@@ -36,6 +36,7 @@ const imagesArray = Object.entries(projectsImgs);
             images={imagesArray.filter((image) =>
               image[0].includes(project.tag)
             )}
+            notes={project.notes}
           />
         ))
       }

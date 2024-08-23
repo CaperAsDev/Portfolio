@@ -1,5 +1,9 @@
 [
   {
+    "notes": {
+      "type": "Cliente",
+      "status": "Finalizado"
+    },
     "type": "client",
     "tag": "Fennixx",
     "title":"Manufacturas Fennixx",
@@ -23,7 +27,11 @@
     ]
   },
   {
-    "tag": "Fennixx",
+    "notes": {
+      "type": "Cliente",
+      "status": "Finalizado"
+    },
+    "tag": "Excellentia",
     "title":"Ecxellentia Consulting",
     "description":"Un sitio web para una empresa de outsourcing contable, se construyo pensando en la facil expansion de los servicios y noticias que se alimentan de archivos json para su contenido por lo que es facilmente escalable.",
     "techsIcon": [
@@ -41,6 +49,58 @@
         "label": "Website",
         "icon": "tabler:world-www",
         "url": "https://www.excellentiaconsultingbpo.com/"
+      }
+    ]
+  },
+  {
+    "notes": {
+      "type": "Colaborativo",
+      "status": "Finalizado"
+    },
+    "tag": "Event",
+    "title":"Event Wave",
+    "description":"Crea una cuenta, logeate y agrega un evento publico o sumate a otras personas en tu misma zona para participar y colaborar en comunidad.",
+    "techsIcon": [
+      {"title": "React", "icon":"tabler:brand-react"},
+      {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
+      {"title": "Redux", "icon":"tabler:brand-redux"}
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "icon": "tabler:brand-github",
+        "url": "https://github.com/No-Country/s12-02-m-node-react/tree/main"
+      },
+      {
+        "label": "Website",
+        "icon": "tabler:world-www",
+        "url": "https://s12-02-m-node-react-gestor-de-eventos.vercel.app/"
+      }
+    ]
+  },
+  {
+    "notes": {
+      "type": "Personal",
+      "status": "En proceso"
+    },
+    "tag": "Manager",
+    "title":"My Life Manager",
+    "description":"Crea tareas, agrega notas y haz seguimiento de tus avances mientras persigues tus objetivos. La To Do app que va mas alla de una lista de checkeo.",
+    "techsIcon": [
+      {"title": "React", "icon":"tabler:brand-react"},
+      {"title": "Sass", "icon":"tabler:brand-sass"},
+      {"title": "Typescript", "icon":"tabler:brand-typescript"}
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "icon": "tabler:brand-github",
+        "url": "https://github.com/CaperAsDev/todo-appV2/tree/main"
+      },
+      {
+        "label": "Website",
+        "icon": "tabler:world-www",
+        "url": "https://caperasdev.github.io/todo-appV2/"
       }
     ]
   }

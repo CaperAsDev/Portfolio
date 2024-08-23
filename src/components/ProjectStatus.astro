@@ -1,0 +1,138 @@
+---
+interface Props {
+  notes: {
+    type: "Colaborativo" | "Personal" | "Cliente";
+    status: "Finalizado" | "En proceso";
+  };
+}
+const { notes } = Astro.props;
+let clr_1 =
+  notes.type == "Cliente"
+    ? "oklch(55.34% 0.094 256.24)"
+    : notes.type == "Colaborativo"
+      ? "oklch(74.04% 0.146 120.18)"
+      : notes.type == "Personal"
+        ? "oklch(56.23% 0.1257 340.24)"
+        : "blue";
+
+let clr_2 =
+  notes.status == "Finalizado"
+    ? "oklch(60.39% 0.094 157.57)"
+    : "oklch(55.34% 0.094 256.24)";
+---
+
+<div class="lights-wrapper">
+  <button>
+    <span>{notes.type}</span>
+  </button>
+  <button>
+    <span>{notes.status}</span>
+  </button>
+</div>
+
+<style define:vars={{ clr_1, clr_2 }}>
+  .lights-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 5px;
+    z-index: 15;
+
+    button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid var(--pink-200);
+      box-shadow:
+        inset 0 0 5px 1px var(--blue-600),
+        0 0 5px 1px var(--blue-800);
+
+      span {
+        --bg-clr: oklch(0.5 0.02 10);
+        text-wrap: nowrap;
+        visibility: hidden;
+        position: absolute;
+        background-color: var(--bg-clr);
+        color: oklch(1 0.1 20);
+        text-align: center;
+        padding: 5px;
+        border-radius: 6px;
+        top: -5px;
+        right: 150%;
+
+        &::after {
+          content: " ";
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent transparent var(--bg-clr);
+        }
+      }
+
+      &:is(:hover, :focus) span {
+        visibility: visible;
+      }
+      &:nth-child(1) {
+        background-color: var(--clr_1);
+      }
+      &:nth-child(2) {
+        background-color: var(--clr_2);
+      }
+    }
+  }
+  button:nth-child(2) {
+    span {
+      right: auto;
+      left: 150%;
+
+      &::after {
+        left: auto;
+        right: 100%;
+        border-color: transparent var(--bg-clr) transparent transparent;
+      }
+    }
+  }
+  @media screen and (width >= 768px) {
+    .lights-wrapper {
+      display: grid;
+      justify-content: flex-end;
+      padding: 0px;
+      padding-right: 10px;
+
+      button {
+        span {
+          left: auto;
+          right: 150%;
+
+          &::after {
+            right: auto;
+            left: 100%;
+            border-color: transparent transparent transparent var(--bg-clr);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (width >= 1440px) {
+    .lights-wrapper {
+      button {
+        span {
+          right: auto;
+          left: 150%;
+
+          &::after {
+            left: auto;
+            right: 100%;
+            border-color: transparent var(--bg-clr) transparent transparent;
+          }
+        }
+      }
+    }
+  }
+</style>

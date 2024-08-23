@@ -3,61 +3,74 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import IconAnchor from "./IconAnchor.astro";
 import type { ImageMetadata } from "astro";
+import ProjectStatus from "@/components/ProjectStatus.astro";
 
 interface Props {
   title: string;
   description: string;
-  techsIcon: Array<{title: string, icon: string}>;
-  images: [string, () => Promise<{default: ImageMetadata;}>][];
-  links: {label: string, icon: string, url: string}[];
+  techsIcon: Array<{ title: string; icon: string }>;
+  images: [string, () => Promise<{ default: ImageMetadata }>][];
+  links: { label: string; icon: string; url: string }[];
+  notes: {
+    type: "Colaborativo" | "Personal" | "Cliente";
+    status: "Finalizado" | "En proceso";
+  };
 }
 
-const { title, description, techsIcon, images, links } = Astro.props
+const { title, description, techsIcon, images, links, notes } = Astro.props;
 
-const desktopImage = images.find(img => (img[0].includes('desktop') && img[1]))
-const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
+const desktopImage = images.find((img) => img[0].includes("desktop") && img[1]);
+const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
 ---
+
 <article>
   <div class="images-container">
-    {mobileImage && (
-      <Image 
-      src={mobileImage[1]()}
-      alt={"Mobile screen"}
-      class="mobile"
-      />
-    )}
-    {desktopImage && (
-      <Image 
-      src={desktopImage[1]()}
-      alt={"Desktop screen"}
-      class={'desktop'}
-      />
-    )}
+    {
+      mobileImage && (
+        <Image src={mobileImage[1]()} alt={"Mobile screen"} class="mobile" />
+      )
+    }
+    {
+      desktopImage && (
+        <Image
+          src={desktopImage[1]()}
+          alt={"Desktop screen"}
+          class={"desktop"}
+        />
+      )
+    }
   </div>
   <div class="info-container">
     <h3>{title}</h3>
     <p>{description}</p>
     <div class="techs-container">
-      {techsIcon.map(tech => (
-        <span title={tech.title}>
-          <Icon name={tech.icon} width={24} height={24} />
-        </span>
-      ))}
+      {
+        techsIcon.map((tech) => (
+          <span title={tech.title}>
+            <Icon name={tech.icon} width={24} height={24} />
+          </span>
+        ))
+      }
     </div>
   </div>
-  <div class="links-wrapper">
-    <div class="links-container">
-      {links.map(link => (
-        <IconAnchor icon={link.icon} label={link.label} link={link.url} />
-      ))}
+  <div class="aside">
+    <ProjectStatus notes={notes} />
+    <div class="links-wrapper">
+      <div class="links-container">
+        {
+          links.map((link) => (
+            <IconAnchor icon={link.icon} label={link.label} link={link.url} />
+          ))
+        }
+      </div>
     </div>
   </div>
 </article>
 
 <style>
   article {
-    --opacity: .2;
-    --light_bg:hsla(0, 18%, 100%, var(--opacity));
+    --opacity: 0.2;
+    --light_bg: hsla(0, 18%, 100%, var(--opacity));
     position: relative;
     width: 100%;
     margin-block: 20px;
@@ -106,7 +119,11 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
         left: 0;
         padding: 3vw;
         width: 100%;
-        background: linear-gradient(to bottom, var(--light_bg), hsla(0, 18%, 100%, 0));
+        background: linear-gradient(
+          to bottom,
+          var(--light_bg),
+          hsla(0, 18%, 100%, 0)
+        );
         backdrop-filter: blur(10px);
         color: var(--pink-950);
         text-align: center;
@@ -137,8 +154,9 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
       background-color: var(--pink-600);
       padding: 7px;
       position: relative;
-      
-      &::after, &::before {
+
+      &::after,
+      &::before {
         content: "";
         position: absolute;
         top: -19px;
@@ -171,8 +189,12 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
       border: none;
       overflow: visible;
       border-right: 3px solid var(--pink-600);
-      background: linear-gradient(to left, var(--light_bg), hsla(0, 18%, 100%, 0));
-      
+      background: linear-gradient(
+        to left,
+        var(--light_bg),
+        hsla(0, 18%, 100%, 0)
+      );
+
       &::after {
         content: " ";
         width: 60%;
@@ -182,7 +204,7 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
         right: 0;
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
-        border-bottom:2px solid var(--pink-600);
+        border-bottom: 2px solid var(--pink-600);
       }
 
       .images-container {
@@ -233,7 +255,6 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
           z-index: 10;
           width: 30%;
           flex-wrap: wrap;
-          align-self: center;
           margin-block: 20px;
           display: flex;
           gap: 10px;
@@ -249,16 +270,19 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
             width: 40px;
             mix-blend-mode: difference;
 
-            path{
+            path {
               stroke-width: 1px;
             }
           }
         }
       }
-      .links-wrapper {
+      .aside {
         position: absolute;
         right: 0;
         bottom: 0;
+        z-index: 10;
+      }
+      .links-wrapper {
         padding-top: 20px;
         padding-left: 20px;
         overflow: hidden;
@@ -266,12 +290,12 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
         .links-container {
           display: grid;
           gap: 10px;
-          padding-bottom: .8rem;
+          padding-bottom: 0.8rem;
           padding-top: 25px;
           border-radius: 0;
           border-bottom-right-radius: 18px;
           border-top-left-radius: 100% 40px;
-          
+
           &::after {
             content: "";
             position: absolute;
@@ -288,9 +312,9 @@ const mobileImage = images.find(img => img[0].includes('mobile') && img[1])
           }
         }
       }
-    }  
+    }
   }
-  
+
   @media screen and (width >= 1440px) {
     article {
       grid-template-columns: repeat(4, 1fr);
