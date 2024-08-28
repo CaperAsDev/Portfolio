@@ -1,11 +1,12 @@
 ---
-import {Icon} from 'astro-icon/components'
-import MobileNavItem from './MobileNavItem.astro'
+import MobileNavItem from "@/components/MobileNavItem.astro";
+import Hamburger from "@/components/hamburger.astro";
 ---
+
 <nav>
-  <details class="mobile_nav-menu">
-    <summary>
-      <Icon name="tabler:menu-2" width={30} height={30} />
+  <details class="mobile_nav-menu" id="mobile-menu">
+    <summary aria-controls="mobile-menu" aria-expanded="false">
+      <Hamburger />
     </summary>
     <ul>
       <MobileNavItem title="Sobre mi" link="me" />
@@ -23,19 +24,22 @@ import MobileNavItem from './MobileNavItem.astro'
     position: fixed;
     right: 0px;
     top: calc(50% - 30px);
-    place-items: start;
     padding: 7px 3px 7px 7px;
-    border-top-left-radius: 20px ;
-    border-bottom-left-radius: 20px ;
-    background-color: var(--blue-700) ;
+    place-items: start;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: var(--blue-700);
     border-inline: 2px var(--blue-500) solid;
     opacity: 50%;
     transition: opacity 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
 
-    &:focus, &:hover, &:has(details[open]), &:has(summary:focus) {
+    &:focus,
+    &:hover,
+    &:has(details[open]),
+    &:has(summary:focus) {
       opacity: 100%;
-      cursor: pointer;
       transform: scale(1.1);
     }
 
@@ -50,7 +54,6 @@ import MobileNavItem from './MobileNavItem.astro'
     }
   }
   details {
-
     ul {
       display: grid;
       gap: 1rem;
@@ -64,10 +67,11 @@ import MobileNavItem from './MobileNavItem.astro'
     list-style: none;
     color: var(--blue-100);
 
-    &:focus, &:hover {
-      outline:  none;
+    &:focus,
+    &:hover {
+      outline: none;
 
-      svg{
+      svg {
         transform: scale(1.2);
         color: var(--pink-300);
       }
@@ -82,31 +86,40 @@ import MobileNavItem from './MobileNavItem.astro'
 </style>
 
 <script>
-  const menu: HTMLDetailsElement | null = document.querySelector('.mobile_nav-menu')
-  const summary = document.querySelector('.mobile_nav-menu summary')
-  const anchors: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav li a")
-  const anchorsArray = Array.from(anchors)
+  const menu: HTMLDetailsElement | null =
+    document.querySelector(".mobile_nav-menu");
+  const summary = document.querySelector(".mobile_nav-menu summary");
+  const svg = summary?.querySelector("svg");
+  const anchors: NodeListOf<HTMLAnchorElement> =
+    document.querySelectorAll("nav li a");
+  const anchorsArray = Array.from(anchors);
 
   const checkSiblings = () => {
-    setTimeout(()=> {
-        const focusSiblingAnchor = anchorsArray.some(
-          (anchor) => anchor === document.activeElement)
-            || summary === document.activeElement
+    setTimeout(() => {
+      const focusSiblingAnchor =
+        anchorsArray.some((anchor) => anchor === document.activeElement) ||
+        summary === document.activeElement;
 
-        !focusSiblingAnchor && (menu && (menu.open = false))
-        
-      }, 200)
-  }
+      !focusSiblingAnchor && menu && (menu.open = false);
+    }, 200);
+  };
 
-  window.addEventListener('hashchange', ()=>{
-    if(menu){
+  window.addEventListener("hashchange", () => {
+    if (menu) {
       menu.open = false;
     }
-  })
+  });
 
-  summary?.addEventListener('blur', checkSiblings)
+  summary?.addEventListener("blur", checkSiblings);
 
-  anchors.forEach((anchor)=> {
-    anchor.addEventListener('blur', checkSiblings)
-  })
+  menu?.addEventListener("toggle", () => {
+    if (summary && menu && svg) {
+      summary.ariaExpanded = String(menu.open);
+      svg.classList.toggle("open");
+    }
+  });
+
+  anchors.forEach((anchor) => {
+    anchor.addEventListener("blur", checkSiblings);
+  });
 </script>

@@ -2,11 +2,13 @@
 import FlipImg from "./FlipImg.astro";
 import aboutData from "@/data/about.json";
 import IconAnchor from "./IconAnchor.astro";
+import Profile_1 from "@/assets/images/face_1.png";
+import Profile_2 from "@/assets/images/face_2.png";
 ---
 
 <div class="main-container">
   <header>
-    <FlipImg />
+    <FlipImg img_1={Profile_1} img_2={Profile_2} />
     <div class="bio">
       <p><span>&#128204</span>Diseñador industrial por Elección</p>
       <p><span>&#128152</span>Artista por Pasión</p>

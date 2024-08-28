@@ -33,7 +33,7 @@
     },
     "tag": "Excellentia",
     "title":"Ecxellentia Consulting",
-    "description":"Un sitio web para una empresa de outsourcing contable, se construyo pensando en la facil expansion de los servicios y noticias que se alimentan de archivos json para su contenido por lo que es facilmente escalable.",
+    "description":"Un sitio web para una empresa de outsourcing contable, se construyo con componentes que se alimentan de archivos json para su contenido por lo que es facilmente escalable.",
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -59,7 +59,7 @@
     },
     "tag": "Event",
     "title":"Event Wave",
-    "description":"Crea una cuenta, logeate y agrega un evento publico o sumate a otras personas en tu misma zona para participar y colaborar en comunidad.",
+    "description":"Crea una cuenta, logueate y agrega un evento público o sumate a otras personas en tu misma zona para participar y colaborar en comunidad.",
     "techsIcon": [
       {"title": "React", "icon":"tabler:brand-react"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -85,7 +85,7 @@
     },
     "tag": "Manager",
     "title":"My Life Manager",
-    "description":"Crea tareas, agrega notas y haz seguimiento de tus avances mientras persigues tus objetivos. La To Do app que va mas alla de una lista de checkeo.",
+    "description":"Crea tareas, agrega notas y haz seguimiento de tus avances mientras persigues tus objetivos. La To Do app que va más allá de una lista de chequeo.",
     "techsIcon": [
       {"title": "React", "icon":"tabler:brand-react"},
       {"title": "Sass", "icon":"tabler:brand-sass"},
