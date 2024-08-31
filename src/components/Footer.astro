@@ -1,3 +1,90 @@
 ---
-
+import { Image } from "astro:assets";
+import Goat from "@/assets/images/goat.png";
+import CaperActus from "@/assets/images/caperActus.png";
+import CaperAsDev from "@/assets/images/caperAsDev.png";
 ---
+
+<footer>
+  <section>
+    <div>
+      <Image src={CaperActus} alt={"A goat"} />
+    </div>
+    <div>
+      <Image class="goat" src={Goat} alt={"A goat"} />
+    </div>
+    <div>
+      <Image src={CaperAsDev} alt={"A goat"} />
+    </div>
+  </section>
+  <p>
+    Diseñado y codeado por <a
+      href="https://github.com/CaperAsDev"
+      target="_blank"
+    >
+      ♑︎
+      <span> CaperAsDev </span>
+      ♑︎
+    </a>
+  </p>
+</footer>
+<style>
+  footer {
+    height: fit-content;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: oklch(0.3 0.05 300 / 0);
+    padding: 20px;
+    margin-top: 20px;
+
+    p {
+      a {
+        color: var(--blue-300);
+        text-decoration: none;
+
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  section {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    div {
+      height: 100%;
+
+      &:nth-child(odd) {
+        mix-blend-mode: screen;
+      }
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+  .goat {
+    position: relative;
+    scale: 1.3;
+    transform-origin: bottom;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      inset: 0;
+      background-color: red;
+      border-top-left-radius: 100%;
+      border-top: 1px solid red;
+    }
+  }
+</style>
