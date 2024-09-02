@@ -1,5 +1,7 @@
 ---
-import NavItem from "./DesktopNavItem.astro";
+import NavItem from "@/components/DesktopNavItem.astro";
+import Popover from "@/components/Popover.astro";
+import Linktree from "@/components/Linktree.astro";
 ---
 
 <nav>
@@ -7,7 +9,9 @@ import NavItem from "./DesktopNavItem.astro";
     <NavItem title="Proyectos" link="/#projects" />
     <NavItem title="Blog" link="/bubbles" />
     <NavItem title="Sobre mi" link="/#me" />
-    <NavItem title="Contacto" link="/#contact" />
+    <Popover title="Contacto" targetID="linktree">
+      <Linktree />
+    </Popover>
   </ul>
 </nav>
 
@@ -16,6 +20,7 @@ import NavItem from "./DesktopNavItem.astro";
     display: none;
     width: clamp(320px, 100%, 1024px);
     ul {
+      list-style: none;
       display: flex;
       justify-content: space-evenly;
     }

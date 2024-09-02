@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  targetID: string;
+}
+
+const { title, targetID } = Astro.props;
+---
+
+<li>
+  <button popovertarget={targetID}>
+    {title}
+  </button>
+</li>
+<div id={targetID} popover>
+  <slot />
+</div>
+
+<style>
+  li {
+    --dark-pink: var(--pink-900);
+    color: var(--blue-200);
+    padding: 7px 30px;
+    border-bottom-left-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+    list-style: none;
+    transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: "Subjectivity", system-ui;
+    font-weight: 500;
+
+    button {
+      display: block;
+      color: var(--blue-200);
+      cursor: pointer;
+      text-decoration: none;
+      background-color: transparent;
+      font-weight: 500;
+      font-size: var(--fs-s);
+      padding-bottom: 2px;
+      border: none;
+      transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:focus,
+      &:hover {
+        color: var(--pink-200);
+        outline: none;
+        border-bottom: 1px solid var(--pink-200);
+        border-radius: 5px;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  div[popover] {
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color: oklch(0.5 0.06 300 / 50%);
+
+    &::backdrop {
+      background-color: oklch(0.3 0.1 300 / 60%);
+    }
+  }
+</style>

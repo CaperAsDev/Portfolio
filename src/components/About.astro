@@ -2,8 +2,8 @@
 import FlipImg from "./FlipImg.astro";
 import aboutData from "@/data/about.json";
 import IconAnchor from "./IconAnchor.astro";
-import Profile_1 from "@/assets/images/face_1.png";
-import Profile_2 from "@/assets/images/face_2.png";
+import Profile_2 from "@/assets/images/face_1.png";
+import Profile_1 from "@/assets/images/face_2.png";
 ---
 
 <div class="main-container">
@@ -66,10 +66,8 @@ import Profile_2 from "@/assets/images/face_2.png";
 
 <style>
   .main-container {
-    --bg-color: var(--blue-600);
+    --bg-color: oklch(0.3 0.07 300 / 50%);
     --line-color: var(--blue-200);
-    --icon-bg: var(--pink-900);
-    --icon-line: var(--pink-200);
     display: grid;
     place-items: center;
     gap: clamp(20px, 2.5vw, 50px);
@@ -117,23 +115,25 @@ import Profile_2 from "@/assets/images/face_2.png";
     .scene {
       width: 4.2ch;
       height: 1lh;
-      mix-blend-mode: difference;
+      mix-blend-mode: hard-light;
     }
     .flip-wrapper {
       --transition-duration: 800ms;
       transform: translateZ(-0.5lh);
     }
     .front__face {
+      color: var(--blue-400);
       transform: translateZ(0.5lh);
     }
     .back__face {
+      color: var(--pink-400);
       transform: rotateX(90deg) translateZ(0.5lh);
     }
   }
   .social-links {
     border: 2px solid var(--line-color);
     border-top: none;
-    background-color: oklch(from var(--bg-color) l c h / 40%);
+    background-color: var(--bg-color);
     width: 80%;
     display: grid;
     place-items: center;
@@ -161,19 +161,16 @@ import Profile_2 from "@/assets/images/face_2.png";
       list-style: none;
     }
     a {
-      --clr: var(--icon-line);
-      --bg-clr: var(--icon-bg);
+      --clr: var(--pink-100);
+      --bg-clr: var(--blue-600);
     }
 
     ul:nth-child(2) {
       a {
-        --clr: var(--icon-bg);
-        --bg-clr: var(--icon-line);
+        --clr: var(--blue-100);
+        --bg-clr: var(--pink-600);
       }
     }
-  }
-  .social-links:has(.is-flipped) {
-    background-color: oklch(from var(--bg-color) calc(l - 0.3) c h / 40%);
   }
 
   header {

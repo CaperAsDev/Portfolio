@@ -5,18 +5,22 @@ interface Props {
   link: string;
   label: string;
   customClass?: string;
+  text?: string;
 }
 
-const { icon, link, label, customClass } = Astro.props
+const { icon, link, label, customClass, text } = Astro.props;
 
-const iconSet = icon.split (':')
+const iconSet = icon.split(":");
 ---
+
 <a
   aria-label={`Link to ${label}`}
   href={link}
   target="_blank"
   title={label}
-  class={`${customClass}`}
+  class={`${customClass || ""} ${text && "innerText"}`}
+  rel="noopener noreferrer"
+  data-text={text}
 >
   <Icon name={`${iconSet[0]}:${iconSet[1]}`} width={30} height={30} />
 </a>
@@ -28,31 +32,40 @@ const iconSet = icon.split (':')
     --icon-size: var(--fs-m);
     position: relative;
     z-index: 20;
-    color: var(--clr) ;
-    background-color: var(--bg-clr) ;
+    color: var(--clr);
+    background-color: var(--bg-clr);
     padding: 10px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
+    border-radius: calc(var(--icon-size));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     svg {
       height: var(--icon-size);
       width: var(--icon-size);
     }
   }
+  a.innerText {
+    gap: 10px;
+
+    &::after {
+      content: attr(data-text);
+      position: relative;
+    }
+  }
   @media screen and (width >= 768px) {
-    a{
-      &:hover, &:focus{
+    a {
+      &:hover,
+      &:focus {
         transform: scale(1.1);
         transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-      
     }
   }
 
   @media screen and (width >= 1440px) {
-    a{
-      --icon-size : var(--fs-s);
+    a {
+      --icon-size: var(--fs-s);
     }
   }
 </style>
