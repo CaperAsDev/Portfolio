@@ -16,9 +16,11 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
 const imagesArray = Object.entries(projectsImgs);
 ---
 
-<Layout title="CaperAsDev">
+<Layout
+  title="CaperAsDev"
+  description="Kevin Hincapie Desarrollador web Colombiano apasionado por la tecnología y la creatividad."
+>
   <main>
-    <!-- <Parallax /> -->
     <Hero />
     <Section
       title="Proyectos"

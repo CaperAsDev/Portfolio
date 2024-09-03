@@ -5,12 +5,14 @@ import Footer from "@/components/Footer.astro";
 import Background from "@/components/Background.astro";
 import "@fontsource-variable/comfortaa";
 import "@fontsource-variable/sansita-swashed";
+import Seo from "@/components/Seo.astro";
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,6 +21,9 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="@CaperAsDev" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +31,14 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <Seo
+      title={title}
+      description={description}
+      url="https://caperasdev.com"
+      image={{ alt: "CaperAsDev Web Developer", src: "/goat.png" }}
+    />
   </head>
   <body>
     <Background />
