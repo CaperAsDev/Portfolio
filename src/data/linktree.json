@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Perfiles Developer",
+    "profile": "developer",
+    "group": [
+      {
+        "link": "https://www.linkedin.com/in/caperasdev/",
+        "text": "Perfil LinkedIn",
+        "icon": "tabler:brand-linkedin",
+        "label": "LinkedIn"
+      },
+      {
+        "link": "https://github.com/CaperAsDev",
+        "text": "Perfil Github",
+        "icon": "tabler:brand-github",
+        "label": "Github"
+      },
+      {
+        "link": "https://codepen.io/Caperasdev",
+        "text": "Perfil Codepen",
+        "icon": "tabler:brand-codepen",
+        "label": "Codepen"
+      }
+    ]
+  },
+  {
+    "title": "Perfiles Artista",
+    "profile": "artist",
+    "group": [
+      {
+        "link": "https://www.twitch.tv/caperactus/about",
+        "text": "Canal de Twitch",
+        "icon": "tabler:brand-twitch",
+        "label": "Twitch"
+      },
+      {
+        "link": "https://www.instagram.com/caperactus/",
+        "text": "Perfil Instagram",
+        "icon": "tabler:brand-instagram",
+        "label": "Instagram"
+      },
+      {
+        "link": "https://co.pinterest.com/caperactus/_saved/",
+        "text": "Tableros Pinterest",
+        "icon": "tabler:brand-pinterest",
+        "label": "Pinterest"
+      }
+    ]
+  }
+]

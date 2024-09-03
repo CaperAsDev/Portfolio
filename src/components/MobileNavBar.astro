@@ -1,6 +1,8 @@
 ---
 import MobileNavItem from "@/components/MobileNavItem.astro";
 import Hamburger from "@/components/hamburger.astro";
+import Popover from "@/components/Popover.astro";
+import Linktree from "@/components/Linktree.astro";
 ---
 
 <nav>
@@ -9,10 +11,11 @@ import Hamburger from "@/components/hamburger.astro";
       <Hamburger />
     </summary>
     <ul>
-      <MobileNavItem title="Sobre mi" link="me" />
       <MobileNavItem title="Proyectos" link="projects" />
-      <MobileNavItem title="Contacto" link="contact" />
-      <MobileNavItem title="Blog" link="blog" />
+      <MobileNavItem title="Sobre mi" link="me" />
+      <Popover title="Contacto" targetID="linktree-mobile">
+        <Linktree />
+      </Popover>
     </ul>
   </details>
 </nav>
@@ -88,16 +91,25 @@ import Hamburger from "@/components/hamburger.astro";
 <script>
   const menu: HTMLDetailsElement | null =
     document.querySelector(".mobile_nav-menu");
+
+  const popoverButton = menu?.querySelector(".popover-button");
+
   const summary = document.querySelector(".mobile_nav-menu summary");
-  const svg = summary?.querySelector("svg");
+
   const anchors: NodeListOf<HTMLAnchorElement> =
     document.querySelectorAll("nav li a");
+
+  const svg = summary?.querySelector("svg");
+
   const anchorsArray = Array.from(anchors);
 
   const checkSiblings = () => {
     setTimeout(() => {
+      console.log(popoverButton === document.activeElement);
+
       const focusSiblingAnchor =
         anchorsArray.some((anchor) => anchor === document.activeElement) ||
+        popoverButton === document.activeElement ||
         summary === document.activeElement;
 
       !focusSiblingAnchor && menu && (menu.open = false);

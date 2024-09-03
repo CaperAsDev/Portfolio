@@ -46,10 +46,13 @@ const iconSet = icon.split(":");
     }
   }
   a.innerText {
+    justify-content: center;
     gap: 10px;
 
     &::after {
       content: attr(data-text);
+      font-size: var(--fs-s);
+      font-family: "Comfortaa Variable", system-ui;
       position: relative;
     }
   }

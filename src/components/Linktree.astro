@@ -1,24 +1,79 @@
 ---
 import IconAnchor from "@/components/IconAnchor.astro";
+import links from "@/data/linktree.json";
 ---
 
-<h2>Linktree</h2>
-<ul>
-  <IconAnchor
-    icon="tabler:brand-twitch"
-    link="https://www.twitch.tv/caperactus/about"
-    label="Twitch"
-    text="Streams de Arte"
-  />
-</ul>
+<section>
+  <h2>Linktree</h2>
+  <div class="container">
+    {
+      links.map((link) => (
+        <article class={link.profile}>
+          <h3>{link.title}</h3>
+          <ul>
+            {link.group.map((anchor) => (
+              <IconAnchor
+                icon={anchor.icon}
+                link={anchor.link}
+                label={anchor.label}
+                text={anchor.text}
+              />
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>
 
 <style>
-  h4 {
-    text-align: center;
-  }
-  ul {
+  section {
     display: grid;
-    gap: 10px;
-    margin-top: 30px;
+    gap: 15px;
+
+    h2 {
+      text-align: center;
+    }
+    .container {
+      display: grid;
+      margin-top: var(--fs-s);
+      gap: var(--fs-s);
+    }
+
+    article {
+      display: grid;
+
+      h3 {
+        text-align: center;
+      }
+
+      ul {
+        display: grid;
+        gap: 10px;
+        margin-top: 30px;
+
+        a {
+          --icon-size: var(--fs-m);
+        }
+      }
+    }
+    article.developer {
+      h3 {
+        color: var(--blue-300);
+      }
+      a {
+        --clr: var(--blue-800);
+        --bg-clr: var(--blue-400);
+      }
+    }
+    article.artist {
+      h3 {
+        color: var(--pink-300);
+      }
+      a {
+        --clr: var(--pink-800);
+        --bg-clr: var(--pink-400);
+      }
+    }
   }
 </style>

@@ -8,7 +8,7 @@ const { title, targetID } = Astro.props;
 ---
 
 <li>
-  <button popovertarget={targetID}>
+  <button class={`popover-button`} popovertarget={targetID}>
     {title}
   </button>
 </li>
@@ -18,49 +18,71 @@ const { title, targetID } = Astro.props;
 
 <style>
   li {
-    --dark-pink: var(--pink-900);
-    color: var(--blue-200);
-    padding: 7px 30px;
-    border-bottom-left-radius: 20% 50%;
-    border-bottom-right-radius: 20% 50%;
-    list-style: none;
-    transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-family: "Subjectivity", system-ui;
     font-weight: 500;
+    padding: 5px;
+    color: var(--blue-200);
+    text-align: end;
 
     button {
-      display: block;
-      color: var(--blue-200);
+      text-align: end;
+      color: inherit;
+      text-decoration: none;
+      font-family: "Subjectivity", system-ui;
+      border-radius: 5px;
+      padding: 3px;
       cursor: pointer;
       text-decoration: none;
       background-color: transparent;
-      font-weight: 500;
-      font-size: var(--fs-s);
-      padding-bottom: 2px;
       border: none;
-      transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       &:focus,
       &:hover {
-        color: var(--pink-200);
         outline: none;
-        border-bottom: 1px solid var(--pink-200);
-        border-radius: 5px;
-        transform: scale(1.1);
+        color: var(--pink-200);
+        border-bottom: 2px solid var(--pink-200);
       }
     }
   }
-
   div[popover] {
-    top: 50%;
-    left: 50%;
-    padding: 20px;
+    margin: auto;
+    padding: var(--fs-m);
     border-radius: 10px;
     border: 1px solid white;
-    background-color: oklch(0.5 0.06 300 / 50%);
+    background-color: oklch(0.5 0.06 300 / 70%);
 
     &::backdrop {
       background-color: oklch(0.3 0.1 300 / 60%);
+    }
+  }
+
+  @media screen and (width >= 768px) {
+    li {
+      --dark-pink: var(--pink-900);
+      color: var(--blue-200);
+      padding: 7px 30px;
+      border-bottom-left-radius: 20% 50%;
+      border-bottom-right-radius: 20% 50%;
+      list-style: none;
+      transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      button {
+        display: block;
+        color: var(--blue-200);
+        font-weight: 500;
+        font-size: var(--fs-s);
+        padding-bottom: 2px;
+        transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus,
+        &:hover {
+          color: var(--pink-200);
+          outline: none;
+          border-bottom: 1px solid var(--pink-200);
+          border-radius: 5px;
+          transform: scale(1.1);
+        }
+      }
     }
   }
 </style>
