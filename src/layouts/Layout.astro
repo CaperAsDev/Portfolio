@@ -138,10 +138,16 @@ xl 2rem a 800px y 4rem a 2400px
   }
 
   html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-height: 100%;
+    width: 100%;
     color: var(--mono-200);
     scroll-behavior: smooth;
   }
   body {
+    overflow-x: clip;
+    height: fit-content;
     font-family: "Sansita Swashed Variable", system-ui;
     position: relative;
   }

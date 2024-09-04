@@ -81,6 +81,12 @@ import Linktree from "@/components/Linktree.astro";
     }
   }
 
+  @media screen and (orientation: landscape) {
+    nav {
+      top: 10%;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     nav {
       display: none;
@@ -105,8 +111,6 @@ import Linktree from "@/components/Linktree.astro";
 
   const checkSiblings = () => {
     setTimeout(() => {
-      console.log(popoverButton === document.activeElement);
-
       const focusSiblingAnchor =
         anchorsArray.some((anchor) => anchor === document.activeElement) ||
         popoverButton === document.activeElement ||
@@ -123,6 +127,7 @@ import Linktree from "@/components/Linktree.astro";
   });
 
   summary?.addEventListener("blur", checkSiblings);
+  popoverButton?.addEventListener("blur", checkSiblings);
 
   menu?.addEventListener("toggle", () => {
     if (summary && menu && svg) {

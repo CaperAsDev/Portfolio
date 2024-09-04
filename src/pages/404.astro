@@ -1,0 +1,263 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="404 Page not found"
+  description="Esta página no está disponible, por favor vuelve al inicio."
+>
+  <div class="gradient-bg">
+    <svg
+      viewBox="0 0 100vw 100vw"
+      xmlns="http://www.w3.org/2000/svg"
+      class="noiseBg"
+    >
+      <filter id="noiseFilterBg">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.6"
+          stitchTiles="stitch"></feTurbulence>
+      </filter>
+
+      <rect
+        width="100%"
+        height="100%"
+        preserveAspectRatio="xMidYMid meet"
+        filter="url(#noiseFilterBg)"></rect>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"
+          ></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+            result="goo"></feColorMatrix>
+          <feBlend in="SourceGraphic" in2="goo"></feBlend>
+        </filter>
+      </defs>
+    </svg>
+    <div class="warning-container">
+      <h1>404 Página no encontrada</h1>
+      <h2>ಠ_ಠ ¿Qué estás buscando? ಠ_ಠ</h2>
+      <p>
+        ¿Notas algún error en la página? déjame saberlo en alguna de mis redes
+      </p>
+    </div>
+    <div class="gradients-container">
+      <div class="g g1"></div>
+      <div class="g g2"></div>
+      <div class="g g3"></div>
+      <div class="g g4"></div>
+      <div class="g g5"></div>
+      <div class="interactive"></div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @property --hue {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @keyframes clr-chg {
+    from {
+      --hue: 0deg;
+    }
+    to {
+      --hue: 360deg;
+    }
+  }
+  .warning-container {
+    position: absolute;
+    z-index: 50;
+    inset: 0;
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    margin: auto;
+    gap: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-200);
+    background-color: oklch(0.4 0.1 300 / 70%);
+    box-shadow:
+      0px 0px 15px 1px oklch(0.5 0.1 250),
+      inset 0px 0px 15px 1px oklch(0.7 0.1 20);
+    mix-blend-mode: difference;
+  }
+
+  .gradient-bg {
+    --multiplier: 15;
+    --color: oklch(0.4 0.1 var(--hue));
+    --color-interactive: 140, 100, 255;
+    --circle-size: 80%;
+    --blending: soft-light;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    animation: clr-chg infinite 9s linear;
+
+    .svgBlur {
+      display: none;
+    }
+
+    .noiseBg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      mix-blend-mode: soft-light;
+      opacity: 0.3;
+    }
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      width: 100%;
+      height: 100%;
+    }
+
+    .g {
+      --index: 0;
+      position: absolute;
+      background: radial-gradient(
+          circle at center,
+          oklch(
+              from var(--color) l c calc(h + var(--multiplier) * var(--index)) /
+                0.8
+            )
+            0,
+          oklch(
+              from var(--color) l c calc(h + var(--multiplier) * var(--index)) /
+                0
+            )
+            50%
+        )
+        no-repeat;
+      mix-blend-mode: var(--blending);
+
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2);
+      left: calc(50% - var(--circle-size) / 2);
+
+      opacity: 0.65;
+    }
+
+    .g1 {
+      --index: 1;
+      transform-origin: center center;
+      animation: moveVertical 30s ease infinite;
+    }
+
+    .g2 {
+      --index: 2;
+      transform-origin: calc(50% - 400px);
+      animation: moveInCircle 20s reverse infinite;
+    }
+
+    .g3 {
+      --index: 3;
+      transform-origin: calc(50% + 400px);
+      animation: moveInCircle 40s linear infinite;
+    }
+
+    .g4 {
+      --index: 4;
+      transform-origin: calc(50% - 200px);
+      animation: moveHorizontal 40s ease infinite;
+    }
+
+    .g5 {
+      --index: 5;
+      transform-origin: calc(50% - 800px) calc(50% + 200px);
+      animation: moveInCircle 20s ease infinite;
+    }
+
+    .interactive {
+      position: absolute;
+      background: radial-gradient(
+          circle at center,
+          rgba(var(--color-interactive), 0.8) 0,
+          rgba(var(--color-interactive), 0) 50%
+        )
+        no-repeat;
+      mix-blend-mode: var(--blending);
+
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+</style>
+<script>
+  const interBubble: HTMLElement | null =
+    document.querySelector(".interactive");
+  let curX = 0;
+  let curY = 0;
+  let tgX = 0;
+  let tgY = 0;
+
+  const move = () => {
+    curX += (tgX - curX) / 20;
+    curY += (tgY - curY) / 20;
+    if (interBubble) {
+      interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+    }
+    requestAnimationFrame(move);
+  };
+
+  window.addEventListener("mousemove", (event) => {
+    tgX = event.clientX;
+    tgY = event.clientY;
+  });
+
+  move();
+</script>

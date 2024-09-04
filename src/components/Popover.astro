@@ -45,6 +45,9 @@ const { title, targetID } = Astro.props;
     }
   }
   div[popover] {
+    height: fit-content;
+    max-height: 90dvh;
+    overflow-y: auto;
     margin: auto;
     padding: var(--fs-m);
     border-radius: 10px;
