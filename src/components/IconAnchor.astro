@@ -18,7 +18,7 @@ const iconSet = icon.split(":");
   href={link}
   target="_blank"
   title={label}
-  class={`${customClass || ""} ${text && "innerText"}`}
+  class={`${customClass || ""} ${text ? "innerText" : ""}`}
   rel="noopener noreferrer"
   data-text={text}
 >
