@@ -29,11 +29,11 @@ jobs:
       - name: build
         run: npm run build
         env:
-          SERVER: development
+          SERVER: production
           REPO: ${{github.event.repository.name}}
       - name: create new branch with build
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx gh-pages -d dist -b preview -u "CaperAsDev <caper.asdev@gmail.com>"
+          npx gh-pages -d dist -b deploy -u "CaperAsDev <caper.asdev@gmail.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
