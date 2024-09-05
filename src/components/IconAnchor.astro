@@ -22,7 +22,12 @@ const iconSet = icon.split(":");
   rel="noopener noreferrer"
   data-text={text}
 >
-  <Icon name={`${iconSet[0]}:${iconSet[1]}`} width={30} height={30} />
+  <Icon
+    class={"iconAnchor"}
+    name={`${iconSet[0]}:${iconSet[1]}`}
+    width={30}
+    height={30}
+  />
 </a>
 
 <style>
@@ -39,12 +44,11 @@ const iconSet = icon.split(":");
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+  }
 
-    svg {
-      height: var(--icon-size);
-      width: var(--icon-size);
-    }
+  .iconAnchor {
+    height: var(--icon-size);
+    width: var(--icon-size);
   }
   a.innerText {
     justify-content: center;
