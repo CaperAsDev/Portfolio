@@ -7,7 +7,7 @@
     "type": "client",
     "tag": "Fennixx",
     "title":"Manufacturas Fennixx",
-    "description":"Una landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos, lo unico que es necesario para ampliar el catalogo es agregar las imagenes a los assets y el codigo hace el resto.",
+    "description":"Landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos: de las imagenes agregadas a los assets se obtiene la información necesaría.",
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -33,7 +33,7 @@
     },
     "tag": "Excellentia",
     "title":"Ecxellentia Consulting",
-    "description":"Un sitio web para una empresa de outsourcing contable, se construyo con componentes que se alimentan de archivos json para su contenido por lo que es facilmente escalable.",
+    "description":"Sitio web para una empresa de outsourcing contable, sus secciones son fácilmente escalables por la construcción versátil de sus componentes.",
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
