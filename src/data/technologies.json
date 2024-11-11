@@ -1,6 +1,18 @@
 {
   "technologies" : [
     {
+      "name": "Git",
+      "logo": "devicon:git",
+      "description": "Es un sistema de control de versiones, nos permite trabajar dejando registro de los cambios realizados en un proyecto, permitiendonos trabajar versiones con la posibilidad de regresar a estados especificos.",
+      "link": "https://learn.microsoft.com/es-es/devops/develop/git/what-is-git"
+    },
+    {
+      "name": "GitHub",
+      "logo": "devicon:github",
+      "description": "Es una plataforma para almacenar, compartir y trabajar con proyectos de código, se sirve de Git para llevar el control de los proyectos alojados, permitiendo clonar repositorios o trabajar junto a otros desarrolladores.",
+      "link": "https://docs.github.com/get-started"
+    },
+    {
       "name": "React",
       "logo": "devicon:react",
       "description": "Es la biblioteca para creación de interfaces de usuario más usada. Desarrollada y mantenida por Meta tiene gran soporte y recursos para ampliar sus funcionalidades.",

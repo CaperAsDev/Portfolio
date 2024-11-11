@@ -15,7 +15,7 @@ const { img_1, img_2 } = Astro.props;
     <Image
       src={img_1}
       class="face face--front"
-      alt={"Original Character Profile image"}
+      alt={"Original Character Amalthea"}
       height={280}
       width={280}
     />
@@ -23,7 +23,7 @@ const { img_1, img_2 } = Astro.props;
       class="face face--back"
       height={280}
       width={280}
-      alt={"Original Character Profile image"}
+      alt={"Original Character Samantha"}
       src={img_2}
     />
   </div>
@@ -38,6 +38,12 @@ const { img_1, img_2 } = Astro.props;
     box-shadow:
       0px 0px 15px 1px var(--blue-200),
       inset 0px 0px 25px 1px var(--blue-300);
+
+    &:has(.is-flipped) {
+      box-shadow:
+        0px 0px 15px 1px var(--pink-400),
+        inset 0px 0px 25px 1px var(--pink-500);
+    }
   }
   .flipImg__wrapper {
     position: relative;
