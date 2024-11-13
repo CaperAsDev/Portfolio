@@ -1,45 +1,51 @@
 {
   "technologies" : [
     {
+      "name": "VS Code",
+      "logo": "devicon:vscode",
+      "description": "Es un editor de código fuente que cuenta con numerosas cualidades que facilitan el desarrollo. Gracias a las múltiples extensiones e integraciones posibles, se convierte en una herramienta indispensable para el desarrollo web.",
+      "link": "https://code.visualstudio.com/docs"
+    },
+    {
       "name": "Git",
       "logo": "devicon:git",
-      "description": "Es un sistema de control de versiones, nos permite trabajar dejando registro de los cambios realizados en un proyecto, permitiendonos trabajar versiones con la posibilidad de regresar a estados especificos.",
+      "description": "Es un sistema de control de versiones que nos permite dejar registro de los cambios realizados en un proyecto. Además, podemos trabajar con diferentes versiones y regresar a estados específicos cuando sea necesario.",
       "link": "https://learn.microsoft.com/es-es/devops/develop/git/what-is-git"
     },
     {
       "name": "GitHub",
       "logo": "devicon:github",
-      "description": "Es una plataforma para almacenar, compartir y trabajar con proyectos de código, se sirve de Git para llevar el control de los proyectos alojados, permitiendo clonar repositorios o trabajar junto a otros desarrolladores.",
+      "description": "Es una plataforma de desarrollo colaborativo basada en Git. Permite almacenar y gestionar proyectos, colaborar con otros desarrolladores y mantener un historial de cambios. Con funciones como issues y pull requests. Es una herramienta esencial para el desarrollo y la gestión de proyectos de software.",
       "link": "https://docs.github.com/get-started"
     },
     {
       "name": "React",
       "logo": "devicon:react",
-      "description": "Es la biblioteca para creación de interfaces de usuario más usada. Desarrollada y mantenida por Meta tiene gran soporte y recursos para ampliar sus funcionalidades.",
+      "description": "Es la biblioteca para construcción de interfaces de usuario más usada, permite crear componentes reutilizables y gestionar el estado de manera eficiente.",
       "link": "https://es.react.dev/reference/react"
     },
     {
       "name": "Astro",
       "logo": "devicon:astro",
-      "description": "Es un framework para la web, con él puedes construir sitios enfocados en el contenido como blogs, e-commerce y landing pages. Es muy versátil y tiene capacidades que lo hacen la mejor opción para sitios que requieran velocidad de carga y buen SEO.",
+      "description": "Es un framework de desarrollo web estático que permite crear sitios rápidos y optimizados. Astro utiliza una arquitectura basada en componentes y aprovecha el renderizado en el servidor para generar páginas estáticas.",
       "link": "https://docs.astro.build/en/concepts/why-astro/"
     },
     {
       "name": "Tailwind",
       "logo": "devicon:tailwindcss",
-      "description": "Es un framework de CSS con el que puedes agregar estilos a través de clases en tus elementos HTML o componentes.",
+      "description": "Es un framework de CSS con el que puedes agregar estilos a través de clases utilitarias en tus elementos HTML o componentes.",
       "link": "https://tailwindcss.com/docs/installation"
     },
     {
       "name": "Sass",
       "logo": "devicon:sass",
-      "description": "Es una extensión del lenguaje CSS. Te permite trabajar de otra manera los estilos con diferente sintaxis, variables, funciones, mixins y @-rules.",
+      "description": "Es un preprocesador de CSS que extiende las capacidades del CSS tradicional. Permite el uso de variables, anidamiento, mixins, y otras características avanzadas que facilitan la escritura y el mantenimiento de estilos complejos.",
       "link": "https://sass-lang.com/documentation/"
     },
     {
       "name": "Vite",
       "logo": "devicon:vitejs",
-      "description": "Es una herramienta que nos facilita la inicialización de proyectos, la visualización durante el desarrollo y el armado del proyecto para su despliegue.",
+      "description": "Es un build tool de frontend que ofrece un entorno de desarrollo ultrarrápido y eficiente. Desarrollado por el creador de Vue.js, Vite utiliza un servidor de desarrollo basado en ES modules y un proceso de compilación optimizado.",
       "link": "https://vitejs.dev/guide/"
     },
     {

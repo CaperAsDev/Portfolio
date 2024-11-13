@@ -9,6 +9,7 @@ import About from "@/components/About.astro";
 
 import ProjectsData from "@/data/projects.json";
 import { technologies } from "@/data/technologies.json";
+import Skills from "@/components/Skills.astro";
 
 const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png}"
@@ -49,6 +50,9 @@ const imagesArray = Object.entries(projectsImgs);
         proyectos:
       </p>
       {technologies.map((project) => <TechPill {...project} />)}
+    </Section>
+    <Section icon="windsock" title="Habilidades" identifier="skills">
+      <Skills />
     </Section>
     <Section icon="zodiac-capricorn" title="Sobre Mi" identifier="me">
       <About />
