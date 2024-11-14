@@ -4,6 +4,9 @@ import aboutData from "@/data/about.json";
 import IconAnchor from "./IconAnchor.astro";
 import Profile_2 from "@/assets/images/face_1.png";
 import Profile_1 from "@/assets/images/face_2.png";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <div class="main-container">
@@ -54,7 +57,7 @@ import Profile_1 from "@/assets/images/face_2.png";
       {
         aboutData.map((bio) => (
           <div class={`face ${bio.face}__face  about-me__text`}>
-            {bio.biography.map((parr) => (
+            {bio.biography[lang].map((parr) => (
               <p>{parr}</p>
             ))}
           </div>

@@ -3,11 +3,18 @@
     "face":"front",
     "title":"caperasdev",
     "nickname": "AsDev",
-    "biography" : [
-      "Empecé a estudiar programacion web en Platzi por curiosidad para terminar sumergido en el mundo del desarrollo web, llevo más de dos años aprendiendo en la plataforma y de manera autonoma, todo lo aprendido me ha llevado a ver la cantidad de posibilidades que ofrece la programación y a querer aprender cada vez más.",
-      "He participado en proyectos grupales cortos coordinados por NoCountry. Obtuve mucha experiencia al participar en estas simulaciones y aprendí a ver el desarrollo web de manera más sistemática.",
-      "Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera ágil y eficiente. Compartir mis aprendizajes con los demás y ayudar a crecer la comunidad de la misma manera en que sucedió conmigo es algo que hare siempre."
-    ],
+    "biography" : {
+      "es": [
+        "Empecé a estudiar programacion web en Platzi por curiosidad para terminar sumergido en el mundo del desarrollo web, llevo más de dos años aprendiendo en la plataforma y de manera autonoma, todo lo aprendido me ha llevado a ver la cantidad de posibilidades que ofrece la programación y a querer aprender cada vez más.",
+        "He participado en proyectos grupales cortos coordinados por NoCountry. Obtuve mucha experiencia al participar en estas simulaciones y aprendí a ver el desarrollo web de manera más sistemática.",
+        "Mis aspiraciones como desarrollador web son llegar a tener la suficiente experiencia y conocimiento para transformar ideas en productos de manera ágil y eficiente. Compartir mis aprendizajes con los demás y ayudar a crecer la comunidad de la misma manera en que sucedió conmigo es algo que hare siempre."
+      ],
+      "en": [
+        "I began studying web programming at Platzi out of curiosity, but I soon found myself immersed in the world of web development. For over two years, I have been learning both on the platform and independently. This experience has revealed the vast possibilities that programming offers and has fueled my desire to continue learning.",
+        "I have participated in short group projects coordinated by NoCountry, where I gained valuable experience. These simulations taught me to view web development in a more systematic way.",
+        "As a web developer, my aspirations are to gain enough experience and knowledge to transform ideas into products in an agile and efficient manner. I am committed to sharing my learnings with others and helping to grow the community, just as it has supported me."
+      ] 
+    },
     "links" : [
       {
         "link": "https://www.linkedin.com/in/caperasdev/",
@@ -30,11 +37,19 @@
     "face": "back",
     "title": "caperactus",
     "nickname": "Actus",
-    "biography" : [
-      "De pequeño disfrutaba dibujando mis personajes favoritos, esa práctica se ha mantenido a lo largo de los años y gracias al estudio y aprendizaje autonomo he llegado a un nivel donde me siento a gusto con mis propias creaciones.",
-      "Me gusta dibujar y no dejare de hacerlo ya que es parte de mi identidad, quiero mejorar para lograr transmitir lo que quiero por este medio.",
-      "Me gusta ilustrar en digital por las facilidades que tiene, sin embargo pintar en tradicional tiene un encanto único que no se compara. Espero inspirar a los demás a dibujar incluso en una época donde la IA generativa amenaza el oficio de ilustrador."
-    ],
+    "biography" : {
+      "es": [
+        "De pequeño disfrutaba dibujando mis personajes favoritos, esa práctica se ha mantenido a lo largo de los años y gracias al estudio y aprendizaje autonomo he llegado a un nivel donde me siento a gusto con mis propias creaciones.",
+        "Me gusta dibujar y no dejare de hacerlo ya que es parte de mi identidad, quiero mejorar para lograr transmitir lo que quiero por este medio.",
+        "Me gusta ilustrar en digital por las facilidades que tiene, sin embargo pintar en tradicional tiene un encanto único que no se compara. Espero inspirar a los demás a dibujar incluso en una época donde la IA generativa amenaza el oficio de ilustrador."
+      ]
+      ,
+      "en": [
+        "As a child, I enjoyed drawing my favorite characters. This passion has continued over the years, and through self-study and learning, I have reached a level where I feel confident in my own creations.",
+        "Drawing is an integral part of my identity, and I will never stop doing it. I strive to improve continually so that I can better convey my ideas through this medium.",
+        "While I enjoy the conveniences of digital illustration, traditional painting has a unique charm that is incomparable. My goal is to inspire others to draw, even in an era where generative AI poses challenges to the craft of illustration."
+      ]
+    },
     "links" : [
       {
         "link": "https://www.twitch.tv/caperactus/about",

@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import profileImg from "@/assets/images/profile_2.png";
+import { getLangFromUrl } from "@/i18n/utils";
+import { hero } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <section>
@@ -12,12 +16,9 @@ import profileImg from "@/assets/images/profile_2.png";
       <h1>Kevin Hincapie</h1>
       <strong>@CaperAsDev</strong>
     </div>
-    <h2>Desarrollador Web</h2>
+    <h2>{hero[lang].profile}</h2>
     <p>
-      Soy un desarrollador web apasionado por crear experiencias digitales
-      innovadoras. Con +2 años de experiencia en frontend, ofrezco soluciones
-      creativas y eficientes, siempre manteniéndome al día con las últimas
-      tendencias tecnológicas.
+      {hero[lang].bio}
     </p>
   </div>
 </section>

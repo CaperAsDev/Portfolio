@@ -1,13 +1,28 @@
 [
   {
     "notes": {
-      "type": "Cliente",
-      "status": "Finalizado"
+      "es": 
+        {
+          "type": "Cliente",
+          "status": "Finalizado"
+        },
+      "en": 
+        {
+          "type": "Client",
+          "status": "Finished"
+        }
     },
-    "type": "client",
     "tag": "Fennixx",
-    "title":"Manufacturas Fennixx",
-    "description":"Landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos: de las imagenes agregadas a los assets se obtiene la información necesaría.",
+    "header" : {
+      "es": {
+        "title":"Manufacturas Fennixx",
+        "description":"Landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos: de las imagenes agregadas a los assets se obtiene la información necesaría."
+      },
+      "en": {
+        "title":"Manufacturas Fennixx",
+        "description":"Developed a landing page for a local company with a focus on scalability for the product catalog. The page dynamically retrieves necessary information from images added to the assets, ensuring easy updates and maintenance."
+      }
+    },
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -28,12 +43,28 @@
   },
   {
     "notes": {
-      "type": "Cliente",
-      "status": "Finalizado"
+      "es": 
+        {
+          "type": "Cliente",
+          "status": "Finalizado"
+        },
+      "en": 
+        {
+          "type": "Client",
+          "status": "Finished"
+        }
     },
     "tag": "Excellentia",
-    "title":"Ecxellentia Consulting",
-    "description":"Sitio web para una empresa de outsourcing contable, sus secciones son fácilmente escalables por la construcción versátil de sus componentes.",
+    "header" : {
+      "es": {
+        "title":"Ecxellentia Consulting",
+        "description":"Sitio web para una empresa de outsourcing contable, sus secciones son fácilmente escalables por la construcción versátil de sus componentes."
+      },
+      "en": {
+        "title":"Ecxellentia Consulting",
+        "description":"Created a website for an accounting outsourcing company, featuring easily scalable sections thanks to the versatile design and construction of its components."
+      }
+    },
     "techsIcon": [
       {"title": "Astro Js", "icon":"tabler:brand-astro"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -54,12 +85,28 @@
   },
   {
     "notes": {
-      "type": "Colaborativo",
-      "status": "Finalizado"
+      "es": 
+        {
+          "type": "Colaborativo",
+          "status": "Finalizado"
+        },
+      "en": 
+        {
+          "type": "Collabotarive",
+          "status": "Finished"
+        }
     },
     "tag": "Event",
-    "title":"Event Wave",
-    "description":"Crea una cuenta, logueate y agrega un evento público o sumate a otras personas en tu misma zona para participar y colaborar en comunidad.",
+    "header" : {
+      "es": {
+        "title":"Event Wave",
+        "description":"Crea una cuenta, logueate y agrega un evento público o sumate a otras personas en tu misma zona para participar y colaborar en comunidad."
+      },
+      "en": {
+        "title":"Event Wave",
+        "description":"Create an account, log in, and either add a public event or join events in your area to participate and collaborate within the community."
+      }
+    },
     "techsIcon": [
       {"title": "React", "icon":"tabler:brand-react"},
       {"title": "Tailwind", "icon":"tabler:brand-tailwind"},
@@ -80,12 +127,28 @@
   },
   {
     "notes": {
-      "type": "Personal",
-      "status": "En proceso"
+      "es": 
+        {
+          "type": "Personal",
+          "status": "En proceso"
+        },
+      "en": 
+        {
+          "type": "Personal",
+          "status": "In Process"
+        }
     },
     "tag": "Manager",
-    "title":"My Life Manager",
-    "description":"Crea tareas, agrega notas y haz seguimiento de tus avances mientras persigues tus objetivos. La To Do app que va más allá de una lista de chequeo.",
+    "header" : {
+      "es": {
+        "title":"My Life Manager",
+        "description":"Crea tareas, agrega notas y haz seguimiento de tus avances mientras persigues tus objetivos. La To Do app que va más allá de una lista de chequeo."
+      },
+      "en": {
+        "title":"My Life Manager",
+        "description":"Create tasks, add notes, and track your progress as you work towards your goals. The To-Do app that goes beyond a simple checklist."
+      }
+    },
     "techsIcon": [
       {"title": "React", "icon":"tabler:brand-react"},
       {"title": "Sass", "icon":"tabler:brand-sass"},

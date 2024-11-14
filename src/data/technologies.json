@@ -3,86 +3,129 @@
     {
       "name": "VS Code",
       "logo": "devicon:vscode",
-      "description": "Es un editor de código fuente que cuenta con numerosas cualidades que facilitan el desarrollo. Gracias a las múltiples extensiones e integraciones posibles, se convierte en una herramienta indispensable para el desarrollo web.",
+      "description": {
+        "es": "Es un editor de código fuente que cuenta con numerosas cualidades que facilitan el desarrollo. Gracias a las múltiples extensiones e integraciones posibles, se convierte en una herramienta indispensable para el desarrollo web.",
+        "en": "VS Code is a tool for writing code with many features that make development easier. It has numerous extensions and integrations, making it a must-have for web development."
+      },
       "link": "https://code.visualstudio.com/docs"
     },
     {
       "name": "Git",
       "logo": "devicon:git",
-      "description": "Es un sistema de control de versiones que nos permite dejar registro de los cambios realizados en un proyecto. Además, podemos trabajar con diferentes versiones y regresar a estados específicos cuando sea necesario.",
+      "description": {
+        "es": "Es un sistema de control de versiones que nos permite dejar registro de los cambios realizados en un proyecto. Además, podemos trabajar con diferentes versiones y regresar a estados específicos cuando sea necesario.",
+        "en": "Git is a system that tracks changes in a project, allowing you to work with different versions and revert to previous states if needed."
+      },
       "link": "https://learn.microsoft.com/es-es/devops/develop/git/what-is-git"
     },
     {
       "name": "GitHub",
       "logo": "devicon:github",
-      "description": "Es una plataforma de desarrollo colaborativo basada en Git. Permite almacenar y gestionar proyectos, colaborar con otros desarrolladores y mantener un historial de cambios. Con funciones como issues y pull requests. Es una herramienta esencial para el desarrollo y la gestión de proyectos de software.",
+      "description": {
+        "es": "Es una plataforma de desarrollo colaborativo basada en Git. Permite almacenar y gestionar proyectos, colaborar con otros desarrolladores y mantener un historial de cambios. Con funciones como issues y pull requests. Es una herramienta esencial para el desarrollo y la gestión de proyectos de software.",
+        "en": "GitHub is a platform for collaborating on projects using Git. It helps store and manage projects, work with other developers, and keep a history of changes. Features like issues and pull requests make it essential for software development."
+      },
       "link": "https://docs.github.com/get-started"
     },
     {
       "name": "React",
       "logo": "devicon:react",
-      "description": "Es la biblioteca para construcción de interfaces de usuario más usada, permite crear componentes reutilizables y gestionar el estado de manera eficiente.",
+      "description": {
+        "es": "Es la biblioteca para construcción de interfaces de usuario más usada, permite crear componentes reutilizables y gestionar el estado de manera eficiente.",
+        "en": "React is a popular library for building user interfaces. It lets you create reusable components and manage the state of your app efficiently."
+      },
       "link": "https://es.react.dev/reference/react"
     },
     {
       "name": "Astro",
       "logo": "devicon:astro",
-      "description": "Es un framework de desarrollo web estático que permite crear sitios rápidos y optimizados. Astro utiliza una arquitectura basada en componentes y aprovecha el renderizado en el servidor para generar páginas estáticas.",
+      "description": {
+        "es": "Es un framework de desarrollo web estático que permite crear sitios rápidos y optimizados. Astro utiliza una arquitectura basada en componentes y aprovecha el renderizado en el servidor para generar páginas estáticas.",
+        "en": "Astro is a framework for building fast and optimized websites. It uses components and server-side rendering to generate static pages."
+      },
       "link": "https://docs.astro.build/en/concepts/why-astro/"
     },
     {
       "name": "Tailwind",
       "logo": "devicon:tailwindcss",
-      "description": "Es un framework de CSS con el que puedes agregar estilos a través de clases utilitarias en tus elementos HTML o componentes.",
+      "description": {
+        "es": "Es un framework de CSS con el que puedes agregar estilos a través de clases utilitarias en tus elementos HTML o componentes.",
+        "en": "Tailwind is a CSS framework that allows you to style your HTML elements using utility classes."
+      },
       "link": "https://tailwindcss.com/docs/installation"
     },
     {
       "name": "Sass",
       "logo": "devicon:sass",
-      "description": "Es un preprocesador de CSS que extiende las capacidades del CSS tradicional. Permite el uso de variables, anidamiento, mixins, y otras características avanzadas que facilitan la escritura y el mantenimiento de estilos complejos.",
+      "description": {
+        "es": "Es un preprocesador de CSS que extiende las capacidades del CSS tradicional. Permite el uso de variables, anidamiento, mixins, y otras características avanzadas que facilitan la escritura y el mantenimiento de estilos complejos.",
+        "en": "Sass is a tool that extends CSS, adding features like variables, nesting, and mixins to make writing and maintaining styles easier."
+      },
       "link": "https://sass-lang.com/documentation/"
     },
     {
       "name": "Vite",
       "logo": "devicon:vitejs",
-      "description": "Es un build tool de frontend que ofrece un entorno de desarrollo ultrarrápido y eficiente. Desarrollado por el creador de Vue.js, Vite utiliza un servidor de desarrollo basado en ES modules y un proceso de compilación optimizado.",
+      "description": {
+        "es": "Es un build tool de frontend que ofrece un entorno de desarrollo ultrarrápido y eficiente. Desarrollado por el creador de Vue.js, Vite utiliza un servidor de desarrollo basado en ES modules y un proceso de compilación optimizado.",
+        "en": " Vite is a tool for building frontend projects. It offers a fast development environment and an optimized build process, created by the developer of Vue.js."
+      },
       "link": "https://vitejs.dev/guide/"
     },
     {
       "name": "HTML",
       "logo": "devicon:html5",
-      "description": "Lenguaje de marcado de hipertexto por sus siglas en inglés, nos permite estructurar el contenido de un sitio web por medio de etiquetas.",
+      "description": {
+        "es": "Lenguaje de marcado de hipertexto por sus siglas en inglés, nos permite estructurar el contenido de un sitio web por medio de etiquetas.",
+        "en": "HTML (Hypertext Markup Language) is used to structure the content of a website using tags."
+      },
       "link": "https://developer.mozilla.org/es/docs/Web/HTML"
     },
     {
       "name": "CSS",
       "logo": "devicon:css3",
-      "description": "Hojas de estilo en cascada por sus siglas en inglés, es la forma en que definimos los atributos visuales que tendrán las etiquetas de HTML.",
+      "description": {
+        "es": "Hojas de estilo en cascada por sus siglas en inglés, es la forma en que definimos los atributos visuales que tendrán las etiquetas de HTML.",
+        "en": " CSS (Cascading Style Sheets) defines the visual appearance of HTML tags on a website."
+      },
       "link": "https://developer.mozilla.org/es/docs/Web/CSS"
     },
     {
       "name": "Javascript",
       "logo": "devicon:javascript",
-      "description": "Es el lenguaje de programacion de la web, con el agregamos interactividad a los elementos de nuestro sitio, controlamos el flujo de datos, personalizamos la experiencia del usuario y mucho mas.",
+      "description": {
+        "es": "Es el lenguaje de programacion de la web, con el agregamos interactividad a los elementos de nuestro sitio, controlamos el flujo de datos, personalizamos la experiencia del usuario y mucho mas.",
+        "en": "JavaScript is the programming language of the web. It adds interactivity, controls data flow, customizes user experiences, and more."
+      },
       "link": "https://developer.mozilla.org/es/docs/Web/JavaScript"
     },
     {
       "name": "Typescript",
       "logo": "devicon:typescript",
-      "description": "Actúa una capa por encima de javascript, nos ayuda a reducir comportamientos inesperados cuando manejamos datos de diferentes tipos. Su uso afecta únicamente la experiencia de desarrollo así que no tiene un impacto evidenciable en el resultado final.",
+      "description": {
+        "es": "Actúa una capa por encima de javascript, nos ayuda a reducir comportamientos inesperados cuando manejamos datos de diferentes tipos. Su uso afecta únicamente la experiencia de desarrollo así que no tiene un impacto evidenciable en el resultado final.",
+        "en": " TypeScript is a layer on top of JavaScript that helps reduce errors when working with different data types. It enhances the development experience without affecting the final product."
+      },
       "link": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html"
     },
     {
       "name": "Node Js",
       "logo": "devicon:nodejs",
-      "description": "Es un entorno de ejecución de Javascript, lo que nos permite hacer que JS  funcione fuera del navegador, ampliando las posibilidades de javascript para correr en sinnúmero de dispositivos.",
+      "description": {
+        "es": "Es un entorno de ejecución de Javascript, lo que nos permite hacer que JS funcione fuera del navegador, ampliando las posibilidades de javascript para correr en sinnúmero de dispositivos.",
+        "en": "Node.js is an environment that allows JavaScript to run outside the browser, expanding its use to many different devices."
+      },
       "link": "https://nodejs.org/docs/latest/api/synopsis.html"
     },
     {
       "name": "Express",
       "logo": "devicon:express",
-      "description": "Es una framework de Node Js para la web, facilita la creación  de APIs web por todas las funcionalidades que proporciona para el manejo de rutas, peticiones, respuestas y middlewares.",
+      "description": {
+        "es": "Es una framework de Node Js para la web, facilita la creación de APIs web por todas las funcionalidades que proporciona para el manejo de rutas, peticiones, respuestas y middlewares.",
+        "en": " Express is a framework for Node.js that makes it easier to create web APIs. It provides tools for handling routes, requests, responses, and middleware."
+      },
       "link": "https://expressjs.com/en/5x/api.html"
     }
   ]
+  
 }

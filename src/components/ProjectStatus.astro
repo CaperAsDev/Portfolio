@@ -6,19 +6,15 @@ interface Props {
   };
 }
 const { notes } = Astro.props;
-let clr_1 =
-  notes.type == "Cliente"
-    ? "oklch(55.34% 0.094 256.24)"
-    : notes.type == "Colaborativo"
-      ? "oklch(74.04% 0.146 120.18)"
-      : notes.type == "Personal"
-        ? "oklch(.6 0.15 340)"
-        : "blue";
+let clr_1 = notes.type.includes("Cli")
+  ? "oklch(55.34% 0.094 256.24)"
+  : notes.type.includes("Col")
+    ? "oklch(74.04% 0.146 120.18)"
+    : "oklch(.6 0.15 340)";
 
-let clr_2 =
-  notes.status == "Finalizado"
-    ? "oklch(60.39% 0.14 157.57)"
-    : "oklch(55.34% 0.14 256.24)";
+let clr_2 = notes.status.includes("Fin")
+  ? "oklch(60.39% 0.14 157.57)"
+  : "oklch(55.34% 0.14 256.24)";
 ---
 
 <div class="lights-wrapper">

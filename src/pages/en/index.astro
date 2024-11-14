@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 
 import Hero from "@/components/Hero.astro";
 import Section from "@/components/Section.astro";
@@ -11,6 +11,7 @@ import ProjectsData from "@/data/projects.json";
 import { technologies } from "@/data/technologies.json";
 import Skills from "@/components/Skills.astro";
 import { getLangFromUrl } from "@/i18n/utils";
+import type { ActionError } from "astro:actions";
 
 const lang = getLangFromUrl(Astro.url);
 const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
@@ -21,12 +22,12 @@ const imagesArray = Object.entries(projectsImgs);
 
 <Layout
   title="CaperAsDev"
-  description="Kevin Hincapie Desarrollador web Colombiano apasionado por la tecnología y la creatividad."
+  description="Kevin Hincapie, Colombian web developer passionate about technology and creativity"
 >
   <main>
     <Hero />
     <Section
-      title="Proyectos"
+      title="Projects"
       icon="briefcase"
       customClass="projects-wrapper"
       identifier="projects"
@@ -41,22 +42,26 @@ const imagesArray = Object.entries(projectsImgs);
             images={imagesArray.filter((image) =>
               image[0].includes(project.tag)
             )}
-            notes={project.notes}
+            notes={project.notes[lang]}
           />
         ))
       }
     </Section>
-    <Section title="Tecnologias" icon="puzzle" customClass="techs-wrapper">
+    <Section title="Technologies" icon="puzzle" customClass="techs-wrapper">
       <p>
-        Estas son las herramientas de desarrollo web que mas frecuento en mis
-        proyectos:
+        These are the web development tools I use most frequently in my
+        projects:
       </p>
-      {technologies.map((project) => <TechPill {...project} />)}
+      {
+        technologies.map((project) => (
+          <TechPill {...project} description={project.description[lang]} />
+        ))
+      }
     </Section>
-    <Section icon="windsock" title="Habilidades" identifier="skills">
+    <Section icon="windsock" title="Skills" identifier="skills">
       <Skills />
     </Section>
-    <Section icon="zodiac-capricorn" title="Sobre Mi" identifier="me">
+    <Section icon="zodiac-capricorn" title="About me" identifier="me">
       <About />
     </Section>
   </main>
