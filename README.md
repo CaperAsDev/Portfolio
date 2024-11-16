@@ -1,4 +1,1 @@
-# Implementacion i18n
-
-1. hacer carpetas de idioma en pages
-2. 
+1. Un buen agregado seria que el estado del dialog de contacto y el flip de about me se vieran reflejados en la url

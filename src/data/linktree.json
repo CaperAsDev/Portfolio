@@ -1,47 +1,71 @@
 [
   {
-    "title": "Perfiles Developer",
+    "title": {
+      "es": "Perfiles Developer",
+      "en": "Developer Profiles"
+    },
     "profile": "developer",
     "group": [
       {
         "link": "https://www.linkedin.com/in/caperasdev/",
-        "text": "Perfil LinkedIn",
+        "text": {
+          "es": "Perfil LinkedIn",
+          "en": "LinkedIn Profile"
+        },
         "icon": "tabler:brand-linkedin",
         "label": "LinkedIn"
       },
       {
         "link": "https://github.com/CaperAsDev",
-        "text": "Perfil Github",
+        "text": {
+          "es": "Perfil Github",
+          "en": "Github Profile"
+        },
         "icon": "tabler:brand-github",
         "label": "Github"
       },
       {
         "link": "https://codepen.io/Caperasdev",
-        "text": "Perfil Codepen",
+        "text": {
+          "es": "Perfil Codepen",
+          "en": "Codepen Profile"
+        },
         "icon": "tabler:brand-codepen",
         "label": "Codepen"
       }
     ]
   },
   {
-    "title": "Perfiles Artista",
+    "title": {
+      "es": "Perfiles Artista",
+      "en": "Artist Profiles"
+    },
     "profile": "artist",
     "group": [
       {
         "link": "https://www.twitch.tv/caperactus/about",
-        "text": "Canal de Twitch",
+        "text": {
+          "es": "Canal de Twitch",
+          "en": "Twitch Channel"
+        },
         "icon": "tabler:brand-twitch",
         "label": "Twitch"
       },
       {
         "link": "https://www.instagram.com/caperactus/",
-        "text": "Perfil Instagram",
+        "text": {
+          "es": "Perfil Instagram",
+          "en": "Instagram Profile"
+        },
         "icon": "tabler:brand-instagram",
         "label": "Instagram"
       },
       {
         "link": "https://co.pinterest.com/caperactus/_saved/",
-        "text": "Tableros Pinterest",
+        "text": {
+          "es": "Tableros Pinterest",
+          "en": "Pinterest Boards"
+        },
         "icon": "tabler:brand-pinterest",
         "label": "Pinterest"
       }

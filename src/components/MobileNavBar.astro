@@ -3,6 +3,11 @@ import MobileNavItem from "@/components/MobileNavItem.astro";
 import Hamburger from "@/components/hamburger.astro";
 import Popover from "@/components/Popover.astro";
 import Linktree from "@/components/Linktree.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+import { nav } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const links = nav[lang];
 ---
 
 <nav>
@@ -11,9 +16,9 @@ import Linktree from "@/components/Linktree.astro";
       <Hamburger />
     </summary>
     <ul>
-      <MobileNavItem title="Proyectos" link="projects" />
-      <MobileNavItem title="Sobre mi" link="me" />
-      <Popover title="Contacto" targetID="linktree-mobile">
+      <MobileNavItem title={links.projects.title} link={links.projects.link} />
+      <MobileNavItem title={links.about.title} link={links.about.link} />
+      <Popover title={links.contact.title} targetID="linktree-mobile">
         <Linktree />
       </Popover>
     </ul>

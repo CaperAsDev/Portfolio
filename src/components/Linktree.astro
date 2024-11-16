@@ -1,6 +1,9 @@
 ---
 import IconAnchor from "@/components/IconAnchor.astro";
 import links from "@/data/linktree.json";
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <section>
@@ -9,14 +12,14 @@ import links from "@/data/linktree.json";
     {
       links.map((link) => (
         <article class={link.profile}>
-          <h3>{link.title}</h3>
+          <h3>{link.title[lang]}</h3>
           <ul>
             {link.group.map((anchor) => (
               <IconAnchor
                 icon={anchor.icon}
                 link={anchor.link}
                 label={anchor.label}
-                text={anchor.text}
+                text={anchor.text[lang]}
               />
             ))}
           </ul>

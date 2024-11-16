@@ -2,13 +2,18 @@
 import NavItem from "@/components/DesktopNavItem.astro";
 import Popover from "@/components/Popover.astro";
 import Linktree from "@/components/Linktree.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+import { nav } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const links = nav[lang];
 ---
 
 <nav>
   <ul>
-    <NavItem title="Proyectos" link="/#projects" />
-    <NavItem title="Sobre mi" link="/#me" />
-    <Popover title="Contacto" targetID="linktree">
+    <NavItem title={links.projects.title} link={links.projects.link} />
+    <NavItem title={links.about.title} link={links.about.link} />
+    <Popover title={links.contact.title} targetID="linktree">
       <Linktree />
     </Popover>
   </ul>

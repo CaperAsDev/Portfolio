@@ -5,6 +5,10 @@ import IconAnchor from "@/components/IconAnchor.astro";
 import CaperActus from "@/assets/images/caperActus.png";
 import CaperAsDev from "@/assets/images/caperAsDev.png";
 import info from "@/data/about.json";
+import { getLangFromUrl } from "@/i18n/utils";
+import { footer } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
 
 const devInfo = info.find((profile) => profile.title == "caperasdev");
 const artInfo = info.find((profile) => profile.title == "caperactus");
@@ -49,10 +53,8 @@ const artInfo = info.find((profile) => profile.title == "caperactus");
     </div>
   </section>
   <p>
-    Diseñado y codeado por <a
-      href="https://github.com/CaperAsDev/Portfolio"
-      target="_blank"
-    >
+    {footer.credits[lang]}
+    <a href="https://github.com/CaperAsDev/Portfolio" target="_blank">
       ♑︎
       <span> CaperAsDev </span>
       ♑︎
