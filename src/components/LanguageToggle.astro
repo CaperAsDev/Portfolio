@@ -1,0 +1,9 @@
+---
+import { shiftLang } from "@/i18n/utils";
+
+const linksArray = shiftLang(Astro.url);
+---
+
+<div>
+  {linksArray.map(({ path, label }) => <a href={path}>{label}</a>)}
+</div>

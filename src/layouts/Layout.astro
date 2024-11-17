@@ -6,13 +6,12 @@ import Background from "@/components/Background.astro";
 import "@fontsource-variable/comfortaa";
 import "@fontsource-variable/sansita-swashed";
 import Seo from "@/components/Seo.astro";
+import { MetaManager, parseURL } from "@/i18n/utils";
 
-interface Props {
-  title: string;
-  description: string;
-}
+const parsedURL = parseURL(Astro.url);
+const layoutMetaManager = new MetaManager();
 
-const { title, description } = Astro.props;
+const { title, description } = layoutMetaManager.getMetaData(parsedURL);
 ---
 
 <!doctype html>

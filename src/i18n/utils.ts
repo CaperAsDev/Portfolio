@@ -4,17 +4,45 @@ const enum Languages {
 }
 
 const defaultLang :keyof typeof Languages = 'es'
-const languages: {[key: string]: Languages} = {
+
+export const languages: {[key: string]: Languages} = {
   es: Languages.es,
   en: Languages.en,
 }
+
+const paths = {
+  '/home' : '/',
+  '/about' : '/about'
+}
+
 export function getLangFromUrl (url : URL)  {
   const [, lang] = url.pathname.split('/');
   if(lang in languages) return lang as keyof typeof Languages
   return defaultLang
 }
 
-function parseURL(urlObject: URL): { url: string; lang: string } {
+export function shiftLang (url: URL) : { path: string, label: string}[] {
+  const {url: path, lang } = parseURL(url);
+  const languagesArray = Object.entries(languages);
+  const reminderLangs = languagesArray.filter(
+  (languages) => languages[0] !== lang
+);
+  const linksObj = reminderLangs.reduce<{path: string, label: Languages}[]>((acc, lang) => {
+    const isDefLang = lang[0] === defaultLang 
+    const currentPath = paths[path as keyof typeof paths]
+    const definedPath = isDefLang ? currentPath
+    : '/' + lang[0] + currentPath
+    const linkObj = {
+      path: definedPath,
+      label: lang[1]
+    }
+    acc.push(linkObj)
+    return acc
+  }, [])
+
+  return linksObj
+}
+export function parseURL(urlObject: URL): { url: string; lang: string } {
   const defaultLang = 'es';
   let pathname = urlObject.pathname;
   if (pathname === '/') {
@@ -23,6 +51,7 @@ function parseURL(urlObject: URL): { url: string; lang: string } {
 
   const parts = pathname.split('/').filter(part => part !== '');
   if (parts.length === 1) {
+    if(parts[0] in languages) return { url:"/home" , lang:parts[0]}
     return { url: `/${parts[0]}`, lang: defaultLang };
   } else if (parts.length === 2) {
     const [lang, page] = parts;
@@ -44,36 +73,38 @@ type MetaDataCollection = {
   };
 };
 
-class MetaManager {
+export class MetaManager {
   private metaCollection: MetaDataCollection;
 
   constructor() {
     this.metaCollection = {
       '/home': {
         'en': {
-          title: 'Welcome to Our Site',
-          description: 'This is the home page of our website.',
+          title: 'CaperAsDev | Portfolio',
+          description: 'Kevin Hincapie, Colombian web developer passionate about technology and creativity',
         },
         'es': {
-          title: 'Bienvenido a Nuestro Sitio',
-          description: 'Esta es la página principal de nuestro sitio web.',
+          title: 'CaperAsDev | Portafolio',
+          description: 'Kevin Hincapie Desarrollador web Colombiano apasionado por la tecnología y la creatividad.',
         },
       },
       '/about': {
         'en': {
-          title: 'About Us',
-          description: 'Learn more about our company and team.',
+          title: 'CaperAsDev | About me',
+          description: 'Kevin Hincapie, Industrial Designer, Artist, Web Developer and much more.',
         },
         'es': {
-          title: 'Sobre Nosotros',
-          description: 'Conozca más sobre nuestra empresa y equipo.',
+          title: 'CaperAsDev | Sobre mi',
+          description: 'Kevin Hincapie, Diseñador Industrial, Artista, Desarrollador Web y mucho mas.',
         },
       },
-      // Agrega más rutas y traducciones según sea necesario
     };
   }
 
-  getMetaData(url: string, lang: string = 'es'): MetaData | null {
+  getMetaData({url, lang = 'es'}: {
+    url: string;
+    lang?: string | undefined;
+}): MetaData {
     const urlMeta = this.metaCollection[url];
     if (urlMeta) {
       const langMeta = urlMeta[lang];
@@ -85,7 +116,7 @@ class MetaManager {
       }
     } else {
       console.warn(`No metadata found for URL: ${url}`);
-      return null;
+      return this.metaCollection['/home']['es'];
     }
   }
 }
