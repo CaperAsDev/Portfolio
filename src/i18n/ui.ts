@@ -11,28 +11,32 @@ export const hero = {
 
 export const nav = {
   en: {
-    projects: {
-      title: "Projects",
-      link: "/en/#projects"
-    },
-    about: {
-      title: "About",
-      link: "/en/about"
-    },
+    links: [
+      {
+        title: "About",
+        link: "/en/about"
+      },
+      {
+        title: "Home",
+        link: "/en/"
+      }
+    ],
     contact: {
       title: "Contact",
       link: "#"
-    }
+    },
 },
   es: {
-    projects: {
-      title: "Proyectos",
-      link: "/#projects"
-    },
-    about: {
-      title: "Sobre mi",
-      link: "/about"
-    },
+    links: [
+      {
+        title: "Sobre mi",
+        link: "/about"
+      },
+      {
+        title: "Inicio",
+        link: "/"
+      }
+    ],
     contact:{
       title: "Contacto",
       link: "#"
@@ -43,16 +47,16 @@ export const nav = {
 export const about = {
   flags: {
     es: [
-      ['📌', "Diseñador industrial por Elección"],
-      ['💘', "Artista por Pasión"],
-      ['🧩', "Programador por Curiosidad"],
-      ['🙈', "Humano por Defecto"]
+      ['📌', "Diseñador industrial"," por " ,"Elección"],
+      ['💘', "Ilustrador"," por " , "Pasión"],
+      ['🧩', "Programador"," por " , "Curiosidad"],
+      ['🙈', "Humano"," por " , "Defecto"]
     ],
     en: [
-      ['📌', "Industrial Designer by Choice"],
-      ['💘', "Artist by Passion"],
-      ['🧩', "Programmer by Curiosity"],
-      ['🙈', "Human by Default"]
+      ['📌', "Industrial Designer", " by ", "Choice"],
+      ['💘', "Illustrator", " by ", "Passion"],
+      ['🧩', "Programmer", " by ", "Curiosity"],
+      ['🙈', "Human", " by ", "Default"]
     ]
   },
 }

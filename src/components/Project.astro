@@ -155,6 +155,21 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
       padding: 7px;
       position: relative;
 
+      a {
+        --clr: var(--blue-100);
+        --bg-clr: oklch(
+          from var(--blue-700) calc(l - 0.1) calc(c + 0.05) calc(h + 100)
+        );
+
+        &:hover {
+          --clr: oklch(
+            from var(--blue-700) calc(l - 0.1) calc(c + 0.05) calc(h + 100)
+          );
+          --bg-clr: var(--blue-100);
+          box-shadow: 0 0 5px 2px var(--pink-900);
+        }
+      }
+
       &::after,
       &::before {
         content: "";

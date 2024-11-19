@@ -1,9 +1,38 @@
 ---
+import IconAnchor from "./IconAnchor.astro";
 import { shiftLang } from "@/i18n/utils";
 
 const linksArray = shiftLang(Astro.url);
 ---
 
 <div>
-  {linksArray.map(({ path, label }) => <a href={path}>{label}</a>)}
+  {
+    linksArray.map(({ path, label }) => (
+      <IconAnchor
+        link={path}
+        label={label}
+        text={label}
+        target="_self"
+        rel="follow"
+        icon="tabler:language-hiragana"
+        customClass="textXS"
+      />
+    ))
+  }
 </div>
+<style>
+  div {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: var(--fs-xs);
+    display: grid;
+    place-items: center;
+    gap: var(--fs-xs);
+
+    a {
+      --clr: var(--blue-100);
+      --bg-clr: var(--blue-700);
+    }
+  }
+</style>

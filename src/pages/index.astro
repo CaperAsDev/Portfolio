@@ -17,8 +17,6 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png}"
 );
 const imagesArray = Object.entries(projectsImgs);
-
-console.log(Astro.url);
 ---
 
 <Layout
@@ -48,7 +46,11 @@ console.log(Astro.url);
         ))
       }
     </Section>
-    <Section title="Tecnologias" icon="puzzle" customClass="techs-wrapper">
+    <Section
+      title="Habilidades Duras"
+      icon="puzzle"
+      customClass="techs-wrapper"
+    >
       <p>
         Estas son las herramientas de desarrollo web que mas frecuento en mis
         proyectos:
@@ -59,7 +61,7 @@ console.log(Astro.url);
         ))
       }
     </Section>
-    <Section icon="windsock" title="Habilidades" identifier="skills">
+    <Section icon="windsock" title="Habilidades Blandas" identifier="skills">
       <Skills />
     </Section>
   </main>

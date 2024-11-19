@@ -6,14 +6,22 @@ import { getLangFromUrl } from "@/i18n/utils";
 import { nav } from "@/i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
-const links = nav[lang];
+const { links, contact } = nav[lang];
+const pathname = Astro.url.pathname;
 ---
 
 <nav>
   <ul>
-    <NavItem title={links.projects.title} link={links.projects.link} />
-    <NavItem title={links.about.title} link={links.about.link} />
-    <Popover title={links.contact.title} targetID="linktree">
+    {
+      links.map((item) => (
+        <NavItem
+          title={item.title}
+          link={item.link}
+          currentPage={item.link === pathname}
+        />
+      ))
+    }
+    <Popover title={contact.title} targetID="linktree">
       <Linktree />
     </Popover>
   </ul>
@@ -35,18 +43,3 @@ const links = nav[lang];
     }
   }
 </style>
-
-<script>
-  import { currentPage } from "@/js/utils";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const anchors: NodeListOf<HTMLAnchorElement> =
-      document.querySelectorAll("nav a");
-
-    currentPage({ anchors });
-
-    window.addEventListener("hashchange", () => {
-      currentPage({ anchors });
-    });
-  });
-</script>

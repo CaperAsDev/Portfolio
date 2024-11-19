@@ -19,6 +19,11 @@ const lang = getLangFromUrl(Astro.url);
           <p>
             <span>{item[0]}</span>
             {item[1]}
+            <span
+              data-after={item[3]}
+              data-before={item[2]}
+              class="element-reference"
+            />
           </p>
         ))
       }
@@ -187,10 +192,47 @@ const lang = getLangFromUrl(Astro.url);
     justify-content: center;
     align-items: center;
     gap: clamp(20px, 3vw, 60px);
+  }
 
-    .bio {
-      display: grid;
-      gap: 10px;
+  .bio {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+
+    p {
+      font-size: var(--fs-m);
+    }
+
+    p:hover .element-reference {
+      opacity: 1;
+    }
+
+    p:last-of-type {
+      text-decoration: line-through;
+    }
+  }
+
+  .element-reference {
+    transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    margin-left: 1ch;
+    position: relative;
+    display: inline;
+
+    &::before {
+      content: attr(data-before);
+      position: absolute;
+      right: 0;
+      translate: 100%;
+    }
+    &::after {
+      font-weight: bold;
+      color: var(--blue-200);
+      content: attr(data-after);
+      position: absolute;
+      translate: calc(3.5ch + 100%);
+      right: 0;
     }
   }
 

@@ -6,9 +6,19 @@ interface Props {
   label: string;
   customClass?: string;
   text?: string;
+  target?: string;
+  rel?: string;
 }
 
-const { icon, link, label, customClass, text } = Astro.props;
+const {
+  icon,
+  link,
+  label,
+  customClass,
+  text,
+  target = "_blank",
+  rel = "noopener noreferrer",
+} = Astro.props;
 
 const iconSet = icon.split(":");
 ---
@@ -16,10 +26,10 @@ const iconSet = icon.split(":");
 <a
   aria-label={`Link to ${label}`}
   href={link}
-  target="_blank"
+  rel={rel}
+  target={target}
   title={label}
   class={`${customClass || ""} ${text ? "innerText" : ""}`}
-  rel="noopener noreferrer"
   data-text={text}
 >
   <Icon name={`${iconSet[0]}:${iconSet[1]}`} width={30} height={30} />
@@ -46,15 +56,19 @@ const iconSet = icon.split(":");
     }
   }
   a.innerText {
+    --text-size: var(--fs-s);
     justify-content: center;
     gap: 10px;
 
     &::after {
       content: attr(data-text);
-      font-size: var(--fs-s);
+      font-size: var(--text-size);
       font-family: "Comfortaa Variable", system-ui;
       position: relative;
     }
+  }
+  a.innerText.textXS {
+    --text-size: var(--fs-xs);
   }
   @media screen and (width >= 768px) {
     a {

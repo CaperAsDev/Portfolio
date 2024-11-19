@@ -36,7 +36,7 @@
       },
       {
         "label": "Website",
-        "icon": "tabler:world-www",
+        "icon": "tabler:external-link",
         "url": "https://manufacturasfennixx.com"
       }
     ]
@@ -78,7 +78,7 @@
       },
       {
         "label": "Website",
-        "icon": "tabler:world-www",
+        "icon": "tabler:external-link",
         "url": "https://www.excellentiaconsultingbpo.com/"
       }
     ]
@@ -120,7 +120,7 @@
       },
       {
         "label": "Website",
-        "icon": "tabler:world-www",
+        "icon": "tabler:external-link",
         "url": "https://s12-02-m-node-react-gestor-de-eventos.vercel.app/"
       }
     ]
@@ -162,7 +162,7 @@
       },
       {
         "label": "Website",
-        "icon": "tabler:world-www",
+        "icon": "tabler:external-link",
         "url": "https://caperasdev.github.io/todo-appV2/"
       }
     ]
