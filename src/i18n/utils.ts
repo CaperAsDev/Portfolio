@@ -21,19 +21,20 @@ export function getLangFromUrl (url : URL)  {
   return defaultLang
 }
 
-export function shiftLang (url: URL) : { path: string, label: string}[] {
+export function shiftLang (url: URL) : { path: string, label: string, lang:string}[] {
   const {url: path, lang } = parseURL(url);
   const languagesArray = Object.entries(languages);
   const reminderLangs = languagesArray.filter(
   (languages) => languages[0] !== lang
 );
-  const linksObj = reminderLangs.reduce<{path: string, label: Languages}[]>((acc, lang) => {
+  const linksObj = reminderLangs.reduce<{path: string, label: Languages, lang:string}[]>((acc, lang) => {
     const isDefLang = lang[0] === defaultLang 
     const currentPath = paths[path as keyof typeof paths]
     const definedPath = isDefLang ? currentPath
     : '/' + lang[0] + currentPath
     const linkObj = {
       path: definedPath,
+      lang: lang[0],
       label: lang[1]
     }
     acc.push(linkObj)

@@ -13,18 +13,25 @@ const lang = getLangFromUrl(Astro.url);
 <div class="main-container">
   <header>
     <FlipImg img_1={Profile_1} img_2={Profile_2} />
-    <div class="bio">
+    <div class="bio" lang={lang}>
       {
         about.flags[lang].map((item) => (
-          <p>
-            <span>{item[0]}</span>
-            {item[1]}
+          <div>
             <span
               data-after={item[3]}
               data-before={item[2]}
-              class="element-reference"
+              class="element-reference before"
             />
-          </p>
+            <p>
+              <span class="icon">{item[0]}</span>
+              <span class="text">{item[1]}</span>
+            </p>
+            <span
+              data-after={item[3]}
+              data-before={item[2]}
+              class="element-reference after"
+            />
+          </div>
         ))
       }
     </div>
@@ -198,42 +205,59 @@ const lang = getLangFromUrl(Astro.url);
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 10px;
+    gap: var(--fs-m);
 
     p {
-      font-size: var(--fs-m);
+      font-size: calc(var(--fs-m) - 1px);
+      display: inline;
+    }
+    div {
+      display: flex;
+      align-items: center;
     }
 
-    p:hover .element-reference {
+    div:hover .element-reference {
       opacity: 1;
     }
 
-    p:last-of-type {
+    div:last-of-type p {
       text-decoration: line-through;
     }
   }
 
   .element-reference {
+    height: var(--fs-m);
+    position: relative;
+    display: inline-block;
     transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     opacity: 0;
-    margin-left: 1ch;
-    position: relative;
-    display: inline;
 
     &::before {
-      content: attr(data-before);
       position: absolute;
-      right: 0;
-      translate: 100%;
+      content: attr(data-before);
+      font-size: var(--fs-s);
+      font-family: "Comfortaa Variable";
     }
     &::after {
-      font-weight: bold;
-      color: var(--blue-200);
-      content: attr(data-after);
       position: absolute;
-      translate: calc(3.5ch + 100%);
-      right: 0;
+      content: attr(data-after);
+      color: var(--blue-200);
+      font-size: var(--fs-s);
+      translate: 3.5ch;
     }
+  }
+  .element-reference.before {
+    &::before,
+    &::after {
+      top: var(--fs-m);
+      left: 4ch;
+    }
+  }
+  .bio:lang(en) .element-reference::after {
+    translate: 2.5ch;
+  }
+  .element-reference.after {
+    display: none;
   }
 
   .about-me__text {
@@ -304,6 +328,35 @@ const lang = getLangFromUrl(Astro.url);
   @media screen and (width >= 1024px) {
     .biography {
       --height: clamp(300px, 30vw, 500px);
+    }
+    .element-reference.before {
+      display: none;
+    }
+    .element-reference.after {
+      display: inline-block;
+      margin-left: 1ch;
+
+      &::before,
+      &::after {
+        bottom: 0;
+        left: 0;
+      }
+
+      &::after {
+        bottom: 3px;
+      }
+    }
+  }
+  @media screen and (width >= 1440px) {
+    .bio {
+      gap: var(--fs-s);
+
+      .element-reference {
+        &::after,
+        &::before {
+          font-size: var(--fs-m);
+        }
+      }
     }
   }
 </style>

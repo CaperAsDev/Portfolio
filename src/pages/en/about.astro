@@ -11,6 +11,24 @@ import AboutComponent from "@/components/About.astro";
 
 <style>
   main {
-    padding-block: 10rem;
+    padding: var(--fs-m);
+  }
+  @media screen and (width >= 768px) {
+    main {
+      padding: var(--fs-xl);
+      padding-top: 4rem;
+    }
+  }
+
+  @media screen and (width >= 1024px) {
+    main {
+      padding-block: 5rem;
+    }
+  }
+
+  @media screen and (width >= 1440px) {
+    main {
+      padding-block: 10rem;
+    }
   }
 </style>
