@@ -1,0 +1,21 @@
+---
+import SkillCard from "./SkillCard.astro";
+---
+
+<SkillCard
+  description="Una descripcion que no es la final pero servira para ver que tal va, creo que estaba un poco corta asi que la alargo un poco."
+  name="OTRO TITULO"
+  currentLevel={4}
+  levels={[{ description: "Este es el nivel uno", level: 1 }]}
+  group="Definitivas y unicas"
+/>
+
+<script>
+  const skillsSection: HTMLElement | null = document.querySelector("#skills");
+  const cards = skillsSection?.querySelectorAll(".card");
+  cards?.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("is-flipped");
+    });
+  });
+</script>

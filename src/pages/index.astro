@@ -9,7 +9,7 @@ import About from "@/components/About.astro";
 
 import ProjectsData from "@/data/projects.json";
 import { technologies } from "@/data/technologies.json";
-import Skills from "@/components/Skills.astro";
+import SoftSkills from "@/components/SoftSkills.astro";
 import { getLangFromUrl } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -62,7 +62,7 @@ const imagesArray = Object.entries(projectsImgs);
       }
     </Section>
     <Section icon="windsock" title="Habilidades Blandas" identifier="skills">
-      <Skills />
+      <SoftSkills />
     </Section>
   </main>
 </Layout>

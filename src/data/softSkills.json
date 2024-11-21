@@ -1,0 +1,125 @@
+[
+  {
+    "GroupName": "Relaciones interpersonales y comunicación",
+    "Items": [
+      {
+        "name": "Trabajo en Equipo",
+        "description": "Capacidad para colaborar con otros de manera eficiente y armoniosa para alcanzar objetivos comunes.",
+        "levels": [
+          { "level": 1, "description": "Participa activamente en equipos pequeños, cumpliendo tareas asignadas bajo supervisión directa." },
+          { "level": 2, "description": "Contribuye con ideas en discusiones grupales y apoya la resolución de conflictos básicos dentro del equipo." },
+          { "level": 3, "description": "Colabora eficazmente en equipos diversos, aportando soluciones creativas y promoviendo una comunicación fluida." },
+          { "level": 4, "description": "Asume roles de liderazgo ocasionales, delega tareas de manera justa y fomenta un ambiente colaborativo positivo." },
+          { "level": 5, "description": "Lidera equipos multidisciplinarios, gestiona dinámicas complejas y asegura el cumplimiento de objetivos colectivos con alta efectividad." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Empatía",
+        "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
+        "levels": [
+          { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
+          { "level": 2, "description": "Escucha activamente y responde de manera respetuosa a emociones ajenas." },
+          { "level": 3, "description": "Identifica necesidades implícitas en diferentes contextos sociales." },
+          { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros de manera efectiva." },
+          { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Comunicación efectiva",
+        "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
+        "levels": [
+          { "level": 1, "description": "Comunica información básica con claridad en entornos familiares." },
+          { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas de manera efectiva." },
+          { "level": 3, "description": "Adecúa su comunicación al nivel de conocimiento y contexto del receptor." },
+          { "level": 4, "description": "Influye positivamente en discusiones grupales al estructurar mensajes persuasivos." },
+          { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
+        ],
+        "currentLevel" : 4
+      }
+    ]
+  },
+  {
+    "GroupName": "Precisión y análisis",
+    "Items": [
+      {
+        "name": "Atención al Detalle",
+        "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
+        "levels": [
+          { "level": 1, "description": "Identifica errores obvios en tareas asignadas." },
+          { "level": 2, "description": "Revisa su trabajo para asegurar cumplimiento de estándares básicos." },
+          { "level": 3, "description": "Detecta detalles sutiles que otros podrían pasar por alto." },
+          { "level": 4, "description": "Optimiza procesos mediante un análisis detallado y minucioso." },
+          { "level": 5, "description": "Diseña sistemas robustos que minimizan errores e inconsistencias desde el inicio." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Pensamiento crítico",
+        "description": "Habilidad para analizar y evaluar información objetivamente para tomar decisiones fundamentadas.",
+        "levels": [
+          { "level": 1, "description": "Identifica información relevante en problemas simples." },
+          { "level": 2, "description": "Cuestiona supuestos básicos y busca evidencia en decisiones." },
+          { "level": 3, "description": "Evalúa diferentes perspectivas para llegar a conclusiones informadas." },
+          { "level": 4, "description": "Aplica razonamiento lógico a problemas complejos y multidimensionales." },
+          { "level": 5, "description": "Desarrolla soluciones estratégicas basadas en un análisis profundo y multifacético." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Curiosidad Intelectual",
+        "description": "Deseo constante de aprender, explorar y mejorar el conocimiento en diversos campos.",
+        "levels": [
+          { "level": 1, "description": "Explora temas nuevos ocasionalmente por curiosidad personal." },
+          { "level": 2, "description": "Busca activamente información adicional sobre temas de interés." },
+          { "level": 3, "description": "Investiga a profundidad temas complejos para ampliar su entendimiento." },
+          { "level": 4, "description": "Aplica conocimientos adquiridos a nuevos contextos para generar soluciones innovadoras." },
+          { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
+        ],
+        "currentLevel" : 4
+      }
+    ]
+  },
+  {
+    "GroupName": "Flexibilidad y resolución",
+    "Items": [
+      {
+        "name": "Adaptabilidad",
+        "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
+        "levels": [
+          { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
+          { "level": 2, "description": "Acepta cambios inesperados con una actitud positiva." },
+          { "level": 3, "description": "Se ajusta eficazmente a entornos dinámicos y colabora en el cambio." },
+          { "level": 4, "description": "Propone estrategias para mejorar la transición en cambios organizacionales." },
+          { "level": 5, "description": "Lidera con éxito en contextos de incertidumbre y cambio constante." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Gestión de tiempo",
+        "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
+        "levels": [
+          { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
+          { "level": 2, "description": "Prioriza tareas simples de acuerdo con su importancia." },
+          { "level": 3, "description": "Planifica y gestiona múltiples tareas de forma efectiva." },
+          { "level": 4, "description": "Optimiza el uso del tiempo mediante herramientas y técnicas avanzadas." },
+          { "level": 5, "description": "Desarrolla estrategias de gestión del tiempo para equipos enteros." }
+        ],
+        "currentLevel" : 4
+      },
+      {
+        "name": "Resolución de problemas",
+        "description": "Habilidad para identificar, analizar y solucionar desafíos de manera efectiva.",
+        "levels": [
+          { "level": 1, "description": "Resuelve problemas sencillos siguiendo procedimientos establecidos." },
+          { "level": 2, "description": "Encuentra soluciones a problemas conocidos con herramientas básicas." },
+          { "level": 3, "description": "Propone soluciones alternativas a problemas poco estructurados." },
+          { "level": 4, "description": "Desarrolla estrategias innovadoras para resolver problemas complejos." },
+          { "level": 5, "description": "Lidera equipos en la resolución de problemas críticos con enfoques estratégicos." }
+        ],
+        "currentLevel" : 4
+      }
+    ]
+  }
+]
