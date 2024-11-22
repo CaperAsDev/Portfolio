@@ -1,9 +1,12 @@
 [
   {
-    "GroupName": "Relaciones interpersonales y comunicación",
-    "Items": [
+    "groupName": "Relaciones y comunicación",
+    "id":"relations",
+    "groupIcon": "tabler:diamond",
+    "items": [
       {
         "name": "Trabajo en Equipo",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Capacidad para colaborar con otros de manera eficiente y armoniosa para alcanzar objetivos comunes.",
         "levels": [
           { "level": 1, "description": "Participa activamente en equipos pequeños, cumpliendo tareas asignadas bajo supervisión directa." },
@@ -16,6 +19,7 @@
       },
       {
         "name": "Empatía",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
         "levels": [
           { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
@@ -28,6 +32,7 @@
       },
       {
         "name": "Comunicación efectiva",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
         "levels": [
           { "level": 1, "description": "Comunica información básica con claridad en entornos familiares." },
@@ -41,10 +46,13 @@
     ]
   },
   {
-    "GroupName": "Precisión y análisis",
-    "Items": [
+    "groupName": "Precisión y análisis",
+    "id": "prec",
+    "groupIcon": "tabler:diamond",
+    "items": [
       {
         "name": "Atención al Detalle",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
         "levels": [
           { "level": 1, "description": "Identifica errores obvios en tareas asignadas." },
@@ -57,6 +65,7 @@
       },
       {
         "name": "Pensamiento crítico",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Habilidad para analizar y evaluar información objetivamente para tomar decisiones fundamentadas.",
         "levels": [
           { "level": 1, "description": "Identifica información relevante en problemas simples." },
@@ -69,6 +78,7 @@
       },
       {
         "name": "Curiosidad Intelectual",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Deseo constante de aprender, explorar y mejorar el conocimiento en diversos campos.",
         "levels": [
           { "level": 1, "description": "Explora temas nuevos ocasionalmente por curiosidad personal." },
@@ -82,10 +92,13 @@
     ]
   },
   {
-    "GroupName": "Flexibilidad y resolución",
-    "Items": [
+    "groupName": "Flexibilidad y resolución",
+    "id":"flex",
+    "groupIcon": "tabler:diamond",
+    "items": [
       {
         "name": "Adaptabilidad",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
         "levels": [
           { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
@@ -98,6 +111,7 @@
       },
       {
         "name": "Gestión de tiempo",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
         "levels": [
           { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
@@ -110,6 +124,7 @@
       },
       {
         "name": "Resolución de problemas",
+        "skillIcon": "tabler:heart-handshake",
         "description": "Habilidad para identificar, analizar y solucionar desafíos de manera efectiva.",
         "levels": [
           { "level": 1, "description": "Resuelve problemas sencillos siguiendo procedimientos establecidos." },

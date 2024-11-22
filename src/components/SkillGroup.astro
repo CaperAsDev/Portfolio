@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+import SkillCard from "@/components/SkillCard.astro";
+
+type Item = {
+  name: string;
+  description: string;
+  skillIcon: string;
+  currentLevel: number;
+  levels: Level[];
+};
+
+type Level = {
+  level: number;
+  description: string;
+};
+
+interface Props {
+  groupName: string;
+  id: string;
+  groupIcon: string;
+  items: Item[];
+}
+
+const { groupName, id, items, groupIcon } = Astro.props;
+---
+
+<details>
+  <summary>
+    <header>
+      <Icon name={groupIcon} />
+      <p>
+        {groupName}
+      </p>
+    </header>
+  </summary>
+  <div class="cards-wrapper">
+    {
+      items.map((item) => (
+        <SkillCard
+          description={item.description}
+          skillIcon={item.skillIcon}
+          currentLevel={item.currentLevel}
+          name={item.name}
+          groupIcon={groupIcon}
+          group={id}
+        />
+      ))
+    }
+  </div>
+</details>
+
+<style>
+  details {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    padding: 10px;
+    background: linear-gradient(
+      to bottom,
+      oklch(from aquamarine l c h / 0.1),
+      transparent
+    );
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 1rem;
+    padding: 10px;
+  }
+</style>

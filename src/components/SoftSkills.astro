@@ -1,14 +1,14 @@
 ---
-import SkillCard from "./SkillCard.astro";
+import SkillGroup from "@/components/SkillGroup.astro";
+import SoftSkillsData from "@/data/softSkills.json";
 ---
 
-<SkillCard
-  description="Una descripcion que no es la final pero servira para ver que tal va, creo que estaba un poco corta asi que la alargo un poco."
-  name="OTRO TITULO"
-  currentLevel={4}
-  levels={[{ description: "Este es el nivel uno", level: 1 }]}
-  group="Definitivas y unicas"
-/>
+<header>
+  <p>Estas son algunas de las habilidades que poseo categorizadas por grupo:</p>
+</header>
+<div class="groups-wrapper">
+  {SoftSkillsData.map((group) => <SkillGroup {...group} />)}
+</div>
 
 <script>
   const skillsSection: HTMLElement | null = document.querySelector("#skills");
@@ -19,3 +19,11 @@ import SkillCard from "./SkillCard.astro";
     });
   });
 </script>
+<style>
+  .groups-wrapper {
+    margin-block: 1rem;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+</style>
