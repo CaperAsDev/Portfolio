@@ -100,6 +100,40 @@ const { links, contact } = nav[lang];
       display: none;
     }
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition:
+        all 0.3s ease,
+        content-visibility 0.3s allow-discrete;
+      height: 0;
+      width: 0;
+      overflow: clip;
+    }
+
+    @supports (interpolate-size: allow-keywords) {
+      :root {
+        interpolate-size: allow-keywords;
+      }
+
+      [open]::details-content {
+        height: auto;
+        width: auto;
+      }
+    }
+
+    @supports not (interpolate-size: allow-keywords) {
+      details::details-content {
+        block-size: 0;
+      }
+
+      [open]::details-content {
+        block-size: auto;
+        block-size: calc-size(auto);
+        height: 300px;
+      }
+    }
+  }
 </style>
 
 <script>

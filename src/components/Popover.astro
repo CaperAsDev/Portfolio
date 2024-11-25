@@ -53,9 +53,20 @@ const { title, targetID } = Astro.props;
     border-radius: 10px;
     border: 1px solid white;
     background-color: oklch(0.5 0.06 300 / 70%);
+    opacity: 0;
+    transition:
+      display 10s allow-discrete,
+      opacity 10s;
 
     &::backdrop {
       background-color: oklch(0.3 0.1 300 / 60%);
+    }
+  }
+  div[popover]:popover-open {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
     }
   }
 

@@ -1,8 +1,16 @@
 [
   {
     "groupName": "Relaciones y comunicación",
+    "description": "Este grupo se enfoca en la capacidad de trabajar eficazmente con otros, mostrando comprensión y comunicación clara. Son esenciales para construir relaciones de trabajo fuertes y alcanzar objetivos comunes de manera efectiva.",
     "id":"relations",
-    "groupIcon": "tabler:diamond",
+    "groupIcon": "tabler:yin-yang-filled",
+    "colors": {
+      "bg-clr1": "#9F98FA",
+      "bg-clr2": "#BF98FA",
+      "border-clr": "#98D0FA",
+      "rise-clr": "#98EEFA",
+      "op-clr": "#FAE5B9"
+    },
     "items": [
       {
         "name": "Trabajo en Equipo",
@@ -19,7 +27,7 @@
       },
       {
         "name": "Empatía",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:hearts",
         "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
         "levels": [
           { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
@@ -32,7 +40,7 @@
       },
       {
         "name": "Comunicación efectiva",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:bubble-text",
         "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
         "levels": [
           { "level": 1, "description": "Comunica información básica con claridad en entornos familiares." },
@@ -47,12 +55,20 @@
   },
   {
     "groupName": "Precisión y análisis",
+    "description": "Este grupo se centra en la capacidad de observar, analizar y entender detalles importantes, aplicando el pensamiento crítico para resolver problemas y aprender continuamente. Son habilidades clave para el trabajo meticuloso y la toma de decisiones informada.",
     "id": "prec",
-    "groupIcon": "tabler:diamond",
+    "groupIcon": "tabler:hexagons",
+    "colors": {
+      "bg-clr1": "#8DFA94",
+      "bg-clr2": "#DFFA8C",
+      "border-clr": "#B1FA8C",
+      "rise-clr": "#8CFADE",
+      "op-clr": "#FAAFC5"
+    },
     "items": [
       {
         "name": "Atención al Detalle",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:zoom-in",
         "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
         "levels": [
           { "level": 1, "description": "Identifica errores obvios en tareas asignadas." },
@@ -65,7 +81,7 @@
       },
       {
         "name": "Pensamiento crítico",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:chart-radar",
         "description": "Habilidad para analizar y evaluar información objetivamente para tomar decisiones fundamentadas.",
         "levels": [
           { "level": 1, "description": "Identifica información relevante en problemas simples." },
@@ -78,7 +94,7 @@
       },
       {
         "name": "Curiosidad Intelectual",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:seeding",
         "description": "Deseo constante de aprender, explorar y mejorar el conocimiento en diversos campos.",
         "levels": [
           { "level": 1, "description": "Explora temas nuevos ocasionalmente por curiosidad personal." },
@@ -93,12 +109,20 @@
   },
   {
     "groupName": "Flexibilidad y resolución",
+    "description": "Este grupo incluye habilidades que permiten adaptarse a cambios, gestionar el tiempo eficazmente y resolver problemas de manera creativa y eficiente. Son cruciales para manejar situaciones dinámicas y cumplir con plazos y objetivos.",
     "id":"flex",
-    "groupIcon": "tabler:diamond",
+    "groupIcon": "tabler:chess-queen",
+    "colors": {
+      "bg-clr1": "#FAC89F",
+      "bg-clr2": "#FAA9A0",
+      "border-clr": "#FAB9A0",
+      "rise-clr": "#FAD7A0",
+      "op-clr": "#8CFADE"
+    },
     "items": [
       {
         "name": "Adaptabilidad",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:puzzle",
         "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
         "levels": [
           { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
@@ -111,7 +135,7 @@
       },
       {
         "name": "Gestión de tiempo",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:device-watch-stats",
         "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
         "levels": [
           { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
@@ -124,7 +148,7 @@
       },
       {
         "name": "Resolución de problemas",
-        "skillIcon": "tabler:heart-handshake",
+        "skillIcon": "tabler:tools",
         "description": "Habilidad para identificar, analizar y solucionar desafíos de manera efectiva.",
         "levels": [
           { "level": 1, "description": "Resuelve problemas sencillos siguiendo procedimientos establecidos." },

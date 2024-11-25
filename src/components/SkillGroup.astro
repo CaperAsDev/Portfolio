@@ -9,7 +9,13 @@ type Item = {
   currentLevel: number;
   levels: Level[];
 };
-
+type Colors = {
+  "bg-clr1": string;
+  "bg-clr2": string;
+  "border-clr": string;
+  "op-clr": string;
+  "rise-clr": string;
+};
 type Level = {
   level: number;
   description: string;
@@ -20,12 +26,20 @@ interface Props {
   id: string;
   groupIcon: string;
   items: Item[];
+  colors: Colors;
+  description: string;
 }
 
-const { groupName, id, items, groupIcon } = Astro.props;
+const { groupName, id, items, groupIcon, colors, description } = Astro.props;
+
+const bgClr1 = colors["bg-clr1"];
+const bgClr2 = colors["bg-clr2"];
+const borderClr = colors["border-clr"];
+const riseClr = colors["rise-clr"];
+const opClr = colors["op-clr"];
 ---
 
-<details>
+<details data-description={description}>
   <summary>
     <header>
       <Icon name={groupIcon} />
@@ -50,22 +64,114 @@ const { groupName, id, items, groupIcon } = Astro.props;
   </div>
 </details>
 
-<style>
+<style define:vars={{ bgClr1, bgClr2, borderClr, riseClr, opClr }}>
   details {
+    position: relative;
     display: grid;
     align-content: start;
     gap: 1rem;
     padding: 10px;
     background: linear-gradient(
       to bottom,
-      oklch(from aquamarine l c h / 0.1),
+      oklch(from rgb(127, 255, 212) l c h / 0.1),
       transparent
     );
+    border-top: 2px solid var(--borderClr);
+    border-bottom: 2px solid var(--borderClr);
+    border-radius: 0 0 1rem 1rem;
+    overflow: hidden;
+  }
+  summary {
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover p {
+      scale: 1.05;
+    }
+    p {
+      color: oklch(from var(--borderClr) calc(l + 0.1) c h);
+      transition: scale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+  header {
+    margin-bottom: 10px;
+
+    p {
+      font-weight: bold;
+      padding: 5px;
+      text-align: center;
+    }
   }
 
   .cards-wrapper {
     display: grid;
     gap: 1rem;
     padding: 10px;
+  }
+  /* -------------show when sibling details is open */
+
+  details::after {
+    box-sizing: border-box;
+    position: absolute;
+    display: none;
+    place-content: center;
+    bottom: 0;
+    height: 90%;
+    width: 100%;
+    content: attr(data-description);
+    font-size: var(--fs-s);
+    font-family: "Comfortaa Variable";
+    text-align: center;
+    text-wrap: balance;
+    padding: 10px;
+    background: linear-gradient(
+      to top,
+      oklch(from rebeccapurple l c h / 0.5),
+      transparent
+    );
+    mix-blend-mode: color-dodge;
+  }
+
+  @media screen and (width >= 1040px) {
+    details[open] ~ details:not([open])::after {
+      display: grid;
+    }
+
+    details:not([open]):has(~ details[open])::after {
+      display: grid;
+    }
+  }
+
+  /* --------- dialogs reveal animation --------- */
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition:
+        all 0.3s ease,
+        content-visibility 0.3s allow-discrete;
+      height: 0;
+      overflow: clip;
+    }
+
+    @supports (interpolate-size: allow-keywords) {
+      :root {
+        interpolate-size: allow-keywords;
+      }
+
+      [open]::details-content {
+        height: auto;
+      }
+    }
+
+    @supports not (interpolate-size: allow-keywords) {
+      details::details-content {
+        block-size: 0;
+      }
+
+      [open]::details-content {
+        block-size: auto;
+        block-size: calc-size(auto);
+        height: 300px;
+      }
+    }
   }
 </style>

@@ -35,7 +35,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
           </p>
         </div>
         <div class="face back">
-          <p>
+          <p class="description">
             Texto de atras de referencia, aqui va a ir una descripcion de como
             logre adquirir la habilidad y sus aplicaciones practicas.
           </p>
@@ -47,38 +47,49 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     <button popovertarget="levelsMenu">{currentLevel}</button>
     <div id="levelsMenu" popover></div>
     <div class="group-icon">
-      <Icon name={groupIcon} />
+      <div class="icon-wrapper">
+        <Icon name={groupIcon} />
+      </div>
     </div>
   </footer>
 </div>
 <style>
   .card-wrapper {
+    --border-width: 2px;
+
     border-radius: 1rem;
-    border-top: 1px solid palevioletred;
-    border-bottom: 1px solid palevioletred;
-  }
-  details {
+    border-top: var(--border-width) solid var(--borderClr);
+    border-bottom: var(--border-width) solid var(--borderClr);
+    color: oklch(from var(--borderClr) calc(l - 0.6) calc(c + 0.1) h);
   }
 
   summary {
     position: relative;
     padding: 5px;
-    border-right: 1px solid palevioletred;
+    border-right: var(--border-width) solid var(--borderClr);
     border-top-right-radius: 1rem;
-    border-left: 1px solid palevioletred;
+    border-left: var(--border-width) solid var(--borderClr);
     border-top-left-radius: 1rem;
-    background-color: oklch(from rgb(64, 50, 128) l c h / 0.5);
+    background-color: var(--bgClr1);
 
+    &:hover {
+      cursor: pointer;
+    }
     p {
       padding: 10px;
     }
 
     .card-icon {
       position: absolute;
-      width: 60px;
-      height: 60px;
-      top: -30px;
-      left: -30px;
+      z-index: 5;
+      width: 50px;
+      height: 50px;
+      bottom: -50%;
+      left: -2px;
+      padding: 0 5px 5px 0;
+      border-bottom-right-radius: 50%;
+      background-color: var(--bgClr1);
+      border-left: var(--border-width) solid var(--borderClr);
 
       svg {
         height: 100%;
@@ -89,13 +100,15 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
       font-family: "Subjectivity";
       text-align: end;
     }
-    .description {
-      font-family: "Comfortaa Variable";
-      font-size: var(--fs-s);
-      text-wrap: balance;
-      padding: 5px;
-    }
   }
+  .description {
+    font-family: "Comfortaa Variable";
+    font-size: var(--fs-s);
+    text-wrap: balance;
+    text-align: center;
+    padding: 5px;
+  }
+
   footer {
     position: relative;
     width: 100%;
@@ -104,9 +117,9 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     padding-bottom: 5px;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    border-right: 1px solid palevioletred;
-    border-left: 1px solid palevioletred;
-    background-color: oklch(from rgb(64, 50, 128) l c h / 0.5);
+    border-right: var(--border-width) solid var(--borderClr);
+    border-left: var(--border-width) solid var(--borderClr);
+    background-color: var(--bgClr2);
 
     button {
       width: 50px;
@@ -118,10 +131,38 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
 
     .group-icon {
       position: absolute;
-      width: 60px;
-      height: 60px;
-      right: -35px;
-      bottom: -35px;
+      width: 40px;
+      height: 40px;
+      right: 0px;
+      bottom: 3px;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
+        background-color: var(--riseClr);
+        border-top-left-radius: 100%;
+        right: 99%;
+        bottom: -3px;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background-color: var(--riseClr);
+        border-top-left-radius: 100%;
+        border-right: var(--border-width) solid var(--borderClr);
+        right: -2px;
+        top: -99%;
+      }
+    }
+    .icon-wrapper {
+      padding: 4px 2px 2px 4px;
+      background-color: var(--riseClr);
+      border-radius: 1rem 0;
+      border-bottom: var(--border-width) solid var(--borderClr);
 
       svg {
         width: 100%;
@@ -129,7 +170,39 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
       }
     }
   }
-  /* ----------------------- Flip styles --------------------------- */
+  /* --------- dialogs reveal animation --------- */
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition:
+        all 0.3s ease,
+        content-visibility 0.3s allow-discrete;
+      height: 0;
+      overflow: clip;
+    }
+
+    @supports (interpolate-size: allow-keywords) {
+      :root {
+        interpolate-size: allow-keywords;
+      }
+
+      [open]::details-content {
+        height: auto;
+      }
+    }
+
+    @supports not (interpolate-size: allow-keywords) {
+      details::details-content {
+        block-size: 0;
+      }
+
+      [open]::details-content {
+        block-size: auto;
+        block-size: calc-size(auto);
+        height: 300px; /* In the future to be replaced by `height: auto` */
+        overflow-y: scroll; /* In case the contents should be taller than 150px */
+      }
+    }
+  }
 
   .scene {
     height: 300px;
@@ -137,7 +210,12 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     perspective: 1000px;
     display: grid;
     place-items: center;
-    padding: 10px;
+    background: linear-gradient(
+      to right,
+      oklch(from var(--riseClr) calc(l - 0.1) calc(c + 0.05) h),
+      oklch(from var(--riseClr) l c h) 50%,
+      oklch(from var(--riseClr) calc(l - 0.1) calc(c + 0.05) h)
+    );
   }
   .card {
     width: 100%;
@@ -149,16 +227,18 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
   }
   .face {
     padding: 10px;
+    display: grid;
+    place-items: center;
     position: absolute;
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
   }
   .face.front {
-    background-color: oklch(from aqua l c h / 0.2);
+    background-color: oklch(from rgb(47, 0, 255) l c h / 0.1);
   }
   .face.back {
-    background-color: oklch(from purple l c h / 0.2);
+    background-color: oklch(from rgb(255, 0, 255) l c h / 0.1);
     transform: rotateY(180deg);
   }
   .card.is-flipped {
