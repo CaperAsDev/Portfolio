@@ -44,28 +44,39 @@ const { title, targetID } = Astro.props;
       }
     }
   }
+  @media (prefers-reduced-motion: no-preference) {
+    div[popover] {
+      transition:
+        all 0.7s allow-discrete,
+        display 0.7s allow-discrete,
+        opacity 0.7s;
+    }
+  }
   div[popover] {
+    top: -70%;
+    margin: 0;
+    justify-self: center;
     height: fit-content;
     max-height: 90dvh;
     overflow-y: auto;
-    margin: auto;
     padding: var(--fs-m);
     border-radius: 10px;
     border: 1px solid white;
     background-color: oklch(0.5 0.06 300 / 70%);
     opacity: 0;
-    transition:
-      display 10s allow-discrete,
-      opacity 10s;
 
     &::backdrop {
       background-color: oklch(0.3 0.1 300 / 60%);
     }
   }
+
   div[popover]:popover-open {
+    inset: 0;
     opacity: 1;
+    margin: auto;
 
     @starting-style {
+      bottom: -100%;
       opacity: 0;
     }
   }

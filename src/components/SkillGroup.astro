@@ -41,12 +41,10 @@ const opClr = colors["op-clr"];
 
 <details data-description={description}>
   <summary>
-    <header>
-      <Icon name={groupIcon} />
-      <p>
-        {groupName}
-      </p>
-    </header>
+    <Icon name={groupIcon} class={"icon"} />
+    <p>
+      {groupName}
+    </p>
   </summary>
   <div class="cards-wrapper">
     {
@@ -58,6 +56,7 @@ const opClr = colors["op-clr"];
           name={item.name}
           groupIcon={groupIcon}
           group={id}
+          levels={item.levels}
         />
       ))
     }
@@ -69,7 +68,6 @@ const opClr = colors["op-clr"];
     position: relative;
     display: grid;
     align-content: start;
-    gap: 1rem;
     padding: 10px;
     background: linear-gradient(
       to bottom,
@@ -79,7 +77,6 @@ const opClr = colors["op-clr"];
     border-top: 2px solid var(--borderClr);
     border-bottom: 2px solid var(--borderClr);
     border-radius: 0 0 1rem 1rem;
-    overflow: hidden;
   }
   summary {
     &:hover {
@@ -91,19 +88,29 @@ const opClr = colors["op-clr"];
     p {
       color: oklch(from var(--borderClr) calc(l + 0.1) c h);
       transition: scale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-weight: bold;
+      text-align: center;
+      text-wrap: pretty;
     }
   }
-  header {
-    margin-bottom: 10px;
 
-    p {
-      font-weight: bold;
-      padding: 5px;
-      text-align: center;
-    }
+  .icon {
+    --size: 2rem;
+    position: absolute;
+    height: var(--size);
+    width: var(--size);
+    inset: 0;
+    margin: 0 auto;
+    top: calc(var(--size) * -1);
+    background-color: oklch(from var(--borderClr) l c h / 0.5);
+    border: 2px solid var(--borderClr);
+    border-radius: 50% 50% 0 0;
+    padding: 2px;
+    color: oklch(from var(--borderClr) calc(l - 0.5) calc(c) h);
   }
 
   .cards-wrapper {
+    margin-block-start: 10px;
     display: grid;
     gap: 1rem;
     padding: 10px;
@@ -129,16 +136,19 @@ const opClr = colors["op-clr"];
       oklch(from rebeccapurple l c h / 0.5),
       transparent
     );
+    border-radius: 0 0 1rem 1rem;
     mix-blend-mode: color-dodge;
   }
 
-  @media screen and (width >= 1040px) {
-    details[open] ~ details:not([open])::after {
-      display: grid;
-    }
-
-    details:not([open]):has(~ details[open])::after {
-      display: grid;
+  @media screen and (width >= 1024px) {
+    @container groups-wrapper (width >= 920px) {
+      details {
+        height: auto;
+      }
+      details[open] ~ details:not([open])::after,
+      details:not([open]):has(~ details[open])::after {
+        display: grid;
+      }
     }
   }
 

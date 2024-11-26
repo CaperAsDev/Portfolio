@@ -9,14 +9,17 @@ type Level = {
 interface Props {
   name: string;
   description: string;
-  levels?: Level[];
-  group?: string;
+  levels: Level[];
+  group: string;
   currentLevel: number;
   skillIcon: string;
   groupIcon: string;
 }
 const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
   Astro.props;
+
+const buttonAnchor = `--levels${name.split(" ")[0]}`;
+const popoverBaseId = `--${group.split(" ")[0]}`;
 ---
 
 <div class="card-wrapper">
@@ -28,7 +31,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
       <p class="title">{name}</p>
     </summary>
     <div class="scene">
-      <div class="card">
+      <button class="card" aria-label="Flip the card" aria-pressed="false">
         <div class="face front">
           <p class="description">
             {description}
@@ -40,12 +43,37 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
             logre adquirir la habilidad y sus aplicaciones practicas.
           </p>
         </div>
-      </div>
+      </button>
     </div>
   </details>
   <footer>
-    <button popovertarget="levelsMenu">{currentLevel}</button>
-    <div id="levelsMenu" popover></div>
+    <button
+      class={`lvl-${currentLevel} levels-menu star-button`}
+      popovertarget={buttonAnchor}>{currentLevel}</button
+    >
+    <div class="levels-popover" id={buttonAnchor} popover>
+      {
+        levels.map(({ level }) => (
+          <button
+            popovertarget={`${popoverBaseId}-${level}`}
+            class={`lvl-${level} star-button`}
+          >
+            {level}
+          </button>
+        ))
+      }
+    </div>
+    {
+      levels.map(({ description, level }) => (
+        <p
+          class={`levels-description lvl-${level}`}
+          id={`${popoverBaseId}-${level}`}
+          popover
+        >
+          {description}
+        </p>
+      ))
+    }
     <div class="group-icon">
       <div class="icon-wrapper">
         <Icon name={groupIcon} />
@@ -53,7 +81,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     </div>
   </footer>
 </div>
-<style>
+<style define:vars={{ buttonAnchor, popoverBaseId }}>
   .card-wrapper {
     --border-width: 2px;
 
@@ -61,6 +89,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     border-top: var(--border-width) solid var(--borderClr);
     border-bottom: var(--border-width) solid var(--borderClr);
     color: oklch(from var(--borderClr) calc(l - 0.6) calc(c + 0.1) h);
+    overflow: hidden;
   }
 
   summary {
@@ -84,7 +113,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
       z-index: 5;
       width: 50px;
       height: 50px;
-      bottom: -50%;
+      bottom: -60%;
       left: -2px;
       padding: 0 5px 5px 0;
       border-bottom-right-radius: 50%;
@@ -109,6 +138,22 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     padding: 5px;
   }
 
+  .lvl-1 {
+    --clr: rgb(95, 51, 51);
+  }
+  .lvl-2 {
+    --clr: rgb(119, 94, 57);
+  }
+  .lvl-3 {
+    --clr: rgb(134, 131, 127);
+  }
+  .lvl-4 {
+    --clr: rgb(201, 152, 89);
+  }
+  .lvl-5 {
+    --clr: rgb(99, 182, 164);
+  }
+
   footer {
     position: relative;
     width: 100%;
@@ -120,56 +165,126 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     border-right: var(--border-width) solid var(--borderClr);
     border-left: var(--border-width) solid var(--borderClr);
     background-color: var(--bgClr2);
+    anchor-name: var(--buttonAnchor);
+    container-type: inline-size;
+    container-name: card-footer;
+  }
+  .levels-menu {
+    position: relative;
+    bottom: 0.5rem;
+    box-shadow: 0 0 6px 5px oklch(from var(--clr) calc(l - 0.2) c h);
+  }
 
-    button {
-      width: 50px;
-      height: 50px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-    }
+  .star-button {
+    display: grid;
+    place-items: center;
+    outline: 5px solid var(--clr);
+    border: 2px solid oklch(from var(--clr) calc(l - 0.1) c h);
+    background-color: oklch(from var(--clr) calc(l + 0.1) c h);
+    color: oklch(from var(--clr) calc(l - 0.25) c h);
+    font-family: "Arial", system-ui;
+    font-weight: bold;
+    font-size: var(--fs-s);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    .group-icon {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      right: 0px;
-      bottom: 3px;
-
-      &::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 50%;
-        background-color: var(--riseClr);
-        border-top-left-radius: 100%;
-        right: 99%;
-        bottom: -3px;
-      }
-      &::before {
-        position: absolute;
-        content: "";
-        width: 50%;
-        height: 100%;
-        background-color: var(--riseClr);
-        border-top-left-radius: 100%;
-        border-right: var(--border-width) solid var(--borderClr);
-        right: -2px;
-        top: -99%;
-      }
-    }
-    .icon-wrapper {
-      padding: 4px 2px 2px 4px;
-      background-color: var(--riseClr);
-      border-radius: 1rem 0;
-      border-bottom: var(--border-width) solid var(--borderClr);
-
-      svg {
-        width: 100%;
-        height: 100%;
-      }
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      scale: 1.1;
+      outline-color: white;
     }
   }
+
+  .levels-popover {
+    position: absolute;
+    margin: 0;
+    inset: auto;
+    top: anchor(bottom);
+    right: calc(anchor(right) + 8px);
+    outline: none;
+    border: 2px solid oklch(from var(--borderClr) calc(l - 0.2) c h);
+    background-color: oklch(from var(--borderClr) calc(l - 0.05) c h / 0.5);
+    backdrop-filter: blur(2px);
+    padding: 8px;
+    border-radius: 1rem;
+
+    position-anchor: var(--buttonAnchor);
+    anchor-name: var(--popoverBaseId);
+
+    @container card-footer (width >= 270px) {
+      right: calc(anchor(right) + 26px);
+    }
+    @container card-footer (width >= 330px) {
+      right: calc(anchor(right) + 49px);
+    }
+  }
+  .levels-popover:popover-open {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .levels-description {
+    position-anchor: var(--popoverBaseId);
+    position: absolute;
+    margin: 0;
+    inset: auto;
+    top: calc(anchor(bottom) + 10px);
+    left: anchor(-10%);
+    width: 290px;
+    padding: var(--fs-xs);
+    border-radius: 1rem;
+    text-align: center;
+    text-wrap: balance;
+
+    color: oklch(from var(--clr) calc(l + 0.5) c h);
+    background-color: oklch(from var(--clr) calc(l - 0.15) c h / 0.5);
+    border: 2px solid oklch(from var(--clr) calc(l - 0.2) c h);
+    backdrop-filter: blur(2px);
+  }
+  .group-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0px;
+    bottom: 3px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 50%;
+      background-color: var(--riseClr);
+      border-top-left-radius: 100%;
+      right: 99%;
+      bottom: -3px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      width: 50%;
+      height: 100%;
+      background-color: var(--riseClr);
+      border-top-left-radius: 100%;
+      border-right: var(--border-width) solid var(--borderClr);
+      right: -2px;
+      top: -99%;
+    }
+  }
+  .icon-wrapper {
+    padding: 4px 2px 2px 4px;
+    background-color: var(--riseClr);
+    border-radius: 1rem 0;
+    border-bottom: var(--border-width) solid var(--borderClr);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   /* --------- dialogs reveal animation --------- */
   @media (prefers-reduced-motion: no-preference) {
     details::details-content {
@@ -224,14 +339,25 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
     transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     transform-style: preserve-3d;
     transform-origin: center right;
+    background: none;
+    outline: none;
+    border: none;
+    color: var(--pink-900);
+
+    &:focus,
+    &:hover {
+      outline: 1px solid white;
+      cursor: pointer;
+    }
   }
   .face {
-    padding: 10px;
-    display: grid;
-    place-items: center;
     position: absolute;
+    inset: 0;
     height: 100%;
     width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 10px;
     backface-visibility: hidden;
   }
   .face.front {

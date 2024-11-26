@@ -104,7 +104,7 @@ const { links, contact } = nav[lang];
   @media (prefers-reduced-motion: no-preference) {
     details::details-content {
       transition:
-        all 0.3s ease,
+        all 0.3s ease allow-discrete,
         content-visibility 0.3s allow-discrete;
       height: 0;
       width: 0;
@@ -129,7 +129,7 @@ const { links, contact } = nav[lang];
 
       [open]::details-content {
         block-size: auto;
-        block-size: calc-size(auto);
+        block-size: calc-size(auto, size);
         height: 300px;
       }
     }
