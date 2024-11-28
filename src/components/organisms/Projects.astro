@@ -1,0 +1,35 @@
+---
+import ProjectsData from "@/data/projects.json";
+import Project from "@/components/molecules/Project.astro";
+
+interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png}"
+);
+const imagesArray = Object.entries(projectsImgs);
+---
+
+<header>
+  <p>
+    A continuacion presento una breve seleccion de los proyectos que yo
+    considero mas relevantes
+  </p>
+</header>
+<div class="projects-wrapper">
+  {
+    ProjectsData.map((project) => (
+      <Project
+        title={project.header[lang].title}
+        description={project.header[lang].description}
+        techsIcon={project.techsIcon}
+        links={project.links}
+        images={imagesArray.filter((image) => image[0].includes(project.tag))}
+        notes={project.notes[lang]}
+      />
+    ))
+  }
+</div>

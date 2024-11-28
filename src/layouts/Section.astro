@@ -16,9 +16,9 @@ const { title, icon, customClass, identifier } = Astro.props;
     <Icon name={`tabler:${icon}`} width={30} height={30} />
     <span>{title}</span>
   </h2>
-  <section class={`slot-wrapper ${customClass || ""}`}>
+  <div class={`slot-wrapper ${customClass || ""}`}>
     <slot />
-  </section>
+  </div>
 </section>
 <style>
   .wrapper {

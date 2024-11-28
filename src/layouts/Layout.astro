@@ -1,7 +1,7 @@
 ---
 import "./normalize.css";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
+import Header from "@/components/organisms/Header.astro";
+import Footer from "@/components/molecules/Footer.astro";
 import Background from "@/components/Background.astro";
 import "@fontsource-variable/comfortaa";
 import "@fontsource-variable/sansita-swashed";
@@ -11,7 +11,6 @@ import { getLangFromUrl, MetaManager, parseURL } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const parsedURL = parseURL(Astro.url);
 const layoutMetaManager = new MetaManager();
-console.log(lang);
 
 const { title, description } = layoutMetaManager.getMetaData(parsedURL);
 ---
@@ -137,6 +136,9 @@ xl 2rem a 800px y 4rem a 2400px
     ::marker {
       content: "";
     }
+  }
+  strong {
+    font-weight: bolder;
   }
 
   * {

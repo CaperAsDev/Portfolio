@@ -1,10 +1,19 @@
 ---
-import SkillGroup from "@/components/SkillGroup.astro";
+import SkillGroup from "@/components/organisms/SkillGroup.astro";
 import SoftSkillsData from "@/data/softSkills.json";
+
+interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const texts = await Astro.glob("/src/i18n/softSkills-*.md");
+const text = texts.filter((item) => item.frontmatter.lang === lang);
+const IntroText = text[0].Content;
 ---
 
 <header>
-  <p>Estas son algunas de las habilidades que poseo categorizadas por grupo:</p>
+  <IntroText />
 </header>
 <div class="groups-wrapper">
   {SoftSkillsData.map((group) => <SkillGroup {...group} />)}
@@ -31,6 +40,17 @@ import SoftSkillsData from "@/data/softSkills.json";
   });
 </script>
 <style>
+  header {
+    display: grid;
+    margin-block: 1rem;
+    gap: 1rem;
+
+    strong {
+      color: var(--blue-300);
+      mix-blend-mode: luminosity;
+    }
+  }
+
   .groups-wrapper {
     margin-block: 3rem;
     display: grid;

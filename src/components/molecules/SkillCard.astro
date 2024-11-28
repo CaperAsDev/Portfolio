@@ -19,7 +19,7 @@ const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
   Astro.props;
 
 const buttonAnchor = `--levels${name.split(" ")[0]}`;
-const popoverBaseId = `--${group.split(" ")[0]}`;
+const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
 ---
 
 <div class="card-wrapper">

@@ -1,65 +1,37 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-import Hero from "@/components/Hero.astro";
-import Section from "@/components/Section.astro";
-import Project from "@/components/Project.astro";
-import TechPill from "@/components/TechPill.astro";
-import About from "@/components/About.astro";
-
-import ProjectsData from "@/data/projects.json";
-import { technologies } from "@/data/technologies.json";
-import SoftSkills from "@/components/SoftSkills.astro";
+import Hero from "@/components/molecules/Hero.astro";
+import Section from "@/layouts/Section.astro";
+import SoftSkills from "@/components/templates/SoftSkills.astro";
+import HardSkills from "@/components/templates/HardSkills.astro";
+import Projects from "@/components/organisms/Projects.astro";
 import { getLangFromUrl } from "@/i18n/utils";
-import type { ActionError } from "astro:actions";
 
 const lang = getLangFromUrl(Astro.url);
-const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png}"
-);
-const imagesArray = Object.entries(projectsImgs);
+console.log(`lang from index: ${lang}`);
 ---
 
-<Layout
-  title="CaperAsDev"
-  description="Kevin Hincapie, Colombian web developer passionate about technology and creativity"
->
+<Layout>
   <main>
-    <Hero />
+    <Hero lang={lang} />
     <Section
-      title="Projects"
+      title="Proyectos"
       icon="briefcase"
       customClass="projects-wrapper"
       identifier="projects"
     >
-      {
-        ProjectsData.map((project) => (
-          <Project
-            title={project.header[lang].title}
-            description={project.header[lang].description}
-            techsIcon={project.techsIcon}
-            links={project.links}
-            images={imagesArray.filter((image) =>
-              image[0].includes(project.tag)
-            )}
-            notes={project.notes[lang]}
-          />
-        ))
-      }
+      <Projects lang={lang} />
     </Section>
-    <Section title="Hard Skills" icon="puzzle" customClass="techs-wrapper">
-      <p>
-        These are the web development tools I use most frequently in my
-        projects:
-      </p>
-      {
-        technologies.map((project) => (
-          <TechPill {...project} description={project.description[lang]} />
-        ))
-      }
+    <Section
+      title="Habilidades Duras"
+      icon="puzzle"
+      customClass="techs-wrapper"
+    >
+      <HardSkills lang={lang} />
     </Section>
-    <Section icon="windsock" title="Soft Skills" identifier="skills">
-      <SoftSkills />
+    <Section icon="windsock" title="Habilidades Blandas" identifier="skills">
+      <SoftSkills lang={lang} />
     </Section>
   </main>
 </Layout>

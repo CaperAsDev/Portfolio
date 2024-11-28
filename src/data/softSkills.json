@@ -1,7 +1,7 @@
 [
   {
     "groupName": "Relaciones y comunicación",
-    "description": "Este grupo se enfoca en la capacidad de trabajar eficazmente con otros, mostrando comprensión y comunicación clara. Son esenciales para construir relaciones de trabajo fuertes y alcanzar objetivos comunes de manera efectiva.",
+    "description": "Este grupo se enfoca en la capacidad de trabajar eficazmente con otros y las habilidades esenciales para construir relaciones fuertes y ambientes de trabajo agradable.",
     "id":"relations",
     "groupIcon": "tabler:yin-yang-filled",
     "colors": {
@@ -36,26 +36,26 @@
           { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros de manera efectiva." },
           { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 5
       },
       {
         "name": "Comunicación efectiva",
         "skillIcon": "tabler:bubble-text",
         "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
         "levels": [
-          { "level": 1, "description": "Comunica información básica con claridad en entornos familiares." },
+          { "level": 1, "description": "Comunica información básica con claridad en entornos informales." },
           { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas de manera efectiva." },
           { "level": 3, "description": "Adecúa su comunicación al nivel de conocimiento y contexto del receptor." },
-          { "level": 4, "description": "Influye positivamente en discusiones grupales al estructurar mensajes persuasivos." },
+          { "level": 4, "description": "Influye positivamente en discusiones y toma de decisiones al estructurar mensajes persuasivos." },
           { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 2
       }
     ]
   },
   {
     "groupName": "Precisión y análisis",
-    "description": "Este grupo se centra en la capacidad de observar, analizar y entender detalles importantes, aplicando el pensamiento crítico para resolver problemas y aprender continuamente. Son habilidades clave para el trabajo meticuloso y la toma de decisiones informada.",
+    "description": "Este grupo se centra en la capacidad de observar, analizar y entender detalles importantes. Son habilidades clave para el trabajo meticuloso y la toma de decisiones informada.",
     "id": "prec",
     "groupIcon": "tabler:hexagons",
     "colors": {
@@ -71,26 +71,26 @@
         "skillIcon": "tabler:zoom-in",
         "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
         "levels": [
-          { "level": 1, "description": "Identifica errores obvios en tareas asignadas." },
+          { "level": 1, "description": "Identifica errores recurrentes en tareas asignadas." },
           { "level": 2, "description": "Revisa su trabajo para asegurar cumplimiento de estándares básicos." },
-          { "level": 3, "description": "Detecta detalles sutiles que otros podrían pasar por alto." },
+          { "level": 3, "description": "Detecta detalles sutiles que otros han pasado por alto." },
           { "level": 4, "description": "Optimiza procesos mediante un análisis detallado y minucioso." },
           { "level": 5, "description": "Diseña sistemas robustos que minimizan errores e inconsistencias desde el inicio." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 3
       },
       {
         "name": "Pensamiento crítico",
         "skillIcon": "tabler:chart-radar",
-        "description": "Habilidad para analizar y evaluar información objetivamente para tomar decisiones fundamentadas.",
+        "description": "Habilidad para analizar y evaluar información objetivamente. Es dudar para llegar a validar.",
         "levels": [
-          { "level": 1, "description": "Identifica información relevante en problemas simples." },
-          { "level": 2, "description": "Cuestiona supuestos básicos y busca evidencia en decisiones." },
+          { "level": 1, "description": "Identifica información relevante en planteamientos simples." },
+          { "level": 2, "description": "Cuestiona supuestos y busca evidencia en experiencias." },
           { "level": 3, "description": "Evalúa diferentes perspectivas para llegar a conclusiones informadas." },
           { "level": 4, "description": "Aplica razonamiento lógico a problemas complejos y multidimensionales." },
           { "level": 5, "description": "Desarrolla soluciones estratégicas basadas en un análisis profundo y multifacético." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 3
       },
       {
         "name": "Curiosidad Intelectual",
@@ -103,13 +103,13 @@
           { "level": 4, "description": "Aplica conocimientos adquiridos a nuevos contextos para generar soluciones innovadoras." },
           { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 2
       }
     ]
   },
   {
     "groupName": "Flexibilidad y resolución",
-    "description": "Este grupo incluye habilidades que permiten adaptarse a cambios, gestionar el tiempo eficazmente y resolver problemas de manera creativa y eficiente. Son cruciales para manejar situaciones dinámicas y cumplir con plazos y objetivos.",
+    "description": "Este grupo incluye habilidades que permiten adaptarse a situaciones adversas con resultados positivos. Son cruciales para afrontar situaciones dinámicas y cumplir objetivos.",
     "id":"flex",
     "groupIcon": "tabler:chess-queen",
     "colors": {
@@ -131,7 +131,7 @@
           { "level": 4, "description": "Propone estrategias para mejorar la transición en cambios organizacionales." },
           { "level": 5, "description": "Lidera con éxito en contextos de incertidumbre y cambio constante." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 3
       },
       {
         "name": "Gestión de tiempo",
@@ -139,25 +139,25 @@
         "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
         "levels": [
           { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
-          { "level": 2, "description": "Prioriza tareas simples de acuerdo con su importancia." },
+          { "level": 2, "description": "Prioriza tareas de acuerdo con su dificulta e impacto." },
           { "level": 3, "description": "Planifica y gestiona múltiples tareas de forma efectiva." },
           { "level": 4, "description": "Optimiza el uso del tiempo mediante herramientas y técnicas avanzadas." },
           { "level": 5, "description": "Desarrolla estrategias de gestión del tiempo para equipos enteros." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 3
       },
       {
         "name": "Resolución de problemas",
         "skillIcon": "tabler:tools",
-        "description": "Habilidad para identificar, analizar y solucionar desafíos de manera efectiva.",
+        "description": "Habilidad para identificar, analizar y solucionar desafíos de manera oportuna.",
         "levels": [
-          { "level": 1, "description": "Resuelve problemas sencillos siguiendo procedimientos establecidos." },
-          { "level": 2, "description": "Encuentra soluciones a problemas conocidos con herramientas básicas." },
-          { "level": 3, "description": "Propone soluciones alternativas a problemas poco estructurados." },
-          { "level": 4, "description": "Desarrolla estrategias innovadoras para resolver problemas complejos." },
-          { "level": 5, "description": "Lidera equipos en la resolución de problemas críticos con enfoques estratégicos." }
+          { "level": 1, "description": "Resuelve situaciones cotidianas reconociendo los eventos que lo provocaron." },
+          { "level": 2, "description": "Identifica patrones en problemas recurrentes y aplica enfoques preventivos." },
+          { "level": 3, "description": "Aborda problemas complejos analizando múltiples variables y posibles impactos antes de decidir." },
+          { "level": 4, "description": "Desestructura problemas complejos y crea estrategias enfocadas en maximizar el impacto con el menor esfuerzo posible." },
+          { "level": 5, "description": "Anticipa problemas futuros basándose en experiencias, tendencias y datos, creando estrategias preventivas." }
         ],
-        "currentLevel" : 4
+        "currentLevel" : 3
       }
     ]
   }
