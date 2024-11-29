@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "@/components/molecules/Hero.astro";
-import Section from "@/layouts/Section.astro";
 import SoftSkills from "@/components/templates/SoftSkills.astro";
 import HardSkills from "@/components/templates/HardSkills.astro";
 import Projects from "@/components/organisms/Projects.astro";
@@ -14,24 +13,9 @@ const lang = getLangFromUrl(Astro.url);
 <Layout>
   <main>
     <Hero lang={lang} />
-    <Section
-      title="Proyectos"
-      icon="briefcase"
-      customClass="projects-wrapper"
-      identifier="projects"
-    >
-      <Projects lang={lang} />
-    </Section>
-    <Section
-      title="Habilidades Duras"
-      icon="puzzle"
-      customClass="techs-wrapper"
-    >
-      <HardSkills lang={lang} />
-    </Section>
-    <Section icon="windsock" title="Habilidades Blandas" identifier="skills">
-      <SoftSkills lang={lang} />
-    </Section>
+    <Projects lang={lang} />
+    <HardSkills lang={lang} />
+    <SoftSkills lang={lang} />
   </main>
 </Layout>
 

@@ -1,5 +1,6 @@
 ---
 lang: "es"
+title: "Habilidades Blandas"
 ---
 Las habilidades blandas se encuentran en una dimensión más **personal e identitaria** que las habilidades duras, y son las capacidades que nos permiten **relacionarnos** con nuestro entorno y avanzar en nuestro **desarrollo personal**. Aunque una persona tenga una excelente preparación académica, la falta de habilidades blandas puede afectar su interacción con los demás y obstaculizar su desempeño.
   

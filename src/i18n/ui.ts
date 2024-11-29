@@ -67,38 +67,3 @@ export const footer = {
     en: 'Designed and developed by'
   }
 }
-
-export const homeSections = {
-  projects: {
-    en: {
-      title: "Projects",
-      text: [""]
-    },
-    es: {
-      title: "Proyectos",
-      text: ["A continuacion presento una breve seleccion de los proyectos que yo considero mas relevantes"]
-    }
-  },
-  hardSkills: {
-    en: {
-      title: "Hard Skills",
-      text: [""]
-    },
-    es: {
-      title: "Habilidades Duras",
-      text: [""]
-    }
-  },
-  softSkills: {
-    en: {
-      title: "Soft Skills",
-      text: [
-        ["hola", {strong: 'soft skills'}, "esto es un texto de prueba"]
-      ]
-    },
-    es: {
-      title: "Habilidades Blandas",
-      text: [""]
-    }
-  }
-}

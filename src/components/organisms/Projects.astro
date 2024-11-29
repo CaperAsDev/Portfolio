@@ -1,6 +1,7 @@
 ---
 import ProjectsData from "@/data/projects.json";
 import Project from "@/components/molecules/Project.astro";
+import Section from "@/layouts/Section.astro";
 
 interface Props {
   lang: "es" | "en";
@@ -11,25 +12,45 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png}"
 );
 const imagesArray = Object.entries(projectsImgs);
+
+const texts = await Astro.glob("/src/i18n/projects-*.md");
+const text = texts.filter((item) => item.frontmatter.lang === lang);
+const IntroText = text[0].Content;
 ---
 
-<header>
-  <p>
-    A continuacion presento una breve seleccion de los proyectos que yo
-    considero mas relevantes
-  </p>
-</header>
-<div class="projects-wrapper">
-  {
-    ProjectsData.map((project) => (
-      <Project
-        title={project.header[lang].title}
-        description={project.header[lang].description}
-        techsIcon={project.techsIcon}
-        links={project.links}
-        images={imagesArray.filter((image) => image[0].includes(project.tag))}
-        notes={project.notes[lang]}
-      />
-    ))
+<Section
+  title={text[0].frontmatter.title}
+  icon="briefcase"
+  customClass="projects-wrapper"
+  identifier="projects"
+>
+  <header>
+    <IntroText />
+  </header>
+  <div class="projects-wrapper">
+    {
+      ProjectsData.map((project) => (
+        <Project
+          title={project.header[lang].title}
+          description={project.header[lang].description}
+          techsIcon={project.techsIcon}
+          links={project.links}
+          images={imagesArray.filter((image) => image[0].includes(project.tag))}
+          notes={project.notes[lang]}
+        />
+      ))
+    }
+  </div>
+</Section>
+<style>
+  header {
+    display: grid;
+    margin-block: 1rem;
+    gap: 1rem;
+
+    strong {
+      color: var(--blue-300);
+      mix-blend-mode: luminosity;
+    }
   }
-</div>
+</style>

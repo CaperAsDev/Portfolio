@@ -1,33 +1,50 @@
 ---
 import { technologies } from "@/data/technologies.json";
 import TechPill from "@/components/atoms/TechPill.astro";
+import Section from "@/layouts/Section.astro";
 
 interface Props {
   lang: "es" | "en";
 }
 
 const { lang } = Astro.props;
+const texts = await Astro.glob("/src/i18n/hardSkills-*.md");
+const text = texts.filter((item) => item.frontmatter.lang === lang);
+const IntroText = text[0].Content;
 ---
 
-<header>
-  <p>
-    Estas son las herramientas de desarrollo web que mas frecuento en mis
-    proyectos:
-  </p>
-</header>
-<div class="pills-wrapper">
-  {
-    technologies.map((project) => (
-      <TechPill {...project} description={project.description[lang]} />
-    ))
-  }
-</div>
+<Section
+  icon="puzzle"
+  customClass="techs-wrapper"
+  title={text[0].frontmatter.title}
+>
+  <header>
+    <IntroText />
+  </header>
+  <div class="pills-wrapper">
+    {
+      technologies.map((project) => (
+        <TechPill {...project} description={project.description[lang]} />
+      ))
+    }
+  </div>
 
-<style>
-  .pills-wrapper {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-</style>
+  <style>
+    header {
+      display: grid;
+      margin-block: 1rem;
+      gap: 1rem;
+
+      strong {
+        color: var(--blue-300);
+        mix-blend-mode: luminosity;
+      }
+    }
+    .pills-wrapper {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</Section>

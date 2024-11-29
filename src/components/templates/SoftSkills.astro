@@ -1,10 +1,7 @@
 ---
 import SkillGroup from "@/components/organisms/SkillGroup.astro";
 import SoftSkillsData from "@/data/softSkills.json";
-
-interface Props {
-  lang: "es" | "en";
-}
+import Section from "@/layouts/Section.astro";
 
 const { lang } = Astro.props;
 const texts = await Astro.glob("/src/i18n/softSkills-*.md");
@@ -12,13 +9,14 @@ const text = texts.filter((item) => item.frontmatter.lang === lang);
 const IntroText = text[0].Content;
 ---
 
-<header>
-  <IntroText />
-</header>
-<div class="groups-wrapper">
-  {SoftSkillsData.map((group) => <SkillGroup {...group} />)}
-</div>
-
+<Section icon="windsock" title={text[0].frontmatter.title} identifier="skills">
+  <header>
+    <IntroText />
+  </header>
+  <div class="groups-wrapper">
+    {SoftSkillsData.map((group) => <SkillGroup {...group} />)}
+  </div>
+</Section>
 <script>
   const skillsSection: HTMLElement | null = document.querySelector("#skills");
   const cards = skillsSection?.querySelectorAll(".card");
