@@ -11,13 +11,14 @@ const pathname = Astro.url.pathname;
 ---
 
 <nav>
-  <ul>
+  <ul class="desktop-navlinks-wrapper">
     {
       links.map((item) => (
         <NavItem
           title={item.title}
           link={item.link}
           currentPage={item.link === pathname}
+          customClass="navLink"
         />
       ))
     }
@@ -43,3 +44,14 @@ const pathname = Astro.url.pathname;
     }
   }
 </style>
+<script>
+  const links = document.querySelectorAll(".desktop-navlinks-wrapper .navLink");
+  const pathname = document.location.pathname;
+
+  const nodeList = links as NodeListOf<HTMLAnchorElement>;
+  nodeList.forEach((link) => {
+    const url = new URL(link.href);
+    const isCurrentPage = url.pathname === pathname;
+    link.ariaCurrent = isCurrentPage ? "page" : null;
+  });
+</script>

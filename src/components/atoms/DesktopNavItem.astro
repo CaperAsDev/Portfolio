@@ -3,13 +3,14 @@ interface Props {
   title: string;
   link: string;
   currentPage: boolean;
+  customClass?: string;
 }
 
-const { title, link, currentPage } = Astro.props;
+const { title, link, currentPage, customClass } = Astro.props;
 ---
 
 <li>
-  <a href={link} aria-current={currentPage && "page"}>
+  <a href={link} aria-current={currentPage && "page"} class={customClass || ""}>
     {title}
   </a>
 </li>
