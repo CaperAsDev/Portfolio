@@ -14,7 +14,7 @@ export const nav = {
     links: [
       {
         title: "About",
-        link: "/en/about"
+        link: "/en/about/"
       },
       {
         title: "Home",
@@ -30,7 +30,7 @@ export const nav = {
     links: [
       {
         title: "Sobre mi",
-        link: "/about"
+        link: "/about/"
       },
       {
         title: "Inicio",
