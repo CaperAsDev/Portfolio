@@ -25,7 +25,7 @@
             { "level": 5, "description": "Lidera equipos multidisciplinarios, gestiona dinámicas complejas y asegura el cumplimiento de objetivos colectivos con alta efectividad." }
           ],
           "currentLevel" : 4,
-          "experience":"Desarrolle esta habilidad en mis años en la universidad desarrollando proyectos en equipo constantemente y en experiencias recientes he logrado mejorar asumiendo roles mas propositivos."
+          "experience":"Desarrollé esta habilidad durante mis años en la universidad trabajando en proyectos en equipo. Recientemente, he mejorado asumiendo roles más proactivos."
         },
         {
           "name": "Empatía",
@@ -39,7 +39,7 @@
             { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
           ],
           "currentLevel" : 5,
-          "experience":"Siempre he sido un buen oyente y cuando inicie mi canal de Twitch empece a conectar con muchas personas de diferentes contextos lo que ha ayudado a ampliar mi vision y mi mente."
+          "experience":"He sido un buen oyente y, al iniciar mi canal de Twitch, conecté con personas de diversos contextos, lo que amplió mi visión y mente."
         },
         {
           "name": "Comunicación efectiva",
@@ -53,7 +53,7 @@
             { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
           ],
           "currentLevel" : 4,
-          "experience":""
+          "experience":"He tenido la oportunidad de enseñar a otros sobre temas que conozco en varias ocasiones y he logrado transmitir intenciones o propuestas en equipos de trabajo de manera convincente."
         }
       ]
     },
@@ -81,8 +81,8 @@
             { "level": 4, "description": "Optimiza procesos mediante un análisis detallado y minucioso." },
             { "level": 5, "description": "Diseña sistemas robustos que minimizan errores e inconsistencias desde el inicio." }
           ],
-          "currentLevel" : 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel" : 4,
+          "experience":"Suelo prestar atención a los detalles en los trabajos de otros para entender cómo estructuran su proceso y aplicar lo que funcione en mis propios proyectos."
         },
         {
           "name": "Pensamiento crítico",
@@ -95,8 +95,8 @@
             { "level": 4, "description": "Aplica razonamiento lógico a problemas complejos y multidimensionales." },
             { "level": 5, "description": "Desarrolla soluciones estratégicas basadas en un análisis profundo y multifacético." }
           ],
-          "currentLevel" : 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel" : 4,
+          "experience":"Trato de evitar cualquier sesgo al analizar algo, buscando pistas desde su origen hasta su contexto. Al entenderlo a fondo, puedo intervenir con menor incertidumbre."
         },
         {
           "name": "Curiosidad Intelectual",
@@ -109,8 +109,8 @@
             { "level": 4, "description": "Aplica conocimientos adquiridos a nuevos contextos para generar soluciones innovadoras." },
             { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
           ],
-          "currentLevel" : 2,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel" : 3,
+          "experience":"En mi experiencia, he comprendido que para cambiar algo o aportar, primero debo conectar profundamente con el tema. De lo contrario, solo podré influir de manera superficial."
         }
       ]
     },
@@ -130,7 +130,7 @@
         {
           "name": "Adaptabilidad",
           "skillIcon": "tabler:puzzle",
-          "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
+          "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones. Esta muy conectada con la disposición.",
           "levels": [
             { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
             { "level": 2, "description": "Acepta cambios inesperados con una actitud positiva." },
@@ -138,8 +138,8 @@
             { "level": 4, "description": "Propone estrategias para mejorar la transición en cambios organizacionales." },
             { "level": 5, "description": "Lidera con éxito en contextos de incertidumbre y cambio constante." }
           ],
-          "currentLevel" : 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel" : 4,
+          "experience":"Me enfoco en las nuevas oportunidades que el cambio me brindará, en lugar de centrarme en el proceso de transición, que aunque necesario, no siempre es cómodo."
         },
         {
           "name": "Gestión de tiempo",
@@ -153,7 +153,7 @@
             { "level": 5, "description": "Desarrolla estrategias de gestión del tiempo para equipos enteros." }
           ],
           "currentLevel" : 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "experience":"No es fácil estimar cuánto tiempo tomará una tarea a menos que se haya realizado muchas veces antes. Por eso, esta habilidad está estrechamente relacionada con la atención y la experiencia."
         },
         {
           "name": "Resolución de problemas",
@@ -166,8 +166,8 @@
             { "level": 4, "description": "Desestructura problemas complejos y crea estrategias enfocadas en maximizar el impacto con el menor esfuerzo posible." },
             { "level": 5, "description": "Anticipa problemas futuros basándose en experiencias, tendencias y datos, creando estrategias preventivas." }
           ],
-          "currentLevel" : 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel" : 4,
+          "experience":"He aprendido que todo es una estructura compuesta de diferentes partes, y esta estructura también forma parte de un sistema. Para afrontar un reto, se debe pensar de manera sistémica."
         }
       ]
     }
@@ -198,7 +198,7 @@
             { "level": 5, "description": "Leads multidisciplinary teams, manages complex dynamics, and ensures the achievement of collective goals with high efficiency." }
           ],
           "currentLevel": 4,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "experience":"I developed this skill during my years at university, working on team projects. More recently, I've enhanced it by taking on more proactive roles."
         },
         {
           "name": "Empathy",
@@ -212,7 +212,7 @@
             { "level": 5, "description": "Builds deep and meaningful relationships based on emotional and cultural understanding." }
           ],
           "currentLevel": 5,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "experience":"As a good listener, I’ve connected with people from diverse backgrounds since starting my Twitch channel, which has broadened my perspective and mindset."
         },
         {
           "name": "Effective Communication",
@@ -225,8 +225,8 @@
             { "level": 4, "description": "Positively influences discussions and decision-making by structuring persuasive messages." },
             { "level": 5, "description": "Designs complex communication strategies to convey key messages in diverse environments." }
           ],
-          "currentLevel": 2,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 4,
+          "experience":"I’ve had several opportunities to teach others about topics I know and have successfully conveyed ideas or proposals in work teams with convincing communication."
         }
       ]
     },
@@ -254,8 +254,8 @@
             { "level": 4, "description": "Optimizes processes through detailed and thorough analysis." },
             { "level": 5, "description": "Designs robust systems that minimize errors and inconsistencies from the start." }
           ],
-          "currentLevel": 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 4,
+          "experience":"I pay close attention to the details in others' work to understand how they structure their processes and apply what works well to my own projects."
         },
         {
           "name": "Critical Thinking",
@@ -268,8 +268,8 @@
             { "level": 4, "description": "Applies logical reasoning to complex, multidimensional problems." },
             { "level": 5, "description": "Develops strategic solutions based on deep, multifaceted analysis." }
           ],
-          "currentLevel": 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 4,
+          "experience":"I strive to avoid bias when analyzing something, seeking clues from its origin to its context. By understanding it deeply, I can intervene with more certainty."
         },
         {
           "name": "Intellectual Curiosity",
@@ -282,8 +282,8 @@
             { "level": 4, "description": "Applies acquired knowledge to new contexts to generate innovative solutions." },
             { "level": 5, "description": "Connects interdisciplinary ideas and promotes learning in their environment." }
           ],
-          "currentLevel": 2,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 3,
+          "experience":"I’ve learned that in order to change something or make a meaningful contribution, I must first connect deeply with the topic. Otherwise, my influence would be limited to a superficial level."
         }
       ]
     },
@@ -311,8 +311,8 @@
             { "level": 4, "description": "Proposes strategies to improve transitions in organizational changes." },
             { "level": 5, "description": "Successfully leads in contexts of uncertainty and constant change." }
           ],
-          "currentLevel": 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 4,
+          "experience":"I focus on the new opportunities that change brings, rather than dwelling on the transition process, which, while necessary, isn’t always comfortable."
         },
         {
           "name": "Time Management",
@@ -326,7 +326,7 @@
             { "level": 5, "description": "Develops time management strategies for entire teams." }
           ],
           "currentLevel": 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "experience":"Estimating how long a task will take is difficult unless it has been done repeatedly before. Therefore, this skill is closely tied to attention and experience."
         },
         {
           "name": "Problem Solving",
@@ -339,8 +339,8 @@
             { "level": 4, "description": "Deconstructs complex problems and creates strategies focused on maximizing impact with minimal effort." },
             { "level": 5, "description": "Anticipates future problems based on experience, trends, and contexts, designing advanced preventive solutions."}
           ],
-          "currentLevel": 3,
-          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+          "currentLevel": 4,
+          "experience":"I've learned that everything is part of a larger structure made up of interconnected parts. To tackle a challenge, one must think systemically."
         }
       ]
     }
