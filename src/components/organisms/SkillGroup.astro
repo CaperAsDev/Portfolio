@@ -8,6 +8,7 @@ type Item = {
   skillIcon: string;
   currentLevel: number;
   levels: Level[];
+  experience: string;
 };
 type Colors = {
   "bg-clr1": string;
@@ -53,6 +54,7 @@ const opClr = colors["op-clr"];
           description={item.description}
           skillIcon={item.skillIcon}
           currentLevel={item.currentLevel}
+          experience={item.experience}
           name={item.name}
           groupIcon={groupIcon}
           group={id}

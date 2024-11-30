@@ -2,19 +2,32 @@
 import SkillGroup from "@/components/organisms/SkillGroup.astro";
 import SoftSkillsData from "@/data/softSkills.json";
 import Section from "@/layouts/Section.astro";
+import { separateLastParagraph } from "@/js/utils";
+
+interface Props {
+  lang: "es" | "en";
+}
 
 const { lang } = Astro.props;
-const texts = await Astro.glob("/src/i18n/softSkills-*.md");
-const text = texts.filter((item) => item.frontmatter.lang === lang);
-const IntroText = text[0].Content;
+const mdFiles = await Astro.glob("/src/i18n/softSkills-*.md");
+const [mdContent] = mdFiles.filter((item) => item.frontmatter.lang === lang);
+
+const [sectionDescription, sectionIntro] = separateLastParagraph(
+  mdContent.compiledContent(),
+  "<p>"
+);
 ---
 
-<Section icon="windsock" title={text[0].frontmatter.title} identifier="skills">
-  <header>
-    <IntroText />
-  </header>
-  <div class="groups-wrapper">
-    {SoftSkillsData.map((group) => <SkillGroup {...group} />)}
+<Section
+  icon="windsock"
+  title={mdContent.frontmatter.title}
+  identifier="skills"
+>
+  <Fragment set:html={sectionDescription} slot={"section-description"} />
+  <Fragment set:html={sectionIntro} slot={"section-intro"} />
+
+  <div class="groups-wrapper" slot="main-content">
+    {SoftSkillsData[lang].map((group) => <SkillGroup {...group} />)}
   </div>
 </Section>
 <script>
@@ -38,17 +51,6 @@ const IntroText = text[0].Content;
   });
 </script>
 <style>
-  header {
-    display: grid;
-    margin-block: 1rem;
-    gap: 1rem;
-
-    strong {
-      color: var(--blue-300);
-      mix-blend-mode: luminosity;
-    }
-  }
-
   .groups-wrapper {
     margin-block: 3rem;
     display: grid;

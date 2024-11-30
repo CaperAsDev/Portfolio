@@ -2,6 +2,7 @@
 import ProjectsData from "@/data/projects.json";
 import Project from "@/components/molecules/Project.astro";
 import Section from "@/layouts/Section.astro";
+import { separateLastParagraph } from "@/js/utils";
 
 interface Props {
   lang: "es" | "en";
@@ -13,21 +14,23 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
 );
 const imagesArray = Object.entries(projectsImgs);
 
-const texts = await Astro.glob("/src/i18n/projects-*.md");
-const text = texts.filter((item) => item.frontmatter.lang === lang);
-const IntroText = text[0].Content;
+const mdFiles = await Astro.glob("/src/i18n/projects-*.md");
+const [mdContent] = mdFiles.filter((item) => item.frontmatter.lang === lang);
+const [sectionDescription, sectionIntro] = separateLastParagraph(
+  mdContent.compiledContent(),
+  "<p>"
+);
 ---
 
 <Section
-  title={text[0].frontmatter.title}
+  title={mdContent.frontmatter.title}
   icon="briefcase"
   customClass="projects-wrapper"
   identifier="projects"
 >
-  <header>
-    <IntroText />
-  </header>
-  <div class="projects-wrapper">
+  <Fragment set:html={sectionDescription} slot={"section-description"} />
+  <Fragment set:html={sectionIntro} slot={"section-intro"} />
+  <div class="projects-wrapper" slot="main-content">
     {
       ProjectsData.map((project) => (
         <Project

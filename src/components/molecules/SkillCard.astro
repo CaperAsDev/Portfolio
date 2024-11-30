@@ -14,9 +14,18 @@ interface Props {
   currentLevel: number;
   skillIcon: string;
   groupIcon: string;
+  experience: string;
 }
-const { name, description, levels, group, currentLevel, skillIcon, groupIcon } =
-  Astro.props;
+const {
+  name,
+  description,
+  levels,
+  group,
+  currentLevel,
+  skillIcon,
+  groupIcon,
+  experience,
+} = Astro.props;
 
 const buttonAnchor = `--levels${name.split(" ")[0]}`;
 const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
@@ -39,8 +48,7 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
         </div>
         <div class="face back">
           <p class="description">
-            Texto de atras de referencia, aqui va a ir una descripcion de como
-            logre adquirir la habilidad y sus aplicaciones practicas.
+            {experience}
           </p>
         </div>
       </button>

@@ -12,12 +12,31 @@ const { title, icon, customClass, identifier } = Astro.props;
 ---
 
 <section class="wrapper" id={identifier}>
-  <h2>
-    <Icon name={`tabler:${icon}`} width={30} height={30} />
-    <span>{title}</span>
-  </h2>
+  <header>
+    {Astro.slots.has('section-intro') && Astro.slots.has('section-description') ? (
+      <details>
+        <summary>
+        <h2>
+          <Icon name={`tabler:${icon}`} width={30} height={30} />
+          <span>{title}</span>
+        </h2>
+        </summary>
+        <div class="detail-description-wrapper">
+          <slot name="section-description" />
+        </div>
+      </details>
+      <slot name="section-intro" />
+    )
+    : (
+      <h2>
+        <Icon name={`tabler:${icon}`} width={30} height={30} />
+        <span>{title}</span>
+      </h2>
+      <slot name="section-intro" />
+    )}
+  </header>
   <div class={`slot-wrapper ${customClass || ""}`}>
-    <slot />
+    <slot name="main-content" />
   </div>
 </section>
 <style>
@@ -29,6 +48,9 @@ const { title, icon, customClass, identifier } = Astro.props;
     gap: 20px;
     height: fit-content;
 
+    header {
+      width: 100%;
+    }
     h2 {
       width: 100%;
       display: flex;
@@ -49,7 +71,59 @@ const { title, icon, customClass, identifier } = Astro.props;
       width: 100%;
     }
   }
+  header {
+    display: grid;
+    margin-block: 1rem;
+    gap: 1rem;
 
+    strong {
+      color: var(--blue-300);
+      mix-blend-mode: luminosity;
+    }
+  }
+  summary {
+    cursor: pointer;
+
+    span{
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate3d(100%,-10%,0);
+        content: '!';
+        display: grid;
+        height: calc(var(--fs-s) * 1.2);
+        aspect-ratio: 1 / 1;
+        place-items: center;
+        font-size: var(--fs-s);
+        background-color: oklch(from var(--blue-300) l c h / .5);
+        border: 2px solid var(--blue-300);
+        border-radius: 50%;
+        mix-blend-mode: luminosity;
+        opacity: .2;
+        transition: opacity .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+
+    &:hover span::after {
+      opacity: .8;
+    }
+  }
+
+  h2 {
+    padding-block: 2px;
+    margin-block-end: 1rem;
+  }
+  
+  .detail-description-wrapper{
+    display: grid;
+    gap: var(--fs-s);
+    padding: var(--fs-s);
+    border: 1px solid var(--blue-300);
+    border-radius: var(--fs-s);
+  }
   .techs-wrapper {
     position: relative;
     width: clamp(300px, 90%, 1024px);
@@ -66,6 +140,38 @@ const { title, icon, customClass, identifier } = Astro.props;
     display: grid;
     place-items: center;
     margin-block: 10px;
+  }
+  /* --------- dialogs reveal animation --------- */
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition:
+        all 0.3s ease,
+        content-visibility 0.3s allow-discrete;
+      height: 0;
+      overflow: clip;
+    }
+
+    @supports (interpolate-size: allow-keywords) {
+      :root {
+        interpolate-size: allow-keywords;
+      }
+
+      [open]::details-content {
+        height: auto;
+      }
+    }
+
+    @supports not (interpolate-size: allow-keywords) {
+      details::details-content {
+        block-size: 0;
+      }
+
+      [open]::details-content {
+        block-size: auto;
+        block-size: calc-size(auto);
+        height: 300px;
+      }
+    }
   }
 
   @media screen and (width >= 1024px) {

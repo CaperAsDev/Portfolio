@@ -39,11 +39,11 @@ const { links, contact } = nav[lang];
     place-items: start;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    background-color: var(--blue-700);
+    background-color: oklch(from var(--blue-700) l c h / 0.2);
+    backdrop-filter: blur(2px);
     border-inline: 2px var(--blue-500) solid;
     opacity: 50%;
-    transition: opacity 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
 
     &:focus,
@@ -51,7 +51,6 @@ const { links, contact } = nav[lang];
     &:has(details[open]),
     &:has(summary:focus) {
       opacity: 100%;
-      transform: scale(1.1);
     }
 
     &:has([open]) {
@@ -59,6 +58,7 @@ const { links, contact } = nav[lang];
       padding: 10px;
 
       summary {
+        color: var(--pink-300);
         border-bottom: 2px solid var(--blue-800);
         text-align: center;
       }
@@ -76,16 +76,10 @@ const { links, contact } = nav[lang];
   summary {
     text-align: end;
     list-style: none;
-    color: var(--blue-100);
 
     &:focus,
     &:hover {
       outline: none;
-
-      svg {
-        transform: scale(1.2);
-        color: var(--pink-300);
-      }
     }
   }
 

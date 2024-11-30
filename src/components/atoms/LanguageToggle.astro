@@ -29,6 +29,13 @@ const linksArray = shiftLang(Astro.url);
     display: grid;
     place-items: center;
     gap: var(--fs-xs);
+    opacity: 0.5;
+    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
 
     a {
       --clr: var(--blue-100);

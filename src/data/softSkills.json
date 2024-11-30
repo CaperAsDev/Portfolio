@@ -1,164 +1,348 @@
-[
-  {
-    "groupName": "Relaciones y comunicación",
-    "description": "Este grupo se enfoca en la capacidad de trabajar eficazmente con otros y las habilidades esenciales para construir relaciones fuertes y ambientes de trabajo agradable.",
-    "id":"relations",
-    "groupIcon": "tabler:yin-yang-filled",
-    "colors": {
-      "bg-clr1": "#9F98FA",
-      "bg-clr2": "#BF98FA",
-      "border-clr": "#98D0FA",
-      "rise-clr": "#98EEFA",
-      "op-clr": "#FAE5B9"
+{
+  "es":[
+    {
+      "groupName": "Relaciones y comunicación",
+      "description": "Este grupo se enfoca en la capacidad de trabajar eficazmente con otros y las habilidades esenciales para construir relaciones fuertes y ambientes de trabajo agradable.",
+      "id":"relations",
+      "groupIcon": "tabler:yin-yang-filled",
+      "colors": {
+        "bg-clr1": "#9F98FA",
+        "bg-clr2": "#BF98FA",
+        "border-clr": "#98D0FA",
+        "rise-clr": "#98EEFA",
+        "op-clr": "#FAE5B9"
+      },
+      "items": [
+        {
+          "name": "Trabajo en Equipo",
+          "skillIcon": "tabler:heart-handshake",
+          "description": "Capacidad para colaborar con otros de manera eficiente y armoniosa para alcanzar objetivos comunes.",
+          "levels": [
+            { "level": 1, "description": "Participa activamente en equipos pequeños, cumpliendo tareas asignadas bajo supervisión directa." },
+            { "level": 2, "description": "Contribuye con ideas en discusiones grupales y apoya la resolución de conflictos básicos dentro del equipo." },
+            { "level": 3, "description": "Colabora eficazmente en equipos diversos, aportando soluciones creativas y promoviendo una comunicación fluida." },
+            { "level": 4, "description": "Asume roles de liderazgo ocasionales, delega tareas de manera justa y fomenta un ambiente colaborativo positivo." },
+            { "level": 5, "description": "Lidera equipos multidisciplinarios, gestiona dinámicas complejas y asegura el cumplimiento de objetivos colectivos con alta efectividad." }
+          ],
+          "currentLevel" : 4,
+          "experience":"Desarrolle esta habilidad en mis años en la universidad desarrollando proyectos en equipo constantemente y en experiencias recientes he logrado mejorar asumiendo roles mas propositivos."
+        },
+        {
+          "name": "Empatía",
+          "skillIcon": "tabler:hearts",
+          "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
+          "levels": [
+            { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
+            { "level": 2, "description": "Escucha activamente y responde de manera respetuosa a emociones ajenas." },
+            { "level": 3, "description": "Identifica necesidades implícitas en diferentes contextos sociales." },
+            { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros de manera efectiva." },
+            { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
+          ],
+          "currentLevel" : 5,
+          "experience":"Siempre he sido un buen oyente y cuando inicie mi canal de Twitch empece a conectar con muchas personas de diferentes contextos lo que ha ayudado a ampliar mi vision y mi mente."
+        },
+        {
+          "name": "Comunicación efectiva",
+          "skillIcon": "tabler:bubble-text",
+          "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
+          "levels": [
+            { "level": 1, "description": "Comunica información básica con claridad en entornos informales." },
+            { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas de manera efectiva." },
+            { "level": 3, "description": "Adecúa su comunicación al nivel de conocimiento y contexto del receptor." },
+            { "level": 4, "description": "Influye positivamente en discusiones y toma de decisiones al estructurar mensajes persuasivos." },
+            { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
+          ],
+          "currentLevel" : 4,
+          "experience":""
+        }
+      ]
     },
-    "items": [
-      {
-        "name": "Trabajo en Equipo",
-        "skillIcon": "tabler:heart-handshake",
-        "description": "Capacidad para colaborar con otros de manera eficiente y armoniosa para alcanzar objetivos comunes.",
-        "levels": [
-          { "level": 1, "description": "Participa activamente en equipos pequeños, cumpliendo tareas asignadas bajo supervisión directa." },
-          { "level": 2, "description": "Contribuye con ideas en discusiones grupales y apoya la resolución de conflictos básicos dentro del equipo." },
-          { "level": 3, "description": "Colabora eficazmente en equipos diversos, aportando soluciones creativas y promoviendo una comunicación fluida." },
-          { "level": 4, "description": "Asume roles de liderazgo ocasionales, delega tareas de manera justa y fomenta un ambiente colaborativo positivo." },
-          { "level": 5, "description": "Lidera equipos multidisciplinarios, gestiona dinámicas complejas y asegura el cumplimiento de objetivos colectivos con alta efectividad." }
-        ],
-        "currentLevel" : 4
+    {
+      "groupName": "Precisión y análisis",
+      "description": "Este grupo se centra en la capacidad de observar, analizar y entender detalles importantes. Son habilidades clave para el trabajo meticuloso y la toma de decisiones informada.",
+      "id": "prec",
+      "groupIcon": "tabler:hexagons",
+      "colors": {
+        "bg-clr1": "#8DFA94",
+        "bg-clr2": "#DFFA8C",
+        "border-clr": "#B1FA8C",
+        "rise-clr": "#8CFADE",
+        "op-clr": "#FAAFC5"
       },
-      {
-        "name": "Empatía",
-        "skillIcon": "tabler:hearts",
-        "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
-        "levels": [
-          { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
-          { "level": 2, "description": "Escucha activamente y responde de manera respetuosa a emociones ajenas." },
-          { "level": 3, "description": "Identifica necesidades implícitas en diferentes contextos sociales." },
-          { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros de manera efectiva." },
-          { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
-        ],
-        "currentLevel" : 5
-      },
-      {
-        "name": "Comunicación efectiva",
-        "skillIcon": "tabler:bubble-text",
-        "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
-        "levels": [
-          { "level": 1, "description": "Comunica información básica con claridad en entornos informales." },
-          { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas de manera efectiva." },
-          { "level": 3, "description": "Adecúa su comunicación al nivel de conocimiento y contexto del receptor." },
-          { "level": 4, "description": "Influye positivamente en discusiones y toma de decisiones al estructurar mensajes persuasivos." },
-          { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
-        ],
-        "currentLevel" : 2
-      }
-    ]
-  },
-  {
-    "groupName": "Precisión y análisis",
-    "description": "Este grupo se centra en la capacidad de observar, analizar y entender detalles importantes. Son habilidades clave para el trabajo meticuloso y la toma de decisiones informada.",
-    "id": "prec",
-    "groupIcon": "tabler:hexagons",
-    "colors": {
-      "bg-clr1": "#8DFA94",
-      "bg-clr2": "#DFFA8C",
-      "border-clr": "#B1FA8C",
-      "rise-clr": "#8CFADE",
-      "op-clr": "#FAAFC5"
+      "items": [
+        {
+          "name": "Atención al Detalle",
+          "skillIcon": "tabler:zoom-in",
+          "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
+          "levels": [
+            { "level": 1, "description": "Identifica errores recurrentes en tareas asignadas." },
+            { "level": 2, "description": "Revisa su trabajo para asegurar cumplimiento de estándares básicos." },
+            { "level": 3, "description": "Detecta detalles sutiles que otros han pasado por alto." },
+            { "level": 4, "description": "Optimiza procesos mediante un análisis detallado y minucioso." },
+            { "level": 5, "description": "Diseña sistemas robustos que minimizan errores e inconsistencias desde el inicio." }
+          ],
+          "currentLevel" : 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Pensamiento crítico",
+          "skillIcon": "tabler:chart-radar",
+          "description": "Habilidad para analizar y evaluar información objetivamente. Es dudar para llegar a validar.",
+          "levels": [
+            { "level": 1, "description": "Identifica información relevante en planteamientos simples." },
+            { "level": 2, "description": "Cuestiona supuestos y busca evidencia en experiencias." },
+            { "level": 3, "description": "Evalúa diferentes perspectivas para llegar a conclusiones informadas." },
+            { "level": 4, "description": "Aplica razonamiento lógico a problemas complejos y multidimensionales." },
+            { "level": 5, "description": "Desarrolla soluciones estratégicas basadas en un análisis profundo y multifacético." }
+          ],
+          "currentLevel" : 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Curiosidad Intelectual",
+          "skillIcon": "tabler:seeding",
+          "description": "Deseo constante de aprender, explorar y mejorar el conocimiento en diversos campos.",
+          "levels": [
+            { "level": 1, "description": "Explora temas nuevos ocasionalmente por curiosidad personal." },
+            { "level": 2, "description": "Busca activamente información adicional sobre temas de interés." },
+            { "level": 3, "description": "Investiga a profundidad temas complejos para ampliar su entendimiento." },
+            { "level": 4, "description": "Aplica conocimientos adquiridos a nuevos contextos para generar soluciones innovadoras." },
+            { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
+          ],
+          "currentLevel" : 2,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        }
+      ]
     },
-    "items": [
-      {
-        "name": "Atención al Detalle",
-        "skillIcon": "tabler:zoom-in",
-        "description": "Capacidad para identificar errores, inconsistencias o áreas de mejora en un trabajo o proceso.",
-        "levels": [
-          { "level": 1, "description": "Identifica errores recurrentes en tareas asignadas." },
-          { "level": 2, "description": "Revisa su trabajo para asegurar cumplimiento de estándares básicos." },
-          { "level": 3, "description": "Detecta detalles sutiles que otros han pasado por alto." },
-          { "level": 4, "description": "Optimiza procesos mediante un análisis detallado y minucioso." },
-          { "level": 5, "description": "Diseña sistemas robustos que minimizan errores e inconsistencias desde el inicio." }
-        ],
-        "currentLevel" : 3
+    {
+      "groupName": "Flexibilidad y resolución",
+      "description": "Este grupo incluye habilidades que permiten adaptarse a situaciones adversas con resultados positivos. Son cruciales para afrontar situaciones dinámicas y cumplir objetivos.",
+      "id":"flex",
+      "groupIcon": "tabler:chess-queen",
+      "colors": {
+        "bg-clr1": "#FAC89F",
+        "bg-clr2": "#FAA9A0",
+        "border-clr": "#FAB9A0",
+        "rise-clr": "#FAD7A0",
+        "op-clr": "#8CFADE"
       },
-      {
-        "name": "Pensamiento crítico",
-        "skillIcon": "tabler:chart-radar",
-        "description": "Habilidad para analizar y evaluar información objetivamente. Es dudar para llegar a validar.",
-        "levels": [
-          { "level": 1, "description": "Identifica información relevante en planteamientos simples." },
-          { "level": 2, "description": "Cuestiona supuestos y busca evidencia en experiencias." },
-          { "level": 3, "description": "Evalúa diferentes perspectivas para llegar a conclusiones informadas." },
-          { "level": 4, "description": "Aplica razonamiento lógico a problemas complejos y multidimensionales." },
-          { "level": 5, "description": "Desarrolla soluciones estratégicas basadas en un análisis profundo y multifacético." }
-        ],
-        "currentLevel" : 3
+      "items": [
+        {
+          "name": "Adaptabilidad",
+          "skillIcon": "tabler:puzzle",
+          "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
+          "levels": [
+            { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
+            { "level": 2, "description": "Acepta cambios inesperados con una actitud positiva." },
+            { "level": 3, "description": "Se ajusta eficazmente a entornos dinámicos y colabora en el cambio." },
+            { "level": 4, "description": "Propone estrategias para mejorar la transición en cambios organizacionales." },
+            { "level": 5, "description": "Lidera con éxito en contextos de incertidumbre y cambio constante." }
+          ],
+          "currentLevel" : 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Gestión de tiempo",
+          "skillIcon": "tabler:device-watch-stats",
+          "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
+          "levels": [
+            { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
+            { "level": 2, "description": "Prioriza tareas de acuerdo con su dificulta e impacto." },
+            { "level": 3, "description": "Planifica y gestiona múltiples tareas de forma efectiva." },
+            { "level": 4, "description": "Optimiza el uso del tiempo mediante herramientas y técnicas avanzadas." },
+            { "level": 5, "description": "Desarrolla estrategias de gestión del tiempo para equipos enteros." }
+          ],
+          "currentLevel" : 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Resolución de problemas",
+          "skillIcon": "tabler:tools",
+          "description": "Habilidad para identificar, analizar y solucionar desafíos de manera oportuna.",
+          "levels": [
+            { "level": 1, "description": "Resuelve situaciones cotidianas reconociendo los eventos que lo provocaron." },
+            { "level": 2, "description": "Identifica patrones en problemas recurrentes y aplica enfoques preventivos." },
+            { "level": 3, "description": "Aborda problemas complejos analizando múltiples variables y posibles impactos antes de decidir." },
+            { "level": 4, "description": "Desestructura problemas complejos y crea estrategias enfocadas en maximizar el impacto con el menor esfuerzo posible." },
+            { "level": 5, "description": "Anticipa problemas futuros basándose en experiencias, tendencias y datos, creando estrategias preventivas." }
+          ],
+          "currentLevel" : 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        }
+      ]
+    }
+  ],
+  "en": [
+    {
+      "groupName": "Relationships and Communication",
+      "description": "This group focuses on the ability to work effectively with others and the essential skills for building strong relationships and pleasant work environments.",
+      "id": "relations",
+      "groupIcon": "tabler:yin-yang-filled",
+      "colors": {
+        "bg-clr1": "#9F98FA",
+        "bg-clr2": "#BF98FA",
+        "border-clr": "#98D0FA",
+        "rise-clr": "#98EEFA",
+        "op-clr": "#FAE5B9"
       },
-      {
-        "name": "Curiosidad Intelectual",
-        "skillIcon": "tabler:seeding",
-        "description": "Deseo constante de aprender, explorar y mejorar el conocimiento en diversos campos.",
-        "levels": [
-          { "level": 1, "description": "Explora temas nuevos ocasionalmente por curiosidad personal." },
-          { "level": 2, "description": "Busca activamente información adicional sobre temas de interés." },
-          { "level": 3, "description": "Investiga a profundidad temas complejos para ampliar su entendimiento." },
-          { "level": 4, "description": "Aplica conocimientos adquiridos a nuevos contextos para generar soluciones innovadoras." },
-          { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
-        ],
-        "currentLevel" : 2
-      }
-    ]
-  },
-  {
-    "groupName": "Flexibilidad y resolución",
-    "description": "Este grupo incluye habilidades que permiten adaptarse a situaciones adversas con resultados positivos. Son cruciales para afrontar situaciones dinámicas y cumplir objetivos.",
-    "id":"flex",
-    "groupIcon": "tabler:chess-queen",
-    "colors": {
-      "bg-clr1": "#FAC89F",
-      "bg-clr2": "#FAA9A0",
-      "border-clr": "#FAB9A0",
-      "rise-clr": "#FAD7A0",
-      "op-clr": "#8CFADE"
+      "items": [
+        {
+          "name": "Teamwork",
+          "skillIcon": "tabler:heart-handshake",
+          "description": "Ability to collaborate with others efficiently and harmoniously to achieve common goals.",
+          "levels": [
+            { "level": 1, "description": "Actively participates in small teams, completing assigned tasks under direct supervision." },
+            { "level": 2, "description": "Contributes ideas in group discussions and supports the resolution of basic conflicts within the team." },
+            { "level": 3, "description": "Collaborates effectively in diverse teams, providing creative solutions and promoting smooth communication." },
+            { "level": 4, "description": "Occasionally assumes leadership roles, delegates tasks fairly, and fosters a positive collaborative environment." },
+            { "level": 5, "description": "Leads multidisciplinary teams, manages complex dynamics, and ensures the achievement of collective goals with high efficiency." }
+          ],
+          "currentLevel": 4,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Empathy",
+          "skillIcon": "tabler:hearts",
+          "description": "Ability to understand and share the feelings and perspectives of others.",
+          "levels": [
+            { "level": 1, "description": "Recognizes basic emotions in direct interactions." },
+            { "level": 2, "description": "Actively listens and responds respectfully to others' emotions." },
+            { "level": 3, "description": "Identifies implicit needs in different social contexts." },
+            { "level": 4, "description": "Adapts behavior to effectively support others emotionally." },
+            { "level": 5, "description": "Builds deep and meaningful relationships based on emotional and cultural understanding." }
+          ],
+          "currentLevel": 5,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Effective Communication",
+          "skillIcon": "tabler:bubble-text",
+          "description": "Ability to express ideas clearly and adapted to the target audience.",
+          "levels": [
+            { "level": 1, "description": "Communicates basic information clearly in informal settings." },
+            { "level": 2, "description": "Uses different formats (written, verbal) to convey ideas effectively." },
+            { "level": 3, "description": "Adapts communication to the knowledge level and context of the receiver." },
+            { "level": 4, "description": "Positively influences discussions and decision-making by structuring persuasive messages." },
+            { "level": 5, "description": "Designs complex communication strategies to convey key messages in diverse environments." }
+          ],
+          "currentLevel": 2,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        }
+      ]
     },
-    "items": [
-      {
-        "name": "Adaptabilidad",
-        "skillIcon": "tabler:puzzle",
-        "description": "Habilidad para ajustarse rápidamente a nuevos entornos, roles o situaciones.",
-        "levels": [
-          { "level": 1, "description": "Se adapta a pequeños cambios en tareas rutinarias." },
-          { "level": 2, "description": "Acepta cambios inesperados con una actitud positiva." },
-          { "level": 3, "description": "Se ajusta eficazmente a entornos dinámicos y colabora en el cambio." },
-          { "level": 4, "description": "Propone estrategias para mejorar la transición en cambios organizacionales." },
-          { "level": 5, "description": "Lidera con éxito en contextos de incertidumbre y cambio constante." }
-        ],
-        "currentLevel" : 3
+    {
+      "groupName": "Precision and Analysis",
+      "description": "This group focuses on the ability to observe, analyze, and understand important details. These are key skills for meticulous work and informed decision-making.",
+      "id": "prec",
+      "groupIcon": "tabler:hexagons",
+      "colors": {
+        "bg-clr1": "#8DFA94",
+        "bg-clr2": "#DFFA8C",
+        "border-clr": "#B1FA8C",
+        "rise-clr": "#8CFADE",
+        "op-clr": "#FAAFC5"
       },
-      {
-        "name": "Gestión de tiempo",
-        "skillIcon": "tabler:device-watch-stats",
-        "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
-        "levels": [
-          { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
-          { "level": 2, "description": "Prioriza tareas de acuerdo con su dificulta e impacto." },
-          { "level": 3, "description": "Planifica y gestiona múltiples tareas de forma efectiva." },
-          { "level": 4, "description": "Optimiza el uso del tiempo mediante herramientas y técnicas avanzadas." },
-          { "level": 5, "description": "Desarrolla estrategias de gestión del tiempo para equipos enteros." }
-        ],
-        "currentLevel" : 3
+      "items": [
+        {
+          "name": "Attention to Detail",
+          "skillIcon": "tabler:zoom-in",
+          "description": "Ability to identify errors, inconsistencies, or areas for improvement in a work or process.",
+          "levels": [
+            { "level": 1, "description": "Identifies recurring errors in assigned tasks." },
+            { "level": 2, "description": "Reviews work to ensure compliance with basic standards." },
+            { "level": 3, "description": "Detects subtle details that others have overlooked." },
+            { "level": 4, "description": "Optimizes processes through detailed and thorough analysis." },
+            { "level": 5, "description": "Designs robust systems that minimize errors and inconsistencies from the start." }
+          ],
+          "currentLevel": 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Critical Thinking",
+          "skillIcon": "tabler:chart-radar",
+          "description": "Ability to analyze and evaluate information objectively. It involves doubting to reach validation.",
+          "levels": [
+            { "level": 1, "description": "Identifies relevant information in simple statements." },
+            { "level": 2, "description": "Questions assumptions and seeks evidence in experiences." },
+            { "level": 3, "description": "Evaluates different perspectives to reach informed conclusions." },
+            { "level": 4, "description": "Applies logical reasoning to complex, multidimensional problems." },
+            { "level": 5, "description": "Develops strategic solutions based on deep, multifaceted analysis." }
+          ],
+          "currentLevel": 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Intellectual Curiosity",
+          "skillIcon": "tabler:seeding",
+          "description": "Constant desire to learn, explore, and enhance knowledge in various fields.",
+          "levels": [
+            { "level": 1, "description": "Occasionally explores new topics out of personal curiosity." },
+            { "level": 2, "description": "Actively seeks additional information on topics of interest." },
+            { "level": 3, "description": "Deeply investigates complex topics to expand understanding." },
+            { "level": 4, "description": "Applies acquired knowledge to new contexts to generate innovative solutions." },
+            { "level": 5, "description": "Connects interdisciplinary ideas and promotes learning in their environment." }
+          ],
+          "currentLevel": 2,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        }
+      ]
+    },
+    {
+      "groupName": "Flexibility and Resolution",
+      "description": "This group includes skills that enable positive adaptation to adverse situations. They are crucial for handling dynamic situations and achieving goals.",
+      "id": "flex",
+      "groupIcon": "tabler:chess-queen",
+      "colors": {
+        "bg-clr1": "#FAC89F",
+        "bg-clr2": "#FAA9A0",
+        "border-clr": "#FAB9A0",
+        "rise-clr": "#FAD7A0",
+        "op-clr": "#8CFADE"
       },
-      {
-        "name": "Resolución de problemas",
-        "skillIcon": "tabler:tools",
-        "description": "Habilidad para identificar, analizar y solucionar desafíos de manera oportuna.",
-        "levels": [
-          { "level": 1, "description": "Resuelve situaciones cotidianas reconociendo los eventos que lo provocaron." },
-          { "level": 2, "description": "Identifica patrones en problemas recurrentes y aplica enfoques preventivos." },
-          { "level": 3, "description": "Aborda problemas complejos analizando múltiples variables y posibles impactos antes de decidir." },
-          { "level": 4, "description": "Desestructura problemas complejos y crea estrategias enfocadas en maximizar el impacto con el menor esfuerzo posible." },
-          { "level": 5, "description": "Anticipa problemas futuros basándose en experiencias, tendencias y datos, creando estrategias preventivas." }
-        ],
-        "currentLevel" : 3
-      }
-    ]
-  }
-]
+      "items": [
+        {
+          "name": "Adaptability",
+          "skillIcon": "tabler:puzzle",
+          "description": "Ability to quickly adjust to new environments, roles, or situations.",
+          "levels": [
+            { "level": 1, "description": "Adapts to small changes in routine tasks." },
+            { "level": 2, "description": "Accepts unexpected changes with a positive attitude." },
+            { "level": 3, "description": "Effectively adjusts to dynamic environments and collaborates in the change." },
+            { "level": 4, "description": "Proposes strategies to improve transitions in organizational changes." },
+            { "level": 5, "description": "Successfully leads in contexts of uncertainty and constant change." }
+          ],
+          "currentLevel": 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Time Management",
+          "skillIcon": "tabler:device-watch-stats",
+          "description": "Ability to organize tasks and meet objectives efficiently.",
+          "levels": [
+            { "level": 1, "description": "Completes basic tasks within established deadlines." },
+            { "level": 2, "description": "Prioritizes tasks based on difficulty and impact." },
+            { "level": 3, "description": "Plans and manages multiple tasks effectively." },
+            { "level": 4, "description": "Optimizes time use through advanced tools and techniques." },
+            { "level": 5, "description": "Develops time management strategies for entire teams." }
+          ],
+          "currentLevel": 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        },
+        {
+          "name": "Problem Solving",
+          "skillIcon": "tabler:tools",
+          "description": "Ability to identify, analyze, and solve challenges in a timely manner.",
+          "levels": [
+            { "level": 1, "description": "Solves everyday situations by recognizing the events that caused them." },
+            { "level": 2, "description": "Identifies patterns in recurring problems and applies preventive approaches." },
+            { "level": 3, "description": "Addresses complex problems by analyzing multiple variables and potential impacts before deciding." },
+            { "level": 4, "description": "Deconstructs complex problems and creates strategies focused on maximizing impact with minimal effort." },
+            { "level": 5, "description": "Anticipates future problems based on experience, trends, and contexts, designing advanced preventive solutions."}
+          ],
+          "currentLevel": 3,
+          "experience":"Utilice esta habilidad en mi trabajo en la universidad desarrollando proyectos en equipo y en experiencias recientes he logrado mejorar la empatía y la comunicación."
+        }
+      ]
+    }
+  ]
+}
