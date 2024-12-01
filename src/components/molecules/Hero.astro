@@ -16,10 +16,13 @@ const { lang } = Astro.props;
   </div>
   <div class="info-container">
     <div>
-      <h1>Kevin Hincapie</h1>
-      <strong>@CaperAsDev</strong>
+      <h1>
+        <span> CaperAsDev </span>
+        <p class="profile">
+          {hero[lang].profile}
+        </p>
+      </h1>
     </div>
-    <h2>{hero[lang].profile}</h2>
     <p>
       {hero[lang].bio}
     </p>
@@ -52,9 +55,13 @@ const { lang } = Astro.props;
       font-weight: 300;
     }
     h1 {
+      display: grid;
+      gap: var(--fs-xs);
       margin-bottom: var(--fs-s);
     }
-    h2 {
+    .profile {
+      font-size: var(--fs-m);
+      font-weight: bold;
       mix-blend-mode: luminosity;
     }
     p {

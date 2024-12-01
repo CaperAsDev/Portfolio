@@ -7,7 +7,7 @@ const linksArray = shiftLang(Astro.url);
 
 <div>
   {
-    linksArray.map(({ path, label }) => (
+    linksArray.map(({ path, label, lang }) => (
       <IconAnchor
         link={path}
         label={label}
@@ -16,6 +16,7 @@ const linksArray = shiftLang(Astro.url);
         rel="follow"
         icon="tabler:language-hiragana"
         customClass="textXS"
+        lang={lang}
       />
     ))
   }

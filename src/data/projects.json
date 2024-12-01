@@ -16,7 +16,7 @@
     "header" : {
       "es": {
         "title":"Manufacturas Fennixx",
-        "description":"Landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos: de las imagenes agregadas a los assets se obtiene la información necesaría."
+        "description":"Landing page para una empresa local, se contruyo pensando en la escalabilidad del catalogo de productos: de las imágenes agregadas a los assets se obtiene la información necesaría."
       },
       "en": {
         "title":"Manufacturas Fennixx",

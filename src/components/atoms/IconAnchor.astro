@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Languages } from "@/i18n/utils";
+
 interface Props {
   icon: string;
   link: string;
@@ -8,7 +10,7 @@ interface Props {
   text?: string;
   target?: string;
   rel?: string;
-  lang?: string;
+  lang?: keyof typeof Languages;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   text,
   target = "_blank",
   rel = "noopener noreferrer",
+  lang = "es",
 } = Astro.props;
 
 const iconSet = icon.split(":");
@@ -27,6 +30,7 @@ const iconSet = icon.split(":");
 <a
   aria-label={`Link to ${label}`}
   href={link}
+  hreflang={lang}
   rel={rel}
   target={target}
   title={label}

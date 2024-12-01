@@ -1,4 +1,6 @@
-const enum Languages {
+import { string } from "astro/zod";
+
+export const enum Languages {
   es = "Español",
   en = "English",
 }
@@ -21,21 +23,22 @@ export function getLangFromUrl (url : URL)  {
   return defaultLang
 }
 
-export function shiftLang (url: URL) : { path: string, label: string, lang:string}[] {
+export function shiftLang (url: URL) : { path: string, label: string, lang:keyof typeof Languages}[] {
   const {url: path, lang } = parseURL(url);
   const languagesArray = Object.entries(languages);
   const reminderLangs = languagesArray.filter(
   (languages) => languages[0] !== lang
 );
-  const linksObj = reminderLangs.reduce<{path: string, label: Languages, lang:string}[]>((acc, lang) => {
-    const isDefLang = lang[0] === defaultLang 
+  const linksObj = reminderLangs.reduce<{path: string, label: Languages, lang:keyof typeof Languages}[]>((acc, lang) => {
+    const currentLang = lang as  [keyof typeof Languages, Languages]
+    const isDefLang = currentLang[0] === defaultLang 
     const currentPath = paths[path as keyof typeof paths]
     const definedPath = isDefLang ? currentPath
-    : '/' + lang[0] + currentPath
+    : '/' + currentLang[0] + currentPath
     const linkObj = {
       path: definedPath,
-      lang: lang[0],
-      label: lang[1]
+      lang: currentLang[0],
+      label: currentLang[1]
     }
     acc.push(linkObj)
     return acc
@@ -43,8 +46,7 @@ export function shiftLang (url: URL) : { path: string, label: string, lang:strin
 
   return linksObj
 }
-export function parseURL(urlObject: URL): { url: string; lang: string } {
-  const defaultLang = 'es';
+export function parseURL(urlObject: URL): { url: string; lang: keyof typeof Languages } {
   let pathname = urlObject.pathname;
   if (pathname === '/') {
     return { url: '/home', lang: defaultLang };
@@ -52,10 +54,11 @@ export function parseURL(urlObject: URL): { url: string; lang: string } {
 
   const parts = pathname.split('/').filter(part => part !== '');
   if (parts.length === 1) {
-    if(parts[0] in languages) return { url:"/home" , lang:parts[0]}
+    if(parts[0] in languages) return { url:"/home" , lang: "en"}
     return { url: `/${parts[0]}`, lang: defaultLang };
   } else if (parts.length === 2) {
-    const [lang, page] = parts;
+    const twoParts = parts as ["es" | "en", string]
+    const [lang, page]:[keyof typeof Languages, string] = twoParts;
     return { url: `/${page}`, lang };
   } else {
     console.warn('Unexpected URL format');
@@ -81,22 +84,22 @@ export class MetaManager {
     this.metaCollection = {
       '/home': {
         'en': {
-          title: 'CaperAsDev | Portfolio',
-          description: 'Kevin Hincapie, Colombian web developer passionate about technology and creativity',
+          title: 'CaperAsDev | Web Developer',
+          description: 'CaperAsDev is a Colombian Frontend Web Developer passionate about technology, creativity, and innovation. Specializing in agile websites, I ensure the highest standards in responsiveness, accessibility (A11Y), SEO, and internationalization (I18N).',
         },
         'es': {
-          title: 'CaperAsDev | Portafolio',
-          description: 'Kevin Hincapie Desarrollador web Colombiano apasionado por la tecnología y la creatividad.',
+          title: 'CaperAsDev | Desarrollador web',
+          description: 'CaperAsDev, desarrollador web frontend colombiano, apasionado por la tecnología, la creatividad y la innovación. Sitios web ágiles, con los más altos estándares en responsividad, accesibilidad (A11Y), SEO e internacionalización (I18N).',
         },
       },
       '/about': {
         'en': {
           title: 'CaperAsDev | About me',
-          description: 'Kevin Hincapie, Industrial Designer, Artist, Web Developer and much more.',
+          description: "CaperAsDev is an Industrial Designer, Illustrator, Frontend Web Developer, and a passionate enthusiast of technologies that enable the creation of new worlds on our devices.",
         },
         'es': {
           title: 'CaperAsDev | Sobre mi',
-          description: 'Kevin Hincapie, Diseñador Industrial, Artista, Desarrollador Web y mucho mas.',
+          description: 'CaperAsDev, diseñador industrial, ilustrador, desarrollador web frontend y amante de las tecnologías que nos permiten crear nuevos mundos en nuestros dispositivos.',
         },
       },
     };
