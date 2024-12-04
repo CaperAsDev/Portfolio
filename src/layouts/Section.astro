@@ -92,18 +92,20 @@ const { title, icon, customClass, identifier } = Astro.props;
         top: 0;
         right: 0;
         transform: translate3d(100%,-10%,0);
-        content: '!';
+        content: '?';
         display: grid;
-        height: calc(var(--fs-s) * 1.2);
+        height: calc(var(--fs-s));
         aspect-ratio: 1 / 1;
         place-items: center;
-        font-size: var(--fs-s);
         background-color: oklch(from var(--blue-300) l c h / .5);
-        border: 2px solid var(--blue-300);
+        outline: 2px solid var(--blue-300);
         border-radius: 50%;
         mix-blend-mode: luminosity;
-        opacity: .2;
+        opacity: .3;
+        font-size:var(--fs-xs);
+        font-weight: lighter;
         transition: opacity .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        pointer-events: none;
       }
     }
 

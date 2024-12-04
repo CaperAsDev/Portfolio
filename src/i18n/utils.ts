@@ -1,5 +1,3 @@
-import { string } from "astro/zod";
-
 export const enum Languages {
   es = "Español",
   en = "English",

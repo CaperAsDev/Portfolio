@@ -3,6 +3,12 @@ import ProjectsData from "@/data/projects.json";
 import Project from "@/components/molecules/Project.astro";
 import Section from "@/layouts/Section.astro";
 import { separateLastParagraph } from "@/js/utils";
+import type { MarkdownInstance } from "astro";
+
+interface Frontmatter {
+  title: string;
+  lang: string;
+}
 
 interface Props {
   lang: "es" | "en";
@@ -14,10 +20,17 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
 );
 const imagesArray = Object.entries(projectsImgs);
 
-const mdFiles = await Astro.glob("/src/i18n/projects-*.md");
-const [mdContent] = mdFiles.filter((item) => item.frontmatter.lang === lang);
+const mdFiles = Object.values(
+  import.meta.glob<MarkdownInstance<Frontmatter>>("/src/i18n/projects-*.md", {
+    eager: true,
+  })
+);
+const [mdContent] = mdFiles.filter((item) => {
+  return item.frontmatter.lang === lang;
+});
+const componentString = await mdContent.compiledContent();
 const [sectionDescription, sectionIntro] = separateLastParagraph(
-  mdContent.compiledContent(),
+  componentString,
   "<p>"
 );
 ---

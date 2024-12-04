@@ -82,9 +82,8 @@ const opClr = colors["op-clr"];
     border-radius: 0 0 1rem 1rem;
   }
   summary {
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
+
     &:hover p {
       scale: 1.05;
     }
@@ -100,15 +99,16 @@ const opClr = colors["op-clr"];
   .icon {
     --size: 2rem;
     position: absolute;
+    inset: 0;
+    top: calc(var(--size) * -1);
     height: var(--size);
     width: var(--size);
-    inset: 0;
+    padding: 2px;
     margin: 0 auto;
-    top: calc(var(--size) * -1);
     background-color: oklch(from var(--borderClr) l c h / 0.5);
     border: 2px solid var(--borderClr);
+    border-bottom: none;
     border-radius: 50% 50% 0 0;
-    padding: 2px;
     color: oklch(from var(--borderClr) calc(l - 0.5) calc(c) h);
   }
 

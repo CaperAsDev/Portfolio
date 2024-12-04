@@ -3,17 +3,28 @@ import SkillGroup from "@/components/organisms/SkillGroup.astro";
 import SoftSkillsData from "@/data/softSkills.json";
 import Section from "@/layouts/Section.astro";
 import { separateLastParagraph } from "@/js/utils";
+import type { MarkdownInstance } from "astro";
+
+interface Frontmatter {
+  title: string;
+  lang: string;
+}
 
 interface Props {
   lang: "es" | "en";
 }
 
 const { lang } = Astro.props;
-const mdFiles = await Astro.glob("/src/i18n/softSkills-*.md");
+const mdFiles = Object.values(
+  import.meta.glob<MarkdownInstance<Frontmatter>>("/src/i18n/softSkills-*.md", {
+    eager: true,
+  })
+);
 const [mdContent] = mdFiles.filter((item) => item.frontmatter.lang === lang);
+const componentText = await mdContent.compiledContent();
 
 const [sectionDescription, sectionIntro] = separateLastParagraph(
-  mdContent.compiledContent(),
+  componentText,
   "<p>"
 );
 ---

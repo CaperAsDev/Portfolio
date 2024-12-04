@@ -16,12 +16,12 @@
         {
           "name": "Trabajo en Equipo",
           "skillIcon": "tabler:heart-handshake",
-          "description": "Capacidad para colaborar con otros de manera eficiente y armoniosa para alcanzar objetivos comunes.",
+          "description": "Capacidad para colaborar con otros eficiente y armoniosamente para alcanzar objetivos comunes.",
           "levels": [
             { "level": 1, "description": "Participa activamente en equipos pequeños, cumpliendo tareas asignadas bajo supervisión directa." },
             { "level": 2, "description": "Contribuye con ideas en discusiones grupales y apoya la resolución de conflictos básicos dentro del equipo." },
             { "level": 3, "description": "Colabora eficazmente en equipos diversos, aportando soluciones creativas y promoviendo una comunicación fluida." },
-            { "level": 4, "description": "Asume roles de liderazgo ocasionales, delega tareas de manera justa y fomenta un ambiente colaborativo positivo." },
+            { "level": 4, "description": "Asume roles de liderazgo ocasionales, fomenta un ambiente colaborativo positivo y delega tareas imparcialmente." },
             { "level": 5, "description": "Lidera equipos multidisciplinarios, gestiona dinámicas complejas y asegura el cumplimiento de objetivos colectivos con alta efectividad." }
           ],
           "currentLevel" : 4,
@@ -33,9 +33,9 @@
           "description": "Habilidad para comprender y compartir los sentimientos y perspectivas de los demás.",
           "levels": [
             { "level": 1, "description": "Reconoce emociones básicas en interacciones directas." },
-            { "level": 2, "description": "Escucha activamente y responde de manera respetuosa a emociones ajenas." },
+            { "level": 2, "description": "Escucha activamente y responde respetuosamente a emociones ajenas." },
             { "level": 3, "description": "Identifica necesidades implícitas en diferentes contextos sociales." },
-            { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros de manera efectiva." },
+            { "level": 4, "description": "Adapta su comportamiento para apoyar emocionalmente a otros." },
             { "level": 5, "description": "Construye relaciones profundas y significativas basadas en la comprensión emocional y cultural." }
           ],
           "currentLevel" : 5,
@@ -44,16 +44,16 @@
         {
           "name": "Comunicación efectiva",
           "skillIcon": "tabler:bubble-text",
-          "description": "Capacidad para expresar ideas de manera clara y adaptada al público objetivo.",
+          "description": "Capacidad para expresar ideas a otros con la intención de que el mensaje sea interpretado correctamente.",
           "levels": [
             { "level": 1, "description": "Comunica información básica con claridad en entornos informales." },
-            { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas de manera efectiva." },
+            { "level": 2, "description": "Utiliza diferentes formatos (escrito, verbal) para transmitir ideas claras." },
             { "level": 3, "description": "Adecúa su comunicación al nivel de conocimiento y contexto del receptor." },
             { "level": 4, "description": "Influye positivamente en discusiones y toma de decisiones al estructurar mensajes persuasivos." },
             { "level": 5, "description": "Diseña estrategias comunicativas complejas para transmitir mensajes clave en entornos diversos." }
           ],
           "currentLevel" : 4,
-          "experience":"He tenido la oportunidad de enseñar a otros sobre temas que conozco en varias ocasiones y he logrado transmitir intenciones o propuestas en equipos de trabajo de manera convincente."
+          "experience":"He tenido la oportunidad de enseñar a otros sobre temas que conozco en varias ocasiones y he logrado transmitir intenciones o propuestas en equipos de trabajo de la manera deseada."
         }
       ]
     },
@@ -110,7 +110,7 @@
             { "level": 5, "description": "Conecta ideas interdisciplinarias y fomenta el aprendizaje en su entorno." }
           ],
           "currentLevel" : 3,
-          "experience":"En mi experiencia, he comprendido que para cambiar algo o aportar, primero debo conectar profundamente con el tema. De lo contrario, solo podré influir de manera superficial."
+          "experience":"En mi experiencia, he comprendido que para cambiar algo o aportar, primero debo conectar profundamente con el tema. De lo contrario, solo podré influir superficialmente."
         }
       ]
     },
@@ -144,7 +144,7 @@
         {
           "name": "Gestión de tiempo",
           "skillIcon": "tabler:device-watch-stats",
-          "description": "Capacidad para organizar tareas y cumplir objetivos de manera eficiente.",
+          "description": "Capacidad para organizar tareas y cumplir objetivos en el plazo estimado.",
           "levels": [
             { "level": 1, "description": "Cumple con tareas básicas dentro de plazos establecidos." },
             { "level": 2, "description": "Prioriza tareas de acuerdo con su dificulta e impacto." },
@@ -167,7 +167,7 @@
             { "level": 5, "description": "Anticipa problemas futuros basándose en experiencias, tendencias y datos, creando estrategias preventivas." }
           ],
           "currentLevel" : 4,
-          "experience":"He aprendido que todo es una estructura compuesta de diferentes partes, y esta estructura también forma parte de un sistema. Para afrontar un reto, se debe pensar de manera sistémica."
+          "experience":"He aprendido que todo es una estructura compuesta de diferentes partes, y esta estructura también forma parte de un sistema. Para afrontar un reto, se debe comprender como un todo."
         }
       ]
     }

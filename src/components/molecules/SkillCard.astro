@@ -108,13 +108,20 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     border-left: var(--border-width) solid var(--borderClr);
     border-top-left-radius: 1rem;
     background-color: var(--bgClr1);
+    cursor: pointer;
 
-    &:hover {
-      cursor: pointer;
+    &:hover,
+    &:focus {
+      p {
+        scale: 1.1;
+        transform: translateX(-10px);
+      }
     }
     p {
       padding: 10px;
       margin-inline-end: 8px;
+      transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      transition-property: scale, transform;
     }
 
     .card-icon {
@@ -340,6 +347,32 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
       oklch(from var(--riseClr) l c h) 50%,
       oklch(from var(--riseClr) calc(l - 0.1) calc(c + 0.05) h)
     );
+
+    &::after {
+      content: "!";
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: grid;
+      place-items: center;
+      height: var(--fs-s);
+      aspect-ratio: 1 / 1;
+      transform: translate3d(-50%, 50%, 0);
+      background-color: oklch(from var(--pink-400) l c h / 0.3);
+      color: var(--pink-900);
+      border-radius: 50%;
+      outline: 1px solid var(--pink-400);
+      mix-blend-mode: luminosity;
+      pointer-events: none;
+      opacity: 0.5;
+      transition: opacity 0.5s ease-in;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
   }
   .card {
     width: 100%;
@@ -352,13 +385,14 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     outline: none;
     border: none;
     color: var(--pink-900);
+    cursor: pointer;
 
     &:focus,
     &:hover {
       outline: 1px solid white;
-      cursor: pointer;
     }
   }
+
   .face {
     position: absolute;
     inset: 0;

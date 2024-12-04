@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.1",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
     "@fontsource-variable/comfortaa": "^5.0.20",
     "@fontsource-variable/sansita-swashed": "^5.0.18",
-    "astro": "^4.11.5",
+    "astro": "^5.0.1",
     "astro-icon": "^1.1.0",
     "typescript": "^5.5.3"
   },
