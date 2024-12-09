@@ -1,6 +1,6 @@
 ---
 lang: "en"
-title: "Habilidades Duras"
+title: "Hard Skills"
 ---
 
 Hard skills are abilities that we must learn in a **conscious and methodical way**, unlike some soft skills that are acquired simply through interaction with our environment. These technical skills are obtained through **formal education, courses, or experience**, and can be measured through tests that reflect mastery of the subject.

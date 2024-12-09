@@ -16,7 +16,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png}"
+  "/src/assets/images/*.project.{jpeg,jpg,png}"
 );
 const imagesArray = Object.entries(projectsImgs);
 
