@@ -8,44 +8,40 @@
   }
   @property --chroma {
     syntax: "<number>";
-    initial-value: 0.05;
+    initial-value: 0;
     inherits: false;
   }
-  @property --chroma2 {
-    syntax: "<number>";
-    initial-value: 0.1;
-    inherits: false;
-  }
+
   @property --lightness {
     syntax: "<number>";
-    initial-value: 0.35;
+    initial-value: 0;
     inherits: false;
   }
-  @property --lightness2 {
-    syntax: "<number>";
-    initial-value: 0.5;
-    inherits: false;
-  }
+
   @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }
   .background {
-    --clr: oklch(var(--lightness) var(--chroma) var(--hue));
-    --hue2: calc(var(--hue) + 90deg);
-    --clr2: oklch(var(--lightness2) var(--chroma2) var(--hue2));
+    --clr: oklch(
+      calc(0.3 + var(--lightness)) calc(0.05 + var(--chroma)) var(--hue)
+    );
+    --clr2: oklch(
+      calc(0.5 - var(--lightness)) calc(0.1 - var(--chroma))
+        calc(var(--hue) + 90deg)
+    );
     position: fixed;
     width: 100%;
     height: 110vh;
     inset: 0;
     top: 0;
     z-index: -10;
-    background: linear-gradient(var(--angle), var(--clr), var(--clr2));
+    background-image: linear-gradient(var(--angle), var(--clr), var(--clr2));
     animation:
       clr-chg infinite alternate 9s linear,
       angle-chg infinite alternate 23s linear,
-      chroma-chg infinite alternate 5s ease-in,
+      chroma-chg infinite alternate 5s linear,
       lightness-chg infinite alternate 7s ease-out;
   }
 
@@ -67,22 +63,18 @@
   }
   @keyframes chroma-chg {
     from {
-      --chroma: 0.04;
-      --chroma2: 0.1;
+      --chroma: 0;
     }
     to {
-      --chroma: 0.1;
-      --chrom2: 0.04;
+      --chroma: 0.05;
     }
   }
   @keyframes lightness-chg {
     from {
-      --lightness: 0.3;
-      --lightness2: 0.5;
+      --lightness: 0;
     }
     to {
-      --lightness: 0.5;
-      --lightness2: 0.3;
+      --lightness: 0.2;
     }
   }
 </style>

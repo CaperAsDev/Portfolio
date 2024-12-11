@@ -27,7 +27,13 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
   <div class="images-container">
     {
       mobileImage && (
-        <Image src={mobileImage[1]()} alt={"Mobile screen"} class="mobile" />
+        <Image
+          src={mobileImage[1]()}
+          alt={"Mobile screen"}
+          class="mobile"
+          width={250}
+          height={175}
+        />
       )
     }
     {
@@ -36,6 +42,8 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
           src={desktopImage[1]()}
           alt={"Desktop screen"}
           class={"desktop"}
+          width={250}
+          height={354}
         />
       )
     }
