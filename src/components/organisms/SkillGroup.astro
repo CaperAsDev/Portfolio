@@ -52,11 +52,9 @@ const opClr = colors["op-clr"];
       items.map((item) => (
         <SkillCard
           description={item.description}
-          skillIcon={item.skillIcon}
           currentLevel={item.currentLevel}
           experience={item.experience}
           name={item.name}
-          groupIcon={groupIcon}
           group={id}
           levels={item.levels}
         />
@@ -66,21 +64,49 @@ const opClr = colors["op-clr"];
 </details>
 
 <style define:vars={{ bgClr1, bgClr2, borderClr, riseClr, opClr }}>
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   details {
     height: fit-content;
     position: relative;
     display: grid;
     align-content: start;
     padding: 10px;
-    background: linear-gradient(
-      to bottom,
-      oklch(from rgb(127, 255, 212) l c h / 0.1),
-      transparent
+    background: conic-gradient(
+      from var(--angle) at 50% -30%,
+      transparent 10%,
+      oklch(from var(--bgClr1) l c calc(h) / 0.15),
+      oklch(from var(--bgClr1) l c calc(h + 20) / 0.15),
+      oklch(from var(--bgClr1) l c calc(h - 20) / 0.15),
+      transparent 90%
     );
-    border-top: 2px solid var(--borderClr);
-    border-bottom: 2px solid var(--borderClr);
-    border-radius: 0 0 1rem 1rem;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: conic-gradient(
+        from var(--angle),
+        oklch(from var(--bgClr1) l c calc(h)),
+        oklch(from var(--bgClr1) l c calc(h + 20)),
+        oklch(from var(--bgClr1) l c calc(h - 20)),
+        transparent 90%
+      )
+      1;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    details {
+      animation: turn 4s linear infinite;
+    }
+    @keyframes turn {
+      to {
+        --angle: 1turn;
+      }
+    }
+  }
+
   summary {
     cursor: pointer;
 
@@ -88,7 +114,7 @@ const opClr = colors["op-clr"];
       scale: 1.05;
     }
     p {
-      color: oklch(from var(--borderClr) calc(l + 0.1) c h);
+      color: oklch(from var(--borderClr) calc(l + 1) c h);
       transition: scale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       font-weight: bold;
       text-align: center;
@@ -118,6 +144,7 @@ const opClr = colors["op-clr"];
     gap: 1rem;
     padding: 10px;
   }
+
   /* -------------show when sibling details is open */
 
   details::after {
@@ -139,7 +166,6 @@ const opClr = colors["op-clr"];
       oklch(from rebeccapurple l c h / 0.5),
       transparent
     );
-    border-radius: 0 0 1rem 1rem;
     mix-blend-mode: color-dodge;
   }
 

@@ -20,6 +20,8 @@ const projectsImgs = import.meta.glob<{ default: ImageMetadata }>(
 );
 const imagesArray = Object.entries(projectsImgs);
 
+const numprojects = ProjectsData.length;
+
 const mdFiles = Object.values(
   import.meta.glob<MarkdownInstance<Frontmatter>>("/src/i18n/projects-*.md", {
     eager: true,
@@ -45,8 +47,9 @@ const [sectionDescription, sectionIntro] = separateLastParagraph(
   <Fragment set:html={sectionIntro} slot={"section-intro"} />
   <div class="projects-wrapper" slot="main-content">
     {
-      ProjectsData.map((project) => (
+      ProjectsData.map((project, index) => (
         <Project
+          index={index}
           title={project.header[lang].title}
           description={project.header[lang].description}
           techsIcon={project.techsIcon}
@@ -58,7 +61,10 @@ const [sectionDescription, sectionIntro] = separateLastParagraph(
     }
   </div>
 </Section>
-<style>
+<style define:vars={{ numprojects }}>
+  .projects-wrapper {
+    margin-block-end: calc(var(--fs-xl));
+  }
   header {
     display: grid;
     margin-block: 1rem;
@@ -67,6 +73,12 @@ const [sectionDescription, sectionIntro] = separateLastParagraph(
     strong {
       color: var(--blue-300);
       mix-blend-mode: luminosity;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    .projects-wrapper {
+      view-timeline-name: --stack-projects;
     }
   }
 </style>

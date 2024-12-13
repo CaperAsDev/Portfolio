@@ -25,6 +25,11 @@ const { link, description, logo, name } = Astro.props;
 </article>
 
 <style>
+  @property --a {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
   article {
     flex-grow: 1;
   }
@@ -33,11 +38,37 @@ const { link, description, logo, name } = Astro.props;
     display: flex;
     align-items: center;
     background-color: var(--blue-700);
-    border-radius: 8px;
+    border-radius: 10px 10px 0 0;
     font-size: var(--fs-s);
     height: fit-content;
     mix-blend-mode: soft-light;
-    border-bottom: 2px solid var(--blue-200);
+    border-bottom: 2px solid;
+    border-image: conic-gradient(
+        from var(--a),
+        var(--blue-100),
+        var(--blue-200),
+        var(--blue-300),
+        var(--blue-400),
+        var(--blue-500),
+        var(--blue-600),
+        var(--blue-700),
+        var(--blue-800),
+        var(--blue-900),
+        var(--blue-950),
+        var(--blue-50)
+      )
+      1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .techPill {
+      animation: a 4s linear infinite;
+    }
+    @keyframes a {
+      to {
+        --a: 1turn;
+      }
+    }
   }
 
   a {

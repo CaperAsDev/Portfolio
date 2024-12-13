@@ -12,20 +12,10 @@ interface Props {
   levels: Level[];
   group: string;
   currentLevel: number;
-  skillIcon: string;
-  groupIcon: string;
   experience: string;
 }
-const {
-  name,
-  description,
-  levels,
-  group,
-  currentLevel,
-  skillIcon,
-  groupIcon,
-  experience,
-} = Astro.props;
+const { name, description, levels, group, currentLevel, experience } =
+  Astro.props;
 
 const buttonAnchor = `--levels${name.split(" ")[0]}`;
 const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
@@ -34,9 +24,6 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
 <div class="card-wrapper">
   <details name={group}>
     <summary>
-      <div class="card-icon">
-        <Icon name={skillIcon} />
-      </div>
       <p class="title">{name}</p>
     </summary>
     <div class="scene">
@@ -82,31 +69,55 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
         </p>
       ))
     }
-    <div class="group-icon">
-      <div class="icon-wrapper">
-        <Icon name={groupIcon} />
-      </div>
-    </div>
   </footer>
 </div>
 <style define:vars={{ buttonAnchor, popoverBaseId }}>
+  @property --gradientAngle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   .card-wrapper {
     --border-width: 2px;
 
-    border-radius: 1rem;
-    border-top: var(--border-width) solid var(--borderClr);
-    border-bottom: var(--border-width) solid var(--borderClr);
     color: oklch(from var(--borderClr) calc(l - 0.6) calc(c + 0.1) h);
     overflow: hidden;
+    border: 1.5px solid transparent;
+    border-radius: 1rem;
+    background-image: linear-gradient(transparent, transparent),
+      conic-gradient(
+        from var(--gradientAngle),
+        transparent,
+        oklch(from var(--bgClr1) calc(l + 0.1) c h),
+        oklch(from var(--bgClr2) calc(l + 0.1) c h),
+        oklch(from var(--borderClr) calc(l + 0.1) c h),
+        oklch(from var(--riseClr) calc(l + 0.1) c h),
+        oklch(from var(--opClr) calc(l + 0.1) c h),
+        transparent
+      );
+
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0px 0px 2px 2px
+      oklch(from var(--bgClr1) calc(l - 0.1) calc(c + 0.05) h);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .card-wrapper {
+      animation: borderTurn 6s linear infinite alternate;
+    }
+
+    @keyframes borderTurn {
+      to {
+        --gradientAngle: 1turn;
+      }
+    }
   }
 
   summary {
     position: relative;
     padding: 5px;
-    border-right: var(--border-width) solid var(--borderClr);
-    border-top-right-radius: 1rem;
-    border-left: var(--border-width) solid var(--borderClr);
-    border-top-left-radius: 1rem;
+    border-radius: 1rem 1rem 0 0;
     background-color: var(--bgClr1);
     cursor: pointer;
 
@@ -114,38 +125,20 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     &:focus {
       p {
         scale: 1.1;
-        transform: translateX(-10px);
       }
     }
     p {
       padding: 10px;
-      margin-inline-end: 8px;
       transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-      transition-property: scale, transform;
+      transition-property: scale;
     }
 
-    .card-icon {
-      position: absolute;
-      z-index: 5;
-      width: 50px;
-      height: 50px;
-      bottom: -60%;
-      left: -2px;
-      padding: 0 5px 5px 0;
-      border-bottom-right-radius: 50%;
-      background-color: var(--bgClr1);
-      border-left: var(--border-width) solid var(--borderClr);
-
-      svg {
-        height: 100%;
-        width: 100%;
-      }
-    }
     .title {
       font-family: "Subjectivity";
-      text-align: end;
+      text-align: center;
     }
   }
+
   .description {
     font-family: "Comfortaa Variable";
     font-size: var(--fs-s);
@@ -176,14 +169,16 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     display: grid;
     place-items: center;
     padding-bottom: 5px;
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-right: var(--border-width) solid var(--borderClr);
-    border-left: var(--border-width) solid var(--borderClr);
+    border-radius: 0 0 1rem 1rem;
     background-color: var(--bgClr2);
     anchor-name: var(--buttonAnchor);
     container-type: inline-size;
     container-name: card-footer;
+  }
+  @property --levelAngle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
   }
   .levels-menu {
     position: relative;
@@ -194,26 +189,51 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
   .star-button {
     display: grid;
     place-items: center;
-    outline: 5px solid var(--clr);
-    border: 2px solid oklch(from var(--clr) calc(l - 0.1) c h);
-    background-color: oklch(from var(--clr) calc(l + 0.1) c h);
-    color: oklch(from var(--clr) calc(l - 0.25) c h);
+    width: 2rem;
+    height: 2rem;
+
     font-family: "Arial", system-ui;
     font-weight: bold;
     font-size: var(--fs-s);
+
+    outline: 5px solid var(--clr);
+    color: oklch(from var(--clr) calc(l - 0.3) c h);
+
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    border: 2px solid transparent;
+    background-image: linear-gradient(
+        var(--levelAngle),
+        oklch(from var(--clr) calc(l - 0.1) c h),
+        oklch(from var(--clr) calc(l + 0.1) c h)
+      ),
+      linear-gradient(
+        var(--levelAngle),
+        oklch(from var(--clr) calc(l) c h),
+        oklch(from var(--clr) calc(l - 0.1) c h)
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover,
     &:focus {
       cursor: pointer;
-      scale: 1.1;
-      outline-color: white;
+      scale: 1.05;
+      outline-color: oklch(from var(--clr) calc(l + 0.2) c h);
     }
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .star-button {
+      animation: turnLight 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite
+        alternate;
+    }
 
+    @keyframes turnLight {
+      to {
+        --levelAngle: 1turn;
+      }
+    }
+  }
   .levels-popover {
     position: absolute;
     margin: 0;
@@ -259,46 +279,6 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     background-color: oklch(from var(--clr) calc(l - 0.15) c h / 0.5);
     border: 2px solid oklch(from var(--clr) calc(l - 0.2) c h);
     backdrop-filter: blur(2px);
-  }
-  .group-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: 0px;
-    bottom: 3px;
-
-    &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 50%;
-      background-color: var(--riseClr);
-      border-top-left-radius: 100%;
-      right: 99%;
-      bottom: -3px;
-    }
-    &::before {
-      position: absolute;
-      content: "";
-      width: 50%;
-      height: 100%;
-      background-color: var(--riseClr);
-      border-top-left-radius: 100%;
-      border-right: var(--border-width) solid var(--borderClr);
-      right: -2px;
-      top: -99%;
-    }
-  }
-  .icon-wrapper {
-    padding: 4px 2px 2px 4px;
-    background-color: var(--riseClr);
-    border-radius: 1rem 0;
-    border-bottom: var(--border-width) solid var(--borderClr);
-
-    svg {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   /* --------- dialogs reveal animation --------- */

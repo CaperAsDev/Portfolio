@@ -6,6 +6,7 @@ import type { ImageMetadata } from "astro";
 import ProjectStatus from "@/components/atoms/ProjectStatus.astro";
 
 interface Props {
+  index: number;
   title: string;
   description: string;
   techsIcon: Array<{ title: string; icon: string }>;
@@ -17,66 +18,75 @@ interface Props {
   };
 }
 
-const { title, description, techsIcon, images, links, notes } = Astro.props;
+const { title, description, techsIcon, images, links, notes, index } =
+  Astro.props;
 
 const desktopImage = images.find((img) => img[0].includes("desktop") && img[1]);
 const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
 ---
 
 <article>
-  <div class="images-container">
-    {
-      mobileImage && (
-        <Image
-          src={mobileImage[1]()}
-          alt={"Mobile screen"}
-          class="mobile"
-          width={250}
-          height={175}
-        />
-      )
-    }
-    {
-      desktopImage && (
-        <Image
-          src={desktopImage[1]()}
-          alt={"Desktop screen"}
-          class={"desktop"}
-          width={250}
-          height={354}
-        />
-      )
-    }
-  </div>
-  <div class="info-container">
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <div class="techs-container">
+  <div class="content-container">
+    <div class="images-container">
       {
-        techsIcon.map((tech) => (
-          <span title={tech.title}>
-            <Icon name={tech.icon} width={24} height={24} />
-          </span>
-        ))
+        mobileImage && (
+          <Image
+            src={mobileImage[1]()}
+            alt={"Mobile screen"}
+            class="mobile"
+            width={250}
+            height={175}
+          />
+        )
+      }
+      {
+        desktopImage && (
+          <Image
+            src={desktopImage[1]()}
+            alt={"Desktop screen"}
+            class={"desktop"}
+            width={250}
+            height={354}
+          />
+        )
       }
     </div>
-  </div>
-  <div class="aside">
-    <ProjectStatus notes={notes} />
-    <div class="links-wrapper">
-      <div class="links-container">
+    <div class="info-container">
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <div class="techs-container">
         {
-          links.map((link) => (
-            <IconAnchor icon={link.icon} label={link.label} link={link.url} />
+          techsIcon.map((tech) => (
+            <span title={tech.title}>
+              <Icon name={tech.icon} width={24} height={24} />
+            </span>
           ))
         }
+      </div>
+    </div>
+    <div class="aside">
+      <ProjectStatus notes={notes} />
+      <div class="links-wrapper">
+        <div class="links-container">
+          {
+            links.map((link) => (
+              <IconAnchor icon={link.icon} label={link.label} link={link.url} />
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
 </article>
 
-<style>
+<style define:vars={{ index: index + 1 }}>
   article {
+    --padding-offset: var(--fs-xs);
+    position: sticky;
+    top: var(--fs-xs);
+    padding-top: calc(var(--index) * var(--padding-offset));
+  }
+  .content-container {
     --opacity: 0.2;
     --light_bg: hsla(0, 18%, 100%, var(--opacity));
     position: relative;
@@ -90,6 +100,7 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
     border-block: 3px solid var(--pink-600);
     border-radius: 20px;
     background-color: var(--light_bg);
+    backdrop-filter: blur(100px) hue-rotate(15deg) brightness(85%);
 
     .images-container {
       margin-top: 50px;
@@ -99,7 +110,6 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
         margin-left: 20px;
         height: auto;
         width: 50%;
-        object-fit: contain;
         border-radius: 10px;
         overflow: hidden;
       }
@@ -138,6 +148,7 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
       }
 
       p {
+        color: var(--blue-100);
         padding-inline: 8px;
         text-wrap: pretty;
       }
@@ -202,6 +213,10 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
 
   @media screen and (width >= 768px) {
     article {
+      top: var(--fs-l);
+    }
+
+    .content-container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       height: fit-content;
@@ -340,6 +355,9 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
 
   @media screen and (width >= 1440px) {
     article {
+      top: var(--fs-xl);
+    }
+    .content-container {
       grid-template-columns: repeat(4, 1fr);
 
       &::after {
@@ -349,6 +367,31 @@ const mobileImage = images.find((img) => img[0].includes("mobile") && img[1]);
       .info-container {
         grid-column: 2 / 5;
       }
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    article {
+      --index0: calc(var(--index) - 1);
+      --reverse-index: calc(var(--numprojects) - var(--index0));
+      --reverse-index0: calc(var(--reverse-index) - 1);
+    }
+
+    @keyframes scale {
+      to {
+        transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+      }
+    }
+
+    .content-container {
+      --start-range: calc(var(--index0) / var(--numprojects) * 100%);
+      --end-range: calc((var(--index)) / var(--numprojects) * 100%);
+      transform-origin: 50% 0%;
+      will-change: transform;
+      animation: linear scale forwards;
+      animation-timeline: --stack-projects;
+      animation-range: exit-crossing var(--start-range) exit-crossing
+        var(--end-range);
     }
   }
 </style>
