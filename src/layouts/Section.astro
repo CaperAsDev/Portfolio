@@ -19,6 +19,7 @@ const { title, icon, customClass, identifier } = Astro.props;
         <h2>
           <Icon name={`tabler:${icon}`} width={30} height={30} />
           <span>{title}</span>
+          <Icon class="arrow" name={`tabler:arrow-badge-right`} width={30} height={30} />
         </h2>
         </summary>
         <div class="detail-description-wrapper">
@@ -81,36 +82,19 @@ const { title, icon, customClass, identifier } = Astro.props;
       mix-blend-mode: luminosity;
     }
   }
+  
   summary {
+    width:fit-content;
     cursor: pointer;
-
-    span{
-      position: relative;
-
-      &::after {
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate3d(100%,-10%,0);
-        content: '?';
-        display: grid;
-        height: calc(var(--fs-s));
-        aspect-ratio: 1 / 1;
-        place-items: center;
-        background-color: oklch(from var(--blue-300) l c h / .5);
-        outline: 2px solid var(--blue-300);
-        border-radius: 50%;
-        mix-blend-mode: luminosity;
-        opacity: .3;
-        font-size:var(--fs-xs);
-        font-weight: lighter;
-        transition: opacity .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        pointer-events: none;
-      }
+    
+    .arrow{
+      transition: rotate .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+  }
 
-    &:hover span::after {
-      opacity: .8;
+  details:not([open]) summary:hover, details[open], details summary:focus {
+    .arrow {
+      rotate:90deg;
     }
   }
 

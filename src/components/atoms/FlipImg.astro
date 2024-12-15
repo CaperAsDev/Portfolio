@@ -30,19 +30,67 @@ const { img_1, img_2 } = Astro.props;
 </div>
 
 <style>
+  @property --bgAngle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
   .scene {
+    --bgClr: rgb(51, 24, 79);
     perspective: 600px;
     width: 280px;
     height: 280px;
     border-radius: 50%;
+    border: 5px solid transparent;
+    background-image: radial-gradient(
+        oklch(from var(--bgClr) l c h) 35%,
+        oklch(from rebeccapurple calc(l + 0.1) c h / 0.5),
+        transparent
+      ),
+      conic-gradient(
+        from var(--bgAngle),
+        var(--blue-100),
+        var(--blue-300),
+        var(--blue-600),
+        var(--blue-300),
+        var(--blue-100)
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     box-shadow:
       0px 0px 15px 1px var(--blue-200),
       inset 0px 0px 25px 1px var(--blue-300);
 
     &:has(.is-flipped) {
+      background-image: radial-gradient(
+          oklch(from var(--bgClr) l c h) 25%,
+          oklch(from rebeccapurple calc(l + 0.1) c h / 0.5),
+          transparent
+        ),
+        conic-gradient(
+          from var(--bgAngle),
+          var(--pink-50),
+          var(--pink-400),
+          var(--pink-600),
+          var(--pink-400),
+          var(--pink-50)
+        );
       box-shadow:
         0px 0px 15px 1px var(--pink-400),
         inset 0px 0px 25px 1px var(--pink-500);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scene {
+      animation: bgturn 5s cubic-bezier(0.47, 0, 0.745, 0.715) infinite
+        alternate;
+    }
+
+    @keyframes bgturn {
+      to {
+        --bgAngle: 1turn;
+      }
     }
   }
   .flipImg__wrapper {

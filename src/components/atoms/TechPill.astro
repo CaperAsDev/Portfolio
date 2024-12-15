@@ -17,6 +17,7 @@ const { link, description, logo, name } = Astro.props;
     </a>
     <button aria-describedby={`tooltip-${name}`}>
       <span>{name}</span>
+      <Icon class="arrow-up" name={"tabler:chevrons-up"} title="up arrow" />
     </button>
   </div>
   <div id={`tooltip-${name}`} role="tooltip">
@@ -30,6 +31,7 @@ const { link, description, logo, name } = Astro.props;
     initial-value: 0deg;
     inherits: false;
   }
+
   article {
     flex-grow: 1;
   }
@@ -60,17 +62,6 @@ const { link, description, logo, name } = Astro.props;
       1;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .techPill {
-      animation: a 4s linear infinite;
-    }
-    @keyframes a {
-      to {
-        --a: 1turn;
-      }
-    }
-  }
-
   a {
     height: 35px;
     width: 35px;
@@ -92,11 +83,11 @@ const { link, description, logo, name } = Astro.props;
   }
 
   button {
+    position: relative;
     display: grid;
     place-items: center;
     height: 100%;
     background-color: transparent;
-    outline: 0px solid var(--pink-600);
     color: var(--blue-200);
     flex-grow: 1;
     border: none;
@@ -104,6 +95,15 @@ const { link, description, logo, name } = Astro.props;
 
     span {
       text-wrap: nowrap;
+    }
+
+    .arrow-up {
+      position: absolute;
+      inset: 0;
+      margin: 0 auto;
+      transform: translate3d(-50%, -120%, 0);
+      transition: opacity 0.5s linear;
+      opacity: 0;
     }
   }
 
@@ -122,29 +122,95 @@ const { link, description, logo, name } = Astro.props;
     p {
       width: clamp(300px, 100%, 600px);
       padding: clamp(10px, 3.5vw, 20px);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(5px) brightness(50%);
       border-radius: 10px;
       background-color: hsla(296, 71%, 21%, 0.5);
+      outline: 1px solid var(--blue-50);
+      box-shadow: inset 0 0 5px 1px var(--blue-300);
     }
   }
 
+  /* visibilidad normal para cuando esta en hover o el boton/ancla en focus */
   .techPill:has(> :is(button:focus, a:focus)),
   .techPill:hover {
     mix-blend-mode: normal;
   }
 
-  .techPill:has(> :is(button:focus)) + div[role="tooltip"],
-  .techPill:hover + div[role="tooltip"] {
-    visibility: visible;
+  /* Visibilidad del tooltip para cuando el boton esta en focus o el contenedor en hover */
+  .techPill:has(> :is(button:focus)),
+  .techPill:hover {
+    & + div[role="tooltip"] {
+      visibility: visible;
+    }
+    .arrow-up {
+      opacity: 1;
+    }
   }
-
+  /* Ocultar visibilidad si un hermano esta en focus */
   article:has(~ :focus-within),
   article:focus-within ~ article {
     .techPill:hover + div[role="tooltip"] {
       visibility: hidden;
     }
+    .arrow-up {
+      opacity: 0;
+    }
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .techPill {
+      animation: a 4s linear infinite;
+    }
+    button:hover,
+    button:focus {
+      .arrow-up {
+        animation: arrowUp 1s
+          linear(
+            0,
+            0.76 4.4%,
+            0.928 6.2%,
+            0.984 8%,
+            0.92 9.9%,
+            0.731 11.9%,
+            -0.506 20.3%,
+            -0.667 22.2%,
+            -0.731 24%,
+            -0.731 24.8%,
+            -0.712 25.7%,
+            -0.615 27.5%,
+            0.252 35.9%,
+            0.4 38.1%,
+            0.463 40.3%,
+            0.455 41.9%,
+            0.399 43.7%,
+            -0.106 51.9%,
+            -0.195 54.1%,
+            -0.235 56.3%,
+            -0.235 57.9%,
+            -0.209 59.7%,
+            0.019 67.5%,
+            0.061 69.6%,
+            0.082 71.7%,
+            0.085 73.3%,
+            0.077 75.1%,
+            0.011 81.9%,
+            -0.009 85.5%,
+            0
+          )
+          4;
+      }
+    }
+    @keyframes arrowUp {
+      to {
+        transform: translate3d(-50%, -150%, 0);
+      }
+    }
+    @keyframes a {
+      to {
+        --a: 1turn;
+      }
+    }
+  }
   @media screen and (width >= 768px) {
     div[role="tooltip"] {
       position: absolute;
