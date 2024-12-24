@@ -1,0 +1,158 @@
+---
+interface Props {
+  text: string;
+  buttonAnchor: string;
+  buttonCustomClass?: string;
+  popoverCustomClass?: string;
+}
+
+const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
+  Astro.props;
+---
+
+<div class="wrapper">
+  <button class={`${buttonCustomClass} trigger`} popovertarget={buttonAnchor}>
+    {text}
+  </button>
+  <div class={`${popoverCustomClass} popover`} id={buttonAnchor} popover>
+    <slot name="popover-content" />
+  </div>
+</div>
+
+<style>
+  @property --bgAngle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .wrapper {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: end;
+  }
+
+  .lvl-1 {
+    --clr: rgb(95, 51, 51);
+  }
+  .lvl-2 {
+    --clr: rgb(119, 94, 57);
+  }
+  .lvl-3 {
+    --clr: rgb(134, 131, 127);
+  }
+  .lvl-4 {
+    --clr: rgb(201, 152, 89);
+  }
+  .lvl-5 {
+    --clr: rgb(99, 182, 164);
+  }
+
+  .trigger {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+
+    font-family: "Arial", system-ui;
+    font-weight: bold;
+    font-size: var(--fs-s);
+
+    outline: 5px solid var(--clr);
+    color: oklch(from var(--clr) calc(l - 0.3) c h);
+
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-image: linear-gradient(
+        var(--bgAngle),
+        oklch(from var(--clr) calc(l - 0.1) c h),
+        oklch(from var(--clr) calc(l + 0.1) c h)
+      ),
+      linear-gradient(
+        var(--bgAngle),
+        oklch(from var(--clr) calc(l) c h),
+        oklch(from var(--clr) calc(l - 0.1) c h)
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      scale: 1.05;
+      outline-color: oklch(from var(--clr) calc(l + 0.2) c h);
+    }
+  }
+
+  .popover {
+    position: absolute;
+    margin: 0;
+    inset: auto;
+    top: anchor(bottom);
+    right: calc(anchor(right) + 8px);
+    outline: none;
+    border: 2px solid oklch(from var(--borderClr) calc(l - 0.2) c h);
+    background-color: oklch(from var(--borderClr) calc(l - 0.05) c h / 0.5);
+    backdrop-filter: blur(2px);
+    padding: 8px;
+    border-radius: 1rem;
+
+    position-anchor: var(--buttonAnchor);
+    anchor-name: var(--popoverBaseId);
+
+    @container card-footer (width >= 270px) {
+      right: calc(anchor(right) + 26px);
+    }
+    @container card-footer (width >= 330px) {
+      right: calc(anchor(right) + 49px);
+    }
+  }
+  .popover:popover-open {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .levels-menu {
+    position: relative;
+    bottom: 0.5rem;
+    box-shadow: 0 0 6px 5px oklch(from var(--clr) calc(l - 0.2) c h);
+  }
+
+  .levels-description {
+    position-anchor: var(--popoverBaseId);
+    top: calc(anchor(bottom) + 10px);
+    left: anchor(-10%);
+    width: 290px;
+    padding: var(--fs-xs);
+    text-align: center;
+    text-wrap: balance;
+
+    color: oklch(from var(--clr) calc(l + 0.5) c h);
+    background-color: oklch(from var(--clr) calc(l - 0.15) c h / 0.5);
+    border: 2px solid oklch(from var(--clr) calc(l - 0.2) c h);
+    backdrop-filter: blur(2px);
+  }
+
+  @supports not (anchor-name: initial) {
+    .levels-container {
+      transform: translateY(calc(105%));
+    }
+    .levels-description {
+      transform: translateY(calc(100% + 4.5rem));
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    button {
+      animation: turnLight 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite
+        alternate;
+    }
+
+    @keyframes turnLight {
+      to {
+        --bgAngle: 1turn;
+      }
+    }
+  }
+</style>
