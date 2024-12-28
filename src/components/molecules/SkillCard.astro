@@ -261,6 +261,7 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     place-items: center;
     padding: 10px;
     backface-visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
   }
   .face.front {
     background-color: oklch(from rgb(47, 0, 255) l c h / 0.1);
@@ -271,5 +272,9 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
   }
   .card.is-flipped {
     transform: translateX(-100%) rotateY(-180deg);
+
+    .front {
+      opacity: 0;
+    }
   }
 </style>
