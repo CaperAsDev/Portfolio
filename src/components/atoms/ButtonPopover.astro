@@ -4,10 +4,16 @@ interface Props {
   buttonAnchor: string;
   buttonCustomClass?: string;
   popoverCustomClass?: string;
+  position?: string;
 }
 
-const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
-  Astro.props;
+const {
+  text,
+  buttonAnchor,
+  buttonCustomClass,
+  popoverCustomClass,
+  position = "static",
+} = Astro.props;
 ---
 
 <div class="wrapper">
@@ -19,7 +25,7 @@ const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
   </div>
 </div>
 
-<style>
+<style define:vars={{ position }}>
   @property --bgAngle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -27,7 +33,7 @@ const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
   }
 
   .wrapper {
-    position: relative;
+    position: var(--position);
     display: grid;
     justify-items: center;
     align-items: end;
@@ -136,12 +142,23 @@ const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
   }
 
   @supports not (anchor-name: initial) {
-    .levels-container {
+    .popover {
+      display: none;
+      left: 50%;
+      bottom: 0;
+      transform: translate3d(-50%, calc(100% + 1vh), 0);
+    }
+    .wrapper:focus-within > .popover {
+      display: flex;
+      gap: 1rem;
+      z-index: 5;
+    }
+    /* .levels-container {
       transform: translateY(calc(105%));
     }
     .levels-description {
       transform: translateY(calc(100% + 4.5rem));
-    }
+    } */
   }
   @media (prefers-reduced-motion: no-preference) {
     button {
@@ -156,3 +173,15 @@ const { text, buttonAnchor, buttonCustomClass, popoverCustomClass } =
     }
   }
 </style>
+<script>
+  const supports = CSS.supports("anchor-name", "initial");
+  if (!supports) {
+    const popoverTags = document.querySelectorAll(".popover");
+
+    if (popoverTags.length) {
+      popoverTags.forEach((popover) => {
+        (popover as HTMLDivElement).popover = null;
+      });
+    }
+  }
+</script>

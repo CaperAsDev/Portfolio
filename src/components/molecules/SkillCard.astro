@@ -42,7 +42,6 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     </div>
   </details>
   <footer>
-    <div class="absolute">soy absolute</div>
     <ButtonPopover
       buttonCustomClass={`lvl-${currentLevel} levels-menu star-button`}
       popoverCustomClass={`levels-container`}
@@ -79,7 +78,6 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     --border-width: 2px;
     position: relative;
     color: oklch(from var(--borderClr) calc(l - 0.6) calc(c + 0.1) h);
-    overflow: hidden;
     border: 1.5px solid transparent;
     border-radius: 1rem;
     background-image: linear-gradient(transparent, transparent),
