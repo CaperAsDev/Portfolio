@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import ButtonPopover from "@/components/atoms/ButtonPopover.astro";
 
 type Level = {
   level: number;
@@ -42,33 +42,29 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     </div>
   </details>
   <footer>
-    <button
-      class={`lvl-${currentLevel} levels-menu star-button`}
-      popovertarget={buttonAnchor}>{currentLevel}</button
+    <ButtonPopover
+      buttonCustomClass={`lvl-${currentLevel} levels-menu star-button`}
+      popoverCustomClass={`levels-container`}
+      buttonAnchor={buttonAnchor}
+      text={currentLevel.toString()}
     >
-    <div class="levels-popover" id={buttonAnchor} popover>
-      {
-        levels.map(({ level }) => (
-          <button
-            popovertarget={`${popoverBaseId}-${level}`}
-            class={`lvl-${level} star-button`}
-          >
-            {level}
-          </button>
-        ))
-      }
-    </div>
-    {
-      levels.map(({ description, level }) => (
-        <p
-          class={`levels-description lvl-${level}`}
-          id={`${popoverBaseId}-${level}`}
-          popover
-        >
-          {description}
-        </p>
-      ))
-    }
+      <Fragment slot={"popover-content"}>
+        {
+          levels.map(({ level, description }) => (
+            <ButtonPopover
+              buttonAnchor={`${popoverBaseId}-${level}`}
+              buttonCustomClass={`lvl-${level}`}
+              popoverCustomClass={`levels-description lvl-${level}`}
+              text={level.toString()}
+            >
+              <Fragment slot={"popover-content"}>
+                <p>{description}</p>
+              </Fragment>
+            </ButtonPopover>
+          ))
+        }
+      </Fragment>
+    </ButtonPopover>
   </footer>
 </div>
 <style define:vars={{ buttonAnchor, popoverBaseId }}>
@@ -80,9 +76,8 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
 
   .card-wrapper {
     --border-width: 2px;
-
+    position: relative;
     color: oklch(from var(--borderClr) calc(l - 0.6) calc(c + 0.1) h);
-    overflow: hidden;
     border: 1.5px solid transparent;
     border-radius: 1rem;
     background-image: linear-gradient(transparent, transparent),
@@ -147,22 +142,6 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     padding: 5px;
   }
 
-  .lvl-1 {
-    --clr: rgb(95, 51, 51);
-  }
-  .lvl-2 {
-    --clr: rgb(119, 94, 57);
-  }
-  .lvl-3 {
-    --clr: rgb(134, 131, 127);
-  }
-  .lvl-4 {
-    --clr: rgb(201, 152, 89);
-  }
-  .lvl-5 {
-    --clr: rgb(99, 182, 164);
-  }
-
   footer {
     position: relative;
     width: 100%;
@@ -174,111 +153,11 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     anchor-name: var(--buttonAnchor);
     container-type: inline-size;
     container-name: card-footer;
-  }
-  @property --levelAngle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  }
-  .levels-menu {
-    position: relative;
-    bottom: 0.5rem;
-    box-shadow: 0 0 6px 5px oklch(from var(--clr) calc(l - 0.2) c h);
-  }
 
-  .star-button {
-    display: grid;
-    place-items: center;
-    width: 2rem;
-    height: 2rem;
-
-    font-family: "Arial", system-ui;
-    font-weight: bold;
-    font-size: var(--fs-s);
-
-    outline: 5px solid var(--clr);
-    color: oklch(from var(--clr) calc(l - 0.3) c h);
-
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background-image: linear-gradient(
-        var(--levelAngle),
-        oklch(from var(--clr) calc(l - 0.1) c h),
-        oklch(from var(--clr) calc(l + 0.1) c h)
-      ),
-      linear-gradient(
-        var(--levelAngle),
-        oklch(from var(--clr) calc(l) c h),
-        oklch(from var(--clr) calc(l - 0.1) c h)
-      );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    &:hover,
-    &:focus {
-      cursor: pointer;
-      scale: 1.05;
-      outline-color: oklch(from var(--clr) calc(l + 0.2) c h);
+    .absolute {
+      position: absolute;
+      inset: 0;
     }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .star-button {
-      animation: turnLight 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite
-        alternate;
-    }
-
-    @keyframes turnLight {
-      to {
-        --levelAngle: 1turn;
-      }
-    }
-  }
-  .levels-popover {
-    position: absolute;
-    margin: 0;
-    inset: auto;
-    top: anchor(bottom);
-    right: calc(anchor(right) + 8px);
-    outline: none;
-    border: 2px solid oklch(from var(--borderClr) calc(l - 0.2) c h);
-    background-color: oklch(from var(--borderClr) calc(l - 0.05) c h / 0.5);
-    backdrop-filter: blur(2px);
-    padding: 8px;
-    border-radius: 1rem;
-
-    position-anchor: var(--buttonAnchor);
-    anchor-name: var(--popoverBaseId);
-
-    @container card-footer (width >= 270px) {
-      right: calc(anchor(right) + 26px);
-    }
-    @container card-footer (width >= 330px) {
-      right: calc(anchor(right) + 49px);
-    }
-  }
-  .levels-popover:popover-open {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .levels-description {
-    position-anchor: var(--popoverBaseId);
-    position: absolute;
-    margin: 0;
-    inset: auto;
-    top: calc(anchor(bottom) + 10px);
-    left: anchor(-10%);
-    width: 290px;
-    padding: var(--fs-xs);
-    border-radius: 1rem;
-    text-align: center;
-    text-wrap: balance;
-
-    color: oklch(from var(--clr) calc(l + 0.5) c h);
-    background-color: oklch(from var(--clr) calc(l - 0.15) c h / 0.5);
-    border: 2px solid oklch(from var(--clr) calc(l - 0.2) c h);
-    backdrop-filter: blur(2px);
   }
 
   /* --------- dialogs reveal animation --------- */
@@ -382,6 +261,7 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
     place-items: center;
     padding: 10px;
     backface-visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
   }
   .face.front {
     background-color: oklch(from rgb(47, 0, 255) l c h / 0.1);
@@ -392,5 +272,9 @@ const popoverBaseId = `--${group.split(" ")[0]}-${name.split(" ")[0]}`;
   }
   .card.is-flipped {
     transform: translateX(-100%) rotateY(-180deg);
+
+    .front {
+      opacity: 0;
+    }
   }
 </style>

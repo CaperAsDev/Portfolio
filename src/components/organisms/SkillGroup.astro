@@ -152,8 +152,8 @@ const opClr = colors["op-clr"];
     position: absolute;
     display: none;
     place-content: center;
-    bottom: 0;
-    height: 90%;
+    inset: 0;
+    height: 100%;
     width: 100%;
     content: attr(data-description);
     font-size: var(--fs-s);
@@ -167,6 +167,7 @@ const opClr = colors["op-clr"];
       transparent
     );
     mix-blend-mode: color-dodge;
+    pointer-events: none;
   }
 
   @media screen and (width >= 1024px) {
