@@ -4,6 +4,7 @@ import TechPill from "@/components/atoms/TechPill.astro";
 import Section from "@/layouts/Section.astro";
 import { separateLastParagraph } from "@/js/utils";
 import type { MarkdownInstance } from "astro";
+import type { Languages } from "@/i18n/utils";
 
 interface Frontmatter {
   title: string;
@@ -11,7 +12,7 @@ interface Frontmatter {
 }
 
 interface Props {
-  lang: "es" | "en";
+  lang: keyof typeof Languages;
 }
 
 const { lang } = Astro.props;

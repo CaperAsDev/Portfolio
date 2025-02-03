@@ -25,7 +25,11 @@ const { title, description } = layoutMetaManager.getMetaData(parsedURL);
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content="@CaperAsDev" />
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -110,6 +114,10 @@ xl 2rem a 800px y 4rem a 2400px
     --fs-m: clamp(1.35rem + 0.35vw, 1.35vw + 0.7rem, 2.5rem);
     --fs-s: clamp(1rem + 0.25vw, 1vw + 0.5rem, 1.5rem);
     --fs-xs: clamp(0.7rem + 0.15vw, 0.7vw + 0.3rem, 1rem);
+  }
+
+  @view-transition {
+    navigation: auto;
   }
 
   h1 {

@@ -46,5 +46,16 @@ const jsonLD = jsonLDGenerator();
 
 <meta name="robots" content="index, follow" />
 
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.title" content={title} />
+<meta name="DC.identifier" content="https://caperasdev.com/en/" />
+<meta name="DC.description" content={description} />
+<meta
+  name="DC.subject"
+  content="web development, frontend, software, web page, developer"
+/>
+<meta name="DC.creator" content="https://www.linkedin.com/in/caperasdev/" />
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+
 <!-- JSON LD -->
 <Fragment set:html={jsonLD} />

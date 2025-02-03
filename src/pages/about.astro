@@ -1,11 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import AboutComponent from "@/components/templates/About.astro";
+
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
-<Layout title="" description="">
+<Layout>
   <main>
-    <AboutComponent />
+    <AboutComponent lang={lang} />
   </main>
 </Layout>
 
