@@ -1,0 +1,21 @@
+{
+  "name": "CaperAsDev",
+  "short_name": "CaperAsDev",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#7e3662",
+  "background_color": "#3c194d",
+  "display": "standalone"
+}
